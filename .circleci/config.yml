@@ -27,7 +27,9 @@ jobs:
       - restore_cache:
           key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
 
-      - run: gradle dependencies
+      - run:
+          name: Install dependencies
+          command: ./gradlew build -x test
 
       - save_cache:
           paths:
