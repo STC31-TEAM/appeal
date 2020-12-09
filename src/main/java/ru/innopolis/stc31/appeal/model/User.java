@@ -1,16 +1,18 @@
 package ru.innopolis.stc31.appeal.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.persistence.Table;
 
 /**
  * Model for the users table
  */
 @Entity
+@Table(name = "bg_users")
 public class User extends AbstractModel {
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String login;
@@ -20,7 +22,9 @@ public class User extends AbstractModel {
     /**
      * Default constructor
      */
-    public User() { }
+    public User() {
+        
+    }
 
     /**
      * @param name User name
@@ -35,18 +39,7 @@ public class User extends AbstractModel {
         this.rate = rate;
     }
 
-    /**
-     * Constructor for loading model from ResultSet
-     *
-     * @param rs ResultSet instance
-     * @throws SQLException If occur sql exception
-     */
-    public User(ResultSet rs) throws SQLException {
-        loadFromResultSet(rs);
-    }
-
     // getters and setters
-    @Id
     public int getId() {
         return id;
     }
@@ -96,40 +89,6 @@ public class User extends AbstractModel {
                 ", roleId=" + roleId +
                 ", rate=" + rate +
                 '}';
-    }
-
-    /**
-     * Loading model from result set
-     *
-     * @param rs ResultSet
-     * @throws SQLException If occur sql exception
-     */
-    public void loadFromResultSet(ResultSet rs) throws SQLException {
-        setId(rs.getInt(1));
-        setLogin(rs.getString(2));
-        setName(rs.getString(3));
-        setRoleId(rs.getInt(4));
-        setRate(rs.getInt(5));
-    }
-
-    /**
-     * Loading model into prepared statement
-     *
-     * @param ps PreparedStatement instance
-     * @param updating True if loading UPDATE query, false INSERT query.
-     *                 For UPDATE query need fill id param
-     * @throws SQLException If occur sql exception
-     */
-    @Override
-    public void sendToPreparedStatement(PreparedStatement ps, boolean updating) throws SQLException {
-        ps.setString(1, getLogin());
-        ps.setString(2, getName());
-        ps.setInt(3, getRoleId());
-        ps.setInt(4, getRate());
-
-        if (updating) {
-            ps.setInt(5, getId());
-        }
     }
 }
 
