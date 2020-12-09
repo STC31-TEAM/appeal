@@ -42,7 +42,7 @@ jobs:
           paths:
             - build
       - telegram/notify:
-          message: "Build"
+          message: "Build ready"
   test:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
@@ -80,7 +80,7 @@ jobs:
       - store_artifacts:
           path: build/libs
       - telegram/notify:
-          message: "Test"
+          message: "Test ready"
 
 workflows:
    version: 2.1
