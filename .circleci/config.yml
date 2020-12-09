@@ -1,7 +1,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
 jobs:
   build:
     environment:
@@ -37,6 +41,8 @@ jobs:
           root: .
           paths:
             - build
+      - telegram/notify:
+          message: "Build"
   test:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
@@ -73,9 +79,11 @@ jobs:
       # This will be empty for all nodes except the first one
       - store_artifacts:
           path: build/libs
+      - telegram/notify:
+          message: "Test"
 
 workflows:
-   version: 2
+   version: 2.1
    workflow:
      jobs:
        - build
