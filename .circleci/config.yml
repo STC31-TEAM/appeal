@@ -4,7 +4,7 @@
 version: 2.1
 
 orbs:
-  telegram: woltsu/telegram@x.y.z
+  telegram: woltsu/telegram@0.0.9
 
 jobs:
   build:
