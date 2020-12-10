@@ -5,6 +5,7 @@ version: 2.1
 
 orbs:
   telegram: woltsu/telegram@0.0.9
+  sonarcloud: sonarsource/sonarcloud@1.0.2
 
 jobs:
   build:
@@ -41,9 +42,7 @@ jobs:
           root: .
           paths:
             - build
-      - run:
-          name: Analyze on SonarCloud
-          command: gradle build sonarqube"
+      - sonarcloud/scan
   test:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
