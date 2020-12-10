@@ -84,8 +84,7 @@ jobs:
           message: "Build and test"
 
 workflows:
-  jobs:
-    - build
-    - test:
-        requires:
-          - build
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
