@@ -44,8 +44,6 @@ jobs:
       - run:
           name: Analyze on SonarCloud
           command: gradle build sonarqube"
-      - telegram/notify:
-          message: "Build"
   test:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
@@ -83,7 +81,7 @@ jobs:
       - store_artifacts:
           path: build/libs
       - telegram/notify:
-          message: "Test"
+          message: "Build and test"
 
 workflows:
    version: 2.1
