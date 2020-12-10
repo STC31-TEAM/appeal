@@ -41,6 +41,9 @@ jobs:
           root: .
           paths:
             - build
+      - run:
+          name: Analyze on SonarCloud
+          command: gradle build sonarqube"
       - telegram/notify:
           message: "Build"
   test:
@@ -86,7 +89,8 @@ workflows:
    version: 2.1
    workflow:
      jobs:
-       - build
+       - build:
+           context: SonarCloud
        - test:
            requires:
              - build
