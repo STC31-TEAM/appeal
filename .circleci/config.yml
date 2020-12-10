@@ -84,10 +84,8 @@ jobs:
           message: "Build and test"
 
 workflows:
-   version: 2.1
-   workflow:
-     jobs:
-       - build
-       - test:
-           requires:
-             - build
+  jobs:
+    - build
+    - test:
+        requires:
+          - build
