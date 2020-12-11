@@ -20,6 +20,7 @@ jobs:
 
     steps:
       - checkout
+      - sonarcloud/scan
       - restore_cache:
           key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
       - restore_cache:
@@ -42,7 +43,6 @@ jobs:
           root: .
           paths:
             - build
-      - sonarcloud/scan
   test:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
