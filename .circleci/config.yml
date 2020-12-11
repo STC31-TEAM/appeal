@@ -20,6 +20,7 @@ jobs:
 
     steps:
       - checkout
+      - sonarcloud/scan
       - restore_cache:
           key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
       - restore_cache:
