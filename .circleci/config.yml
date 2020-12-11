@@ -5,7 +5,7 @@ version: 2.1
 
 orbs:
   telegram: woltsu/telegram@0.0.9
-  sonarcloud: sonarsource/sonarcloud@1.0.2
+  #sonarcloud: sonarsource/sonarcloud@1.0.2
 
 jobs:
   build:
@@ -20,7 +20,6 @@ jobs:
 
     steps:
       - checkout
-      - sonarcloud/scan
       - restore_cache:
           key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
       - restore_cache:
