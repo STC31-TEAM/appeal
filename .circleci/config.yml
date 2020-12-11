@@ -5,7 +5,7 @@ version: 2.1
 
 orbs:
   telegram: woltsu/telegram@0.0.9
-  #sonarcloud: sonarsource/sonarcloud@1.0.2
+  sonarcloud: sonarsource/sonarcloud@1.0.2
 
 jobs:
   build:
@@ -84,4 +84,7 @@ jobs:
 workflows:
   main:
     jobs:
-      - build
+      - build:
+          - context: sonarcloud
+      - test:
+          requires: build
