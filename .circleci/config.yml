@@ -87,4 +87,5 @@ workflows:
       - build:
           context: sonarcloud
       - test:
-          requires: build
+          requires:
+            - build
