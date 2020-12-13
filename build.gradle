@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.4.0'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'org.liquibase.gradle' version "${liquibaseVersion}"
 }
 
 group = 'ru.innopolis.stc31'
@@ -14,19 +15,31 @@ repositories {
 }
 
 dependencies {
-	// spring boot
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// swagger
-	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
-	implementation 'io.springfox:springfox-boot-starter:3.0.0'
-	// h2
-	runtimeOnly 'com.h2database:h2'
-
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-data-rest"
+	//implementation 'org.springframework.boot:spring-boot-starter-security"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	runtimeOnly "com.h2database:h2"
+	implementation "io.springfox:springfox-swagger-ui:${swagger}"
+	implementation "io.springfox:springfox-boot-starter:${springBootStarter}"
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "org.springframework.security:spring-security-test"
+	implementation("org.liquibase:liquibase-core")
+	runtimeOnly("org.postgresql:postgresql")
+	liquibase {
+		activities {
+			main {
+				changeLogFile 'src/main/resources/db/changelog/db.changelog-master.xml'
+				referenceUrl 'jdbc:postgresql://localhost:5432/apeal?apeal'
+				url 'jdbc:postgresql://localhost:5432/appeal'
+				username 'apeal'
+				password 'apeal'
+				referenceUsername 'apeal'
+				referencePassword 'apeal'
+				defaultSchemaName 'apeal'
+			}
+		}
+	}
 }
 
 test {

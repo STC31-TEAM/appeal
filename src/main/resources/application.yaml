@@ -1,0 +1,14 @@
+server:
+  port: 9080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/appeal
+    username: appeal
+    password: appeal
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: validate
+  liquibase:
+    change-log: 'classpath:db/changelog/db.changelog-master.xml'
