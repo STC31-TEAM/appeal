@@ -26,18 +26,19 @@ dependencies {
 	testImplementation "org.springframework.security:spring-security-test"
 	implementation("org.liquibase:liquibase-core")
 	runtimeOnly("org.postgresql:postgresql")
-	liquibase {
-		activities {
-			main {
-				changeLogFile 'src/main/resources/db/changelog/db.changelog-master.xml'
-				referenceUrl 'jdbc:postgresql://localhost:5432/apeal?apeal'
-				url 'jdbc:postgresql://localhost:5432/appeal'
-				username 'apeal'
-				password 'apeal'
-				referenceUsername 'apeal'
-				referencePassword 'apeal'
-				defaultSchemaName 'apeal'
-			}
+}
+
+liquibase {
+	activities {
+		main {
+			changeLogFile 'src/test/resources/db/changelog-test/db.changelog-master.xml'
+			referenceUrl 'jdbc:postgresql://localhost:5432/apeal?apeal'
+			url 'jdbc:postgresql://localhost:5432/appeal'
+			username 'apeal'
+			password 'apeal'
+			referenceUsername 'apeal'
+			referencePassword 'apeal'
+			defaultSchemaName 'apeal'
 		}
 	}
 }
