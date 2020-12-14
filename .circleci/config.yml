@@ -1,7 +1,12 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@0.0.9
+  sonarcloud: sonarsource/sonarcloud@1.0.2
+
 jobs:
   build:
     environment:
@@ -37,6 +42,7 @@ jobs:
           root: .
           paths:
             - build
+      - sonarcloud/scan
   test:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
@@ -73,12 +79,14 @@ jobs:
       # This will be empty for all nodes except the first one
       - store_artifacts:
           path: build/libs
+      - telegram/notify:
+          message: "Build and test"
 
 workflows:
-   version: 2
-   workflow:
-     jobs:
-       - build
-       - test:
-           requires:
-             - build
+  main:
+    jobs:
+      - build:
+          context: sonarcloud
+      - test:
+          requires:
+            - build
