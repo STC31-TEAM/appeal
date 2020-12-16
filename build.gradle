@@ -56,5 +56,9 @@ sonarqube {
 		property "sonar.organization", "stc31-team"
 		property "sonar.host.url", "https://sonarcloud.io"
 		property "sonar.java.binaries", "build/classes"
+		property "sonar.sources", "src/main/java"
+		property "sonar.java.coveragePlugin", "jacoco"
+		property "sonar.tests", "src/test"
+		property "sonar.java.test.binaries", "build/classes/java/test"
 	}
 }
