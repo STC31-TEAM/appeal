@@ -22,7 +22,7 @@ public interface UsersService {
      * @param name of user
      * @return user
      */
-    User getUserByName(String name);
+    UserDTO getUserByName(String name);
 
     /**
      * create new user
