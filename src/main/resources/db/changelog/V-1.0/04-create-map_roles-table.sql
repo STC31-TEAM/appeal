@@ -1,14 +1,14 @@
 create table map_roles (
                            id		   SERIAL	PRIMARY KEY,
-                           id_users	   INTEGER	NOT NULL,
+                           id_user	   INTEGER	NOT NULL,
                            id_company  INTEGER	NOT NULL,
-                           id_roles	   INTEGER	NOT NULL
+                           id_role	   INTEGER	NOT NULL
 
 );
 
 GRANT ALL ON TABLE public.map_roles TO PUBLIC;
 
 comment on COLUMN map_roles.id is 'Уникальный код записи таблицы';
-comment on COLUMN map_roles.id_users is 'Foregin key к таблице USERS';
-comment on COLUMN map_roles.id_company is 'Foregin key к таблице Companys';
-comment on COLUMN map_roles.id_roles is 'Foregin key к таблице Roles';
+comment on COLUMN map_roles.id_user is 'Foreign key к таблице Users';
+comment on COLUMN map_roles.id_company is 'Foreign key к таблице Companies';
+comment on COLUMN map_roles.id_role is 'Foreign key к таблице Roles';

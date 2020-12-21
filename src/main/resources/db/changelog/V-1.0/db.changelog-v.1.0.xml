@@ -5,16 +5,16 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <include file="01-changeset-reg_users-table.xml" relativeToChangelogFile="true"/>
-    <include file="02-changeset-companys-table.xml" relativeToChangelogFile="true"/>
+    <include file="01-changeset-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="02-changeset-companies-table.xml" relativeToChangelogFile="true"/>
     <include file="03-changeset-roles-table.xml" relativeToChangelogFile="true"/>
     <include file="04-changeset-map_roles-table.xml" relativeToChangelogFile="true"/>
-    <include file="05-changeset-type_services-table.xml" relativeToChangelogFile="true"/>
+    <include file="05-changeset-service_types-table.xml" relativeToChangelogFile="true"/>
     <include file="06-changeset-tickets-table.xml" relativeToChangelogFile="true"/>
     <include file="07-changeset-tickets_users-table.xml" relativeToChangelogFile="true"/>
-    <include file="08-changeset-albom_links-table.xml" relativeToChangelogFile="true"/>
-    <include file="09-changeset-country-table.xml" relativeToChangelogFile="true"/>
-    <include file="10-changeset-сity-table.xml" relativeToChangelogFile="true"/>
-    <include file="11-changeset-street-table.xml" relativeToChangelogFile="true"/>
+    <include file="08-changeset-album_links-table.xml" relativeToChangelogFile="true"/>
+    <include file="09-changeset-countries-table.xml" relativeToChangelogFile="true"/>
+    <include file="10-changeset-cities-table.xml" relativeToChangelogFile="true"/>
+    <include file="11-changeset-streets-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
