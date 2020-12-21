@@ -1,11 +1,11 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.TypeOfServiceDTO;
+import ru.innopolis.stc31.appeal.services.TypeOfServicesService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage type of services
@@ -13,17 +13,22 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("/type-of-service")
+@RequestMapping("${application.api.uriPrefix}/type-of-service")
 public class TypeOfServiceController {
+    /**
+     * Service instance
+     */
+    protected TypeOfServicesService typeOfServicesService;
+
     /**
      * Get list of all type of services
      *
      * @return List of type of services
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех типов услуг")
     public List<TypeOfServiceDTO> all() {
-        // TODO: get all type of services
-        return null;
+        return typeOfServicesService.getTypeOfServiceList();
     }
 
     /**
@@ -33,8 +38,8 @@ public class TypeOfServiceController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить тип услуги")
     public boolean create(@RequestBody TypeOfServiceDTO dto) {
-        // TODO: save type
-        return false;
+        return typeOfServicesService.createTypeOfService(dto);
     }
 }

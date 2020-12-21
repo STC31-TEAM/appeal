@@ -1,11 +1,11 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
+import ru.innopolis.stc31.appeal.services.TicketService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage tickets
@@ -13,17 +13,22 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("/ticket")
+@RequestMapping("${application.api.uriPrefix}/ticket")
 public class TicketController {
+    /**
+     * Service instance
+     */
+    protected TicketService ticketService;
+
     /**
      * Get list of all tickets
      *
      * @return List of tickets
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех заявок")
     public List<TicketDTO> all() {
-        // TODO: get all tickets
-        return null;
+        return ticketService.getTicketList();
     }
 
     /**
@@ -33,8 +38,8 @@ public class TicketController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить заявку")
     public boolean create(@RequestBody TicketDTO dto) {
-        // TODO: save ticket
-        return false;
+        return ticketService.createTicket(dto);
     }
 }

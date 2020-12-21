@@ -1,11 +1,11 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.CityDTO;
+import ru.innopolis.stc31.appeal.services.CityService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage cities
@@ -13,17 +13,22 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("/city")
+@RequestMapping("${application.api.uriPrefix}/city")
 public class CityController {
+    /**
+     * Service instance
+     */
+    protected CityService cityService;
+
     /**
      * Get list of all cities
      *
      * @return List of cities
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех городов")
     public List<CityDTO> all() {
-        // TODO: get all cities
-        return null;
+        return cityService.getCityList();
     }
 
     /**
@@ -33,8 +38,8 @@ public class CityController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить новый город")
     public boolean create(@RequestBody CityDTO dto) {
-        // TODO: save album
-        return false;
+        return cityService.createCity(dto);
     }
 }
