@@ -1,6 +1,6 @@
 create table countries (
-                         id	        		 SMALLSERIAL PRIMARY KEY,
-                         country_name		 VARCHAR(100) NOT NULL,
+                           id	        		 SMALLSERIAL PRIMARY KEY,
+                           country_name VARCHAR(100) NOT NULL
 );
 
 GRANT ALL ON TABLE public.countries TO PUBLIC;

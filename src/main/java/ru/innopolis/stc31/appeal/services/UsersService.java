@@ -1,6 +1,6 @@
 package ru.innopolis.stc31.appeal.services;
 
-import ru.innopolis.stc31.appeal.model.User;
+import ru.innopolis.stc31.appeal.model.UserModel;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 
 import java.util.List;
@@ -19,10 +19,11 @@ public interface UsersService {
 
     /**
      * Return user
+     *
      * @param name of user
      * @return user
      */
-    User getUserByName(String name);
+    UserModel getUserByName(String name);
 
     /**
      * create new user
