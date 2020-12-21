@@ -7,8 +7,12 @@ spring:
     username: appeal
     password: appeal
     driver-class-name: org.postgresql.Driver
-#  jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    hibernate.ddl-auto: none
+  #  jpa:
+  #    database-platform: org.hibernate.dialect.H2Dialect
+  #    hibernate.ddl-auto: none
   liquibase:
     change-log: 'classpath:db/changelog/db.changelog-master.xml'
+
+application:
+  api:
+    uriPrefix: /api/v1.0
