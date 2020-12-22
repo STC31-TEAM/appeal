@@ -5,6 +5,7 @@ plugins {
 	id 'java'
 	id 'org.liquibase.gradle' version "${liquibaseVersion}"
 	id "io.freefair.lombok" version "${lombokVersion}"
+	id 'jacoco'
 }
 
 group = 'ru.innopolis.stc31'
@@ -61,4 +62,8 @@ sonarqube {
 		property "sonar.tests", "src/test"
 		property "sonar.java.test.binaries", "build/classes/java/test"
 	}
+}
+
+jacoco {
+	toolVersion = "${jacocoToolVersion}"
 }
