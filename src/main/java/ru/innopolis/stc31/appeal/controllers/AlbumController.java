@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.AlbumDTO;
 import ru.innopolis.stc31.appeal.services.AlbumService;
@@ -13,12 +14,13 @@ import java.util.List;
  * @author Sergey Fomin
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/album")
 public class AlbumController {
     /**
      * Service instance
      */
-    protected AlbumService albumService;
+    private final AlbumService albumService;
 
     /**
      * Get list of all albums

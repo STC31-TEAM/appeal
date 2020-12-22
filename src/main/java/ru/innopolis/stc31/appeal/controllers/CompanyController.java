@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
 import ru.innopolis.stc31.appeal.services.CompanyService;
@@ -13,12 +14,13 @@ import java.util.List;
  * @author Sergey Fomin
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/company")
 public class CompanyController {
     /**
      * Service instance
      */
-    protected CompanyService companyService;
+    private final CompanyService companyService;
 
     /**
      * Get list of all companies

@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
 import ru.innopolis.stc31.appeal.services.TicketService;
@@ -13,12 +14,13 @@ import java.util.List;
  * @author Sergey Fomin
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ticket")
 public class TicketController {
     /**
      * Service instance
      */
-    protected TicketService ticketService;
+    private final TicketService ticketService;
 
     /**
      * Get list of all tickets

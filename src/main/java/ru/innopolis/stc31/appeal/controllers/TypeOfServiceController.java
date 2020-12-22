@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.TypeOfServiceDTO;
 import ru.innopolis.stc31.appeal.services.TypeOfServicesService;
@@ -13,12 +14,13 @@ import java.util.List;
  * @author Sergey Fomin
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/type-of-service")
 public class TypeOfServiceController {
     /**
      * Service instance
      */
-    protected TypeOfServicesService typeOfServicesService;
+    private final TypeOfServicesService typeOfServicesService;
 
     /**
      * Get list of all type of services

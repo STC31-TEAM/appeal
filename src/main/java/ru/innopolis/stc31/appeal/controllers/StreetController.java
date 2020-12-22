@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
 import ru.innopolis.stc31.appeal.services.StreetService;
@@ -13,12 +14,13 @@ import java.util.List;
  * @author Sergey Fomin
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/street")
 public class StreetController {
     /**
      * Service instance
      */
-    protected StreetService streetService;
+    private final StreetService streetService;
 
     /**
      * Get list of all streets

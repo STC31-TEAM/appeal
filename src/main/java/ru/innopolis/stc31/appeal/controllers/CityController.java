@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.CityDTO;
 import ru.innopolis.stc31.appeal.services.CityService;
@@ -13,12 +14,13 @@ import java.util.List;
  * @author Sergey Fomin
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/city")
 public class CityController {
     /**
      * Service instance
      */
-    protected CityService cityService;
+    protected final CityService cityService;
 
     /**
      * Get list of all cities
