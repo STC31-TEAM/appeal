@@ -1,24 +1,24 @@
 package ru.innopolis.stc31.appeal.controllers;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import ru.innopolis.stc31.appeal.MockUtils;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.services.UsersService;
+import ru.innopolis.stc31.appeal.utils.MockUtils;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.openMocks;
 
 /**
  * Testing UserController
  *
  * @author Sergey Fomin
  */
+@SpringJUnitConfig
 class UserControllerTest {
 
     @InjectMocks
@@ -26,14 +26,6 @@ class UserControllerTest {
 
     @Mock
     private UsersService usersService;
-
-    /**
-     * Execute before each test
-     */
-    @BeforeEach
-    void setUp() {
-        openMocks(this);
-    }
 
     @Test
     void checkOnOk() {
@@ -43,12 +35,12 @@ class UserControllerTest {
 
     @Test
     void checkGetAllWithOk() {
-        List<UserDTO> users = MockUtils.makeListUserDTO();
+        List<UserDTO> users = MockUtils.makeListUserDTO(5);
         when(usersService.getUserList()).thenReturn(users);
 
-        assertEquals(2, userController.all().size());
-        assertEquals("user02", userController.all().get(1).getLogin());
-        assertEquals(89129984444L, userController.all().get(1).getPhone());
+        assertEquals(users.size(), userController.all().size());
+        assertEquals(users.get(1).getLogin(), userController.all().get(1).getLogin());
+        assertEquals(users.get(1).getPhone(), userController.all().get(1).getPhone());
     }
 
     @Test
