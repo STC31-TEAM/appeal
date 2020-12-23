@@ -2,8 +2,8 @@ package ru.innopolis.stc31.appeal.utils.random;
 
 import ru.innopolis.stc31.appeal.utils.random.dictionaries.Dictionary;
 
+import java.security.SecureRandom;
 import java.util.Locale;
-import java.util.Random;
 
 /**
  * @author Sergey Fomin
@@ -53,7 +53,7 @@ public class RandomUtils {
      * @return Random id
      */
     public static Long makeId() {
-        return new Random().nextLong();
+        return new SecureRandom().nextLong();
     }
 
     /**
@@ -62,7 +62,7 @@ public class RandomUtils {
      * @return Random letter
      */
     private static char getRandomLatinLetter() {
-        return Dictionary.LATIN_LETTERS[new Random().nextInt(Dictionary.LATIN_LETTERS.length)];
+        return Dictionary.LATIN_LETTERS[new SecureRandom().nextInt(Dictionary.LATIN_LETTERS.length)];
     }
 
     /**
@@ -71,7 +71,7 @@ public class RandomUtils {
      * @return Random domain
      */
     private static String getRandomDomain() {
-        return Dictionary.DOMAINS[new Random().nextInt(Dictionary.DOMAINS.length)].toLowerCase(Locale.ROOT);
+        return Dictionary.DOMAINS[new SecureRandom().nextInt(Dictionary.DOMAINS.length)].toLowerCase(Locale.ROOT);
     }
 
     /**
@@ -82,7 +82,7 @@ public class RandomUtils {
      * @return Random value
      */
     public static int getRandomValue(int min, int max) {
-        return new Random().nextInt(max - min + 1) + min;
+        return new SecureRandom().nextInt(max - min + 1) + min;
     }
 
     /**
