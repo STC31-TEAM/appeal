@@ -4,11 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import ru.innopolis.stc31.appeal.MockUtils;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.services.UsersService;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,6 +15,8 @@ import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 /**
+ * Testing UserController
+ *
  * @author Sergey Fomin
  */
 class UserControllerTest {
@@ -42,19 +43,17 @@ class UserControllerTest {
 
     @Test
     void checkGetAllWithOk() {
-        List<UserDTO> users = new ArrayList<>();
-        users.add(new UserDTO(1, "user01", "User 01", "user01@asd.ru", 89129987092L, LocalDate.now(), (short) 1));
-        users.add(new UserDTO(2, "user02", "User 02", "user02@asd.ru", 89129987092L, LocalDate.now(), (short) 1));
-
+        List<UserDTO> users = MockUtils.makeListUserDTO();
         when(usersService.getUserList()).thenReturn(users);
 
         assertEquals(2, userController.all().size());
         assertEquals("user02", userController.all().get(1).getLogin());
+        assertEquals(89129984444L, userController.all().get(1).getPhone());
     }
 
     @Test
     void checkCreateWithOk() {
-        UserDTO user = new UserDTO(1, "user01", "User 01", "user01@asd.ru", 89129987092L, LocalDate.now(), (short) 1);
+        UserDTO user = MockUtils.makeUserDTO();
 
         when(usersService.createUser(user)).thenReturn(true);
 
