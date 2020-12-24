@@ -69,7 +69,6 @@ tasks.withType(Test) {
 
 sonarqube {
 	properties {
-		property "sonar.login", "d20a5b3b64227d99e087d56540743e089c488e47"
 		property "sonar.projectKey", "STC31-TEAM_appeal"
 		property "sonar.organization", "stc31-team"
 		property "sonar.host.url", "https://sonarcloud.io"
