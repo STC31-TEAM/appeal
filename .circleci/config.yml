@@ -42,7 +42,6 @@ jobs:
           root: .
           paths:
             - build
-      - sonarcloud/scan
   test:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
@@ -79,6 +78,7 @@ jobs:
       # This will be empty for all nodes except the first one
       - store_artifacts:
           path: build/libs
+      - sonarcloud/scan
       - telegram/notify:
           message: "Build and test"
 
