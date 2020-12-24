@@ -1,11 +1,12 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
+import ru.innopolis.stc31.appeal.services.UsersService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage users
@@ -13,17 +14,23 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("user")
+@AllArgsConstructor
+@RequestMapping("${application.api.uriPrefix}/user")
 public class UserController {
+    /**
+     * Service instance
+     */
+    private final UsersService usersService;
+
     /**
      * Get list of all users
      *
      * @return List of users
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех пользователей")
     public List<UserDTO> all() {
-        // TODO: get all users
-        return null;
+        return usersService.getUserList();
     }
 
     /**
@@ -33,8 +40,8 @@ public class UserController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить пользователя")
     public boolean create(@RequestBody UserDTO dto) {
-        // TODO: save user
-        return false;
+        return usersService.createUser(dto);
     }
 }

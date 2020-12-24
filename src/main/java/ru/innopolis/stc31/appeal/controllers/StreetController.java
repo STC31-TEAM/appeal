@@ -1,11 +1,12 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
+import ru.innopolis.stc31.appeal.services.StreetService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage streets
@@ -13,17 +14,23 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("/street")
+@AllArgsConstructor
+@RequestMapping("${application.api.uriPrefix}/street")
 public class StreetController {
+    /**
+     * Service instance
+     */
+    private final StreetService streetService;
+
     /**
      * Get list of all streets
      *
      * @return List of streets
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех улиц")
     public List<StreetDTO> all() {
-        // TODO: get all streets
-        return null;
+        return streetService.getStreetList();
     }
 
     /**
@@ -33,8 +40,8 @@ public class StreetController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить улицу")
     public boolean create(@RequestBody StreetDTO dto) {
-        // TODO: save street
-        return false;
+        return streetService.createStreet(dto);
     }
 }

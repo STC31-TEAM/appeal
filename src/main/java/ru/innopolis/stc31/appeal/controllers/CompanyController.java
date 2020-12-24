@@ -1,11 +1,12 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.services.CompanyService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage companies
@@ -13,17 +14,23 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("/company")
+@AllArgsConstructor
+@RequestMapping("${application.api.uriPrefix}/company")
 public class CompanyController {
+    /**
+     * Service instance
+     */
+    private final CompanyService companyService;
+
     /**
      * Get list of all companies
      *
      * @return List of companies
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех компаний")
     public List<CompanyDTO> all() {
-        // TODO: get all companies
-        return null;
+        return companyService.getCompanyList();
     }
 
     /**
@@ -33,8 +40,8 @@ public class CompanyController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить компанию")
     public boolean create(@RequestBody CompanyDTO dto) {
-        // TODO: save company
-        return false;
+        return companyService.createCompany(dto);
     }
 }

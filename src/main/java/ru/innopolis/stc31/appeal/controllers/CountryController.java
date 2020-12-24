@@ -1,11 +1,12 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
+import ru.innopolis.stc31.appeal.services.CountryService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage countries
@@ -13,17 +14,23 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("/country")
+@AllArgsConstructor
+@RequestMapping("${application.api.uriPrefix}/country")
 public class CountryController {
+    /**
+     * Service instance
+     */
+    private final CountryService countryService;
+
     /**
      * Get list of all countries
      *
      * @return List of countries
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех стран")
     public List<CountryDTO> all() {
-        // TODO: get all countries
-        return null;
+        return countryService.getCountyList();
     }
 
     /**
@@ -33,8 +40,8 @@ public class CountryController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить страну")
     public boolean create(@RequestBody CountryDTO dto) {
-        // TODO: save country
-        return false;
+        return countryService.createCounty(dto);
     }
 }

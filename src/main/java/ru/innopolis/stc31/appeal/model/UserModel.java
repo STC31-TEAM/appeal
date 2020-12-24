@@ -3,14 +3,12 @@ package ru.innopolis.stc31.appeal.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Model for the users table
  */
 @Entity
-@Table(name = "bg_users")
-public class User extends AbstractModel {
+public class UserModel extends AbstractModel {
     @Id
     @GeneratedValue
     private int id;
@@ -22,17 +20,17 @@ public class User extends AbstractModel {
     /**
      * Default constructor
      */
-    public User() {
-        
+    public UserModel() {
+
     }
 
     /**
-     * @param name User name
-     * @param login User login
+     * @param name   User name
+     * @param login  User login
      * @param roleId User role_id
-     * @param rate User rate
+     * @param rate   User rate
      */
-    public User(String name, String login, int roleId, int rate) {
+    public UserModel(String name, String login, int roleId, int rate) {
         this.name = name;
         this.login = login;
         this.roleId = roleId;

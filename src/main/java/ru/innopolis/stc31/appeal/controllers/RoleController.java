@@ -1,11 +1,12 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.RoleDTO;
+import ru.innopolis.stc31.appeal.services.RoleService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Controller for manage roles
@@ -13,17 +14,23 @@ import java.util.stream.Stream;
  * @author Sergey Fomin
  */
 @RestController
-@RequestMapping("/role")
+@AllArgsConstructor
+@RequestMapping("${application.api.uriPrefix}/role")
 public class RoleController {
+    /**
+     * Service instance
+     */
+    private final RoleService roleService;
+
     /**
      * Get list of all roles
      *
      * @return List of roles
      */
     @GetMapping("/all")
+    @ApiOperation("Получить список всех ролей")
     public List<RoleDTO> all() {
-        // TODO: get all roles
-        return null;
+        return roleService.getRoleList();
     }
 
     /**
@@ -33,8 +40,8 @@ public class RoleController {
      * @return true if success created
      */
     @PostMapping("/create")
+    @ApiOperation("Добавить роль")
     public boolean create(@RequestBody RoleDTO dto) {
-        // TODO: save role
-        return false;
+        return roleService.createRole(dto);
     }
 }

@@ -1,6 +1,5 @@
 package ru.innopolis.stc31.appeal.services;
 
-import ru.innopolis.stc31.appeal.model.User;
 import ru.innopolis.stc31.appeal.model.dto.TypeOfServiceDTO;
 
 import java.util.List;
