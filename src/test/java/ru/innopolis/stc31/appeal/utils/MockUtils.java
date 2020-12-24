@@ -18,14 +18,14 @@ public class MockUtils {
      * @return UserDTO instance
      */
     public static UserDTO makeUserDTO() {
-        return new UserDTO(
-                RandomUtils.makeId(),
-                RandomUtils.makeLogin(),
-                RandomUtils.makeUsername(),
-                RandomUtils.makeEmail(),
-                RandomUtils.getRandomPhone(),
-                LocalDate.now(),
-                (short) RandomUtils.getRandomValue(0, 2));
+        return new UserDTO()
+                .setId(RandomUtils.makeId())
+                .setBirthday(LocalDate.now())
+                .setEmail(RandomUtils.makeEmail())
+                .setLogin(RandomUtils.makeLogin())
+                .setUsername(RandomUtils.makeUsername())
+                .setPhone(RandomUtils.getRandomPhone())
+                .setStatus((short) RandomUtils.getRandomValue(0, 2));
     }
 
     /**

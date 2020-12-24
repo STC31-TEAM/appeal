@@ -19,7 +19,9 @@ public class Dictionary {
     };
 
     /**
-     * List of all domains
+     * Most actual list of Top-Level Domain (TLD)
+     *
+     * @see <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt">ICANN official website</a>
      */
     public static final String[] DOMAINS = new String[]{
             "AAA",
