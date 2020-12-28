@@ -21,7 +21,7 @@ public class Street {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int idCity;
+    private long id;
+    private long idCity;
     private String streetName;
 }

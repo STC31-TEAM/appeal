@@ -1,14 +1,12 @@
 package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
-import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
 import ru.innopolis.stc31.appeal.services.CountryService;
 
 import java.util.List;
@@ -72,12 +70,15 @@ public class CountryController {
     @ApiOperation("Удалить страну")
     public ResponseEntity<String> delete(@RequestBody CountryDTO dto) {
 
+        log.debug("@RequestBody: " + dto.toString());
+
         var isRemoved = countryService.deleteCounty(dto);
 
         if (!isRemoved) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+        log.debug("Result: Success");
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 }

@@ -12,6 +12,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class CountryDTO {
 
-    private int id;
+    private long id;
     private String countryName;
 }

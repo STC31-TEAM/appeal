@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class StreetDTO {
 
-    private int id;
-    private int idCity;
+    private long id;
+    private long idCity;
     private String streetName;
 }

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.innopolis.stc31.appeal.model.entity.Country;
 
 @Repository
-public interface CountryRepository  extends JpaRepository<Country, Integer> {
+public interface CountryRepository  extends JpaRepository<Country, Long> {
 }

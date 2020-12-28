@@ -2,6 +2,7 @@ package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("${application.api.uriPrefix}/street")
+@Slf4j
 public class StreetController {
     /**
      * Service instance
@@ -46,12 +48,15 @@ public class StreetController {
     @ApiOperation("Добавить улицу")
     public ResponseEntity<String> create(@RequestBody StreetDTO dto) {
 
+        log.debug("@RequestBody: " + dto.toString());
+
         var isCreated = streetService.createStreet(dto);
 
         if (!isCreated) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+        log.debug("Result: Success");
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 
@@ -65,12 +70,15 @@ public class StreetController {
     @ApiOperation("Удалить улицу")
     public ResponseEntity<String> delete(@RequestBody StreetDTO dto) {
 
+        log.debug("@RequestBody: " + dto.toString());
+
         var isRemoved = streetService.deleteStreet(dto);
 
         if (!isRemoved) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+        log.debug("Result: Success");
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 }
