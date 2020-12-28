@@ -11,4 +11,8 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class StreetDTO {
+
+    private int id;
+    private int idCity;
+    private String streetName;
 }
