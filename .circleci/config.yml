@@ -66,7 +66,7 @@ jobs:
           path: build/test-results/test
           when: always
       - store_artifacts:
-          path: build/reports/jacoco/test/html
+          path: build/reports/jacoco/test
           when: always
       - run:
           name: Assemble JAR
