@@ -1,7 +1,7 @@
 create table tickets (
                          id				  BIGSERIAL	PRIMARY KEY,
                          id_user 		  BIGINT NOT NULL,
-                         id_company		  INTEGER NOT NULL,
+                         id_company		  INTEGER,
                          id_country		  SMALLINT NOT NULL,
                          id_city	      INTEGER NOT NULL,
                          id_street	      INTEGER NOT NULL,
@@ -10,7 +10,7 @@ create table tickets (
                          title			  VARCHAR(100) NOT NULL,
                          description	  VARCHAR(200) NOT NULL,
                          open_date		  DATE NOT NULL,
-                         close_date		  DATE NOT NULL,
+                         close_date		  DATE,
                          count_likes	  INTEGER,
                          count_dislikes	  INTEGER,
                          status		      SMALLINT NOT NULL
@@ -32,4 +32,4 @@ comment on COLUMN tickets.open_date is 'Дата открытия';
 comment on COLUMN tickets.close_date is 'Дата закрытия';
 comment on COLUMN tickets.count_likes is 'Количество поставленных лайков ';
 comment on COLUMN tickets.count_dislikes is 'Количество поставленных дизлайков';
-comment on COLUMN tickets.status is 'Статус заявки: на пример 0-открыта 1—верифицирована 2-закрыта и т.д.';
+comment on COLUMN tickets.status is 'Статус заявки: на пример 0-открыта 1—верифицирована 2-закрыта';

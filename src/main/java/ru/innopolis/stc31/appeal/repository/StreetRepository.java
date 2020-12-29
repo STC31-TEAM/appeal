@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.innopolis.stc31.appeal.model.entity.Street;
 
 @Repository
-public interface StreetRepository extends JpaRepository<Street, Integer> {
+public interface StreetRepository extends JpaRepository<Street, Long> {
 }

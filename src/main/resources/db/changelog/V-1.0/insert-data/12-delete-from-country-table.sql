@@ -1,0 +1,1 @@
+delete from countries where country_name in ('Россия', 'Украина', 'Белоруссия', 'Казахстан');
