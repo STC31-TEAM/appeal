@@ -1,7 +1,6 @@
 package ru.innopolis.stc31.appeal.services;
 
 import org.springframework.stereotype.Service;
-import ru.innopolis.stc31.appeal.model.UserModel;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public class UsersServiceImpl implements UsersService{
     }
 
     @Override
-    public UserModel getUserByName(String name) {
+    public UserDTO getUserByName(String name) {
         return null;
     }
 
