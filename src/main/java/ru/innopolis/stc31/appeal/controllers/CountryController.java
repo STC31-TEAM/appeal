@@ -19,7 +19,7 @@ import java.util.List;
  */
 @AllArgsConstructor
 @RestController
-@RequestMapping("${application.api.uriPrefix}/country")
+@RequestMapping("${application.api.uriPrefix}/user/country")
 @Slf4j
 public class CountryController {
     /**
