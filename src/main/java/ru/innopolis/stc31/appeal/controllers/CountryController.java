@@ -54,7 +54,7 @@ public class CountryController {
 
         var country = countryService.createCountry(dto);
 
-        if (country.equals(null)) {
+        if (country == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

@@ -56,7 +56,7 @@ public class StreetController {
 
         var street = streetService.createStreet(dto);
 
-        if (street.equals(null)) {
+        if (street == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
