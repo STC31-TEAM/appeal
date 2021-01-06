@@ -4,12 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Controller for review page
+ */
 @Controller
 public class ReviewController {
 
     @GetMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("title", "Appeal application");
+        model.addAttribute("messagePart", "Appeal application");
         return "index";
     }
 }
