@@ -4,6 +4,7 @@ import ru.innopolis.stc31.appeal.utils.random.dictionaries.Dictionary;
 
 import java.security.SecureRandom;
 import java.util.Locale;
+import java.util.Random;
 
 /**
  * @author Sergey Fomin
@@ -93,4 +94,25 @@ public class RandomUtils {
     public static Long getRandomPhone() {
         return (1000000000L * getRandomValue(1, 9)) + getRandomValue(0, 999999999);
     }
+
+    /**
+     * Generate random country
+     *
+     * @return Random name country
+     */
+    public static String getRandomCountryName() {
+        String[] country = new String[]{"Россия","Украина","Белоруссия","Казахстан"};
+        return  country[new SecureRandom().nextInt(country.length)];
+    }
+
+    /**
+     * Generate random street
+     *
+     * @return Random name street
+     */
+    public static String getRandomStreetName() {
+        String[] streets = new String[]{"ул.Ленина","ул.Набережная","ул.Центральная","площадь Революции"};
+        return  streets[new SecureRandom().nextInt(streets.length)];
+    }
+
 }

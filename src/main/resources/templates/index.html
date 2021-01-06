@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #content}
+                                               )}" lang="ru">
+<head>
+    <title>Appeal application</title>
+</head>
+<body>
+    <div id="content" class="container text-center">
+        <h1 class="display-1">Hi!</h1>
+        <p class="display-6"><span th:text="${messagePart}"></span> loaded <em class="bi bi-check2 text-success"></em></p>
+    </div>
+</body>
+</html>

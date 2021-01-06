@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
+import ru.innopolis.stc31.appeal.model.entity.Street;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public interface StreetService {
      * @param streetDTO street
      * @return result of operation
      */
-    boolean createStreet(StreetDTO streetDTO);
+    Street createStreet(StreetDTO streetDTO);
 
     /**
      * delete street from base

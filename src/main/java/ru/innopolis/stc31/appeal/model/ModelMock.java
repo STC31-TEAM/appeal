@@ -5,9 +5,10 @@ import javax.persistence.Id;
 
 /**
  * Stub model
+ * @deprecated
  */
 @Entity
-public class ModelMock extends AbstractModel {
+public class ModelMock {
     @Id
     private int id;
 }

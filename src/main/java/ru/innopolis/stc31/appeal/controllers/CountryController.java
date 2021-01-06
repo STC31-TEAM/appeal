@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.innopolis.stc31.appeal.converters.CountryToCountryDTO;
 import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
+import ru.innopolis.stc31.appeal.model.SuccessModel;
 import ru.innopolis.stc31.appeal.services.CountryService;
 
 import java.util.List;
@@ -22,10 +24,10 @@ import java.util.List;
 @RequestMapping("${application.api.uriPrefix}/user/country")
 @Slf4j
 public class CountryController {
-    /**
-     * Service instance
-     */
-    protected CountryService countryService;
+
+    /** Service instance   */
+    private final CountryService countryService;
+    private final CountryToCountryDTO countryToCountryDTO;
 
     /**
      * Get list of all countries
@@ -35,7 +37,7 @@ public class CountryController {
     @GetMapping("/all")
     @ApiOperation("Получить список всех стран")
     public List<CountryDTO> all() {
-        return countryService.getCountyList();
+        return countryService.getCountryList();
     }
 
     /**
@@ -46,18 +48,18 @@ public class CountryController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить страну")
-    public ResponseEntity<String> create(@RequestBody CountryDTO dto) {
+    public ResponseEntity<CountryDTO> create(@RequestBody CountryDTO dto) {
 
-        log.debug("@RequestBody: " + dto.toString());
+        log.debug("create country method was called with {} ", dto);
 
-        var isCreated = countryService.createCounty(dto);
+        var country = countryService.createCountry(dto);
 
-        if (!isCreated) {
+        if (country == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        log.debug("Result: Success");
-        return new ResponseEntity<>("Success", HttpStatus.OK);
+        log.debug("create country method return result {} ", country);
+        return new ResponseEntity<>(countryToCountryDTO.convert(country), HttpStatus.OK);
     }
 
     /**
@@ -68,17 +70,18 @@ public class CountryController {
      */
     @DeleteMapping("/delete")
     @ApiOperation("Удалить страну")
-    public ResponseEntity<String> delete(@RequestBody CountryDTO dto) {
+    public ResponseEntity<SuccessModel> delete(@RequestBody CountryDTO dto) {
 
-        log.debug("@RequestBody: " + dto.toString());
+        log.debug("delete country method was called with {} ", dto);
 
-        var isRemoved = countryService.deleteCounty(dto);
+        var isRemoved = countryService.deleteCountry(dto);
 
         if (!isRemoved) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        SuccessModel successModel = new SuccessModel().setResult("OK");
 
-        log.debug("Result: Success");
-        return new ResponseEntity<>("Success", HttpStatus.OK);
+        log.debug("delete country method return result {} ", successModel);
+        return new ResponseEntity<>(successModel, HttpStatus.OK);
     }
 }
