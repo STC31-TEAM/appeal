@@ -5,6 +5,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 import ru.innopolis.stc31.appeal.converters.StreetDTOToStreet;
 import ru.innopolis.stc31.appeal.converters.StreetToStreetDTO;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-//@ActiveProfiles({"test"})
+@ActiveProfiles({"test"})
 class StreetControllerTest {
 
     @Spy
