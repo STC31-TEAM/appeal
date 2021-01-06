@@ -31,9 +31,8 @@ public class StreetServiceImpl implements StreetService{
     }
 
     @Override
-    public boolean createStreet(StreetDTO streetDTO) {
-        streetRepository.save(streetDTOToStreet.convert(streetDTO));
-        return true;
+    public Street createStreet(StreetDTO streetDTO) {
+        return streetRepository.save(streetDTOToStreet.convert(streetDTO));
     }
 
     @Override

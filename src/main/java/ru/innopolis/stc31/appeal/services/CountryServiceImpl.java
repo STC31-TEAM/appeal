@@ -20,7 +20,7 @@ public class CountryServiceImpl implements CountryService{
     private final CountryDTOToCountry countryDTOToCountry;
 
     @Override
-    public List<CountryDTO> getCountyList() {
+    public List<CountryDTO> getCountryList() {
         List<Country> countryList = countryRepository.findAll();
         List<CountryDTO> countryDTOList = new ArrayList<>();
         for (Country e: countryList){
@@ -30,13 +30,12 @@ public class CountryServiceImpl implements CountryService{
     }
 
     @Override
-    public boolean createCounty(CountryDTO countryDTO) {
-        countryRepository.save(countryDTOToCountry.convert(countryDTO));
-        return true;
+    public Country createCountry(CountryDTO countryDTO) {
+        return countryRepository.save(countryDTOToCountry.convert(countryDTO));
     }
 
     @Override
-    public boolean deleteCounty(CountryDTO countryDTO) {
+    public boolean deleteCountry(CountryDTO countryDTO) {
         countryRepository.deleteById(countryDTO.getId());
         return true;
     }

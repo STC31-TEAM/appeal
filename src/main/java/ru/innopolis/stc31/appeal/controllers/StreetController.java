@@ -6,7 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.innopolis.stc31.appeal.converters.StreetToStreetDTO;
+import ru.innopolis.stc31.appeal.model.SuccessModel;
 import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
+import ru.innopolis.stc31.appeal.model.entity.Street;
 import ru.innopolis.stc31.appeal.services.StreetService;
 
 import java.util.List;
@@ -25,7 +28,8 @@ public class StreetController {
     /**
      * Service instance
      */
-    protected StreetService streetService;
+    private final StreetService streetService;
+    private final StreetToStreetDTO streetToStreetDTO;
 
     /**
      * Get list of all streets
@@ -46,18 +50,18 @@ public class StreetController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить улицу")
-    public ResponseEntity<String> create(@RequestBody StreetDTO dto) {
+    public ResponseEntity<StreetDTO> create(@RequestBody StreetDTO dto) {
 
-        log.debug("@RequestBody: " + dto.toString());
+        log.debug("create street method was called with {} ", dto);
 
-        var isCreated = streetService.createStreet(dto);
+        var street = streetService.createStreet(dto);
 
-        if (!isCreated) {
+        if (street.equals(null)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        log.debug("Result: Success");
-        return new ResponseEntity<>("Success", HttpStatus.OK);
+        log.debug("create street method return result {} ", street);
+        return new ResponseEntity<>(streetToStreetDTO.convert(street), HttpStatus.OK);
     }
 
     /**
@@ -68,17 +72,17 @@ public class StreetController {
      */
     @DeleteMapping("/delete")
     @ApiOperation("Удалить улицу")
-    public ResponseEntity<String> delete(@RequestBody StreetDTO dto) {
+    public ResponseEntity<SuccessModel> delete(@RequestBody StreetDTO dto) {
 
-        log.debug("@RequestBody: " + dto.toString());
+        log.debug("delete street method was called with {} ", dto);
 
         var isRemoved = streetService.deleteStreet(dto);
 
         if (!isRemoved) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
-        log.debug("Result: Success");
-        return new ResponseEntity<>("Success", HttpStatus.OK);
+        SuccessModel successModel = new SuccessModel().setResult("OK");
+        log.debug("delete street method return result {} ", successModel);
+        return new ResponseEntity<>(successModel, HttpStatus.OK);
     }
 }
