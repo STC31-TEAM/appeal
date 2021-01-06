@@ -3,6 +3,8 @@ package ru.innopolis.stc31.appeal.controllers;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.services.UsersService;
@@ -18,7 +20,8 @@ import static org.mockito.Mockito.when;
  *
  * @author Sergey Fomin
  */
-@SpringJUnitConfig
+@SpringBootTest
+@ActiveProfiles({"test"})
 class UserControllerTest {
 
     @InjectMocks
