@@ -10,16 +10,13 @@ import java.util.List;
 
 /**
  * Controller for manage cities
- *
- * @author Sergey Fomin
  */
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/city")
 public class CityController {
-    /**
-     * Service instance
-     */
+
+    /** City service instance */
     protected final CityService cityService;
 
     /**
@@ -29,7 +26,7 @@ public class CityController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех городов")
-    public List<CityDTO> all() {
+    public List<CityDTO> getAllCities() {
         return cityService.getCityList();
     }
 
@@ -41,7 +38,7 @@ public class CityController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить новый город")
-    public boolean create(@RequestBody CityDTO dto) {
+    public boolean createCity(@RequestBody CityDTO dto) {
         return cityService.createCity(dto);
     }
 }
