@@ -20,8 +20,7 @@ import static org.mockito.Mockito.when;
  *
  * @author Sergey Fomin
  */
-@SpringBootTest
-@ActiveProfiles({"test"})
+@SpringJUnitConfig
 class UserControllerTest {
 
     @InjectMocks
