@@ -102,7 +102,7 @@ public class RandomUtils {
      */
     public static String getRandomCountryName() {
         String[] country = new String[]{"Россия","Украина","Белоруссия","Казахстан"};
-        return  country[new Random().nextInt(country.length)];
+        return  country[new SecureRandom().nextInt(country.length)];
     }
 
     /**
@@ -112,7 +112,7 @@ public class RandomUtils {
      */
     public static String getRandomStreetName() {
         String[] streets = new String[]{"ул.Ленина","ул.Набережная","ул.Центральная","площадь Революции"};
-        return  streets[new Random().nextInt(streets.length)];
+        return  streets[new SecureRandom().nextInt(streets.length)];
     }
 
 }
