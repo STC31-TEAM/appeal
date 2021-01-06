@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 /**
- * Testing RoleController
+ * Testing ServiceTypeController
  */
 @SpringJUnitConfig
 class ServiceTypeControllerTest {
