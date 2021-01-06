@@ -25,6 +25,7 @@ dependencies {
 	runtimeOnly "com.h2database:h2"
 	implementation "io.springfox:springfox-swagger-ui:${swagger}"
 	implementation "io.springfox:springfox-boot-starter:${springBootStarter}"
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
 	testImplementation "org.springframework.security:spring-security-test"
 	implementation("org.liquibase:liquibase-core")
