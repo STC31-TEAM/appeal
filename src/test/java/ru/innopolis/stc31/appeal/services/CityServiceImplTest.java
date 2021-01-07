@@ -8,18 +8,18 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * Testing ServiceTypesServiceImpl
+ * Testing CityServiceImpl
  */
 @SpringJUnitConfig
-class ServiceTypesServiceImplTest {
+class CityServiceImplTest {
 
     @InjectMocks
-    private ServiceTypesServiceImpl service;
+    private CityServiceImpl service;
 
     @Test
     void checkOnOk() {
-        assertDoesNotThrow(() -> service.createTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.deleteTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.getTypeOfServiceList());
+        assertDoesNotThrow(() -> service.createCity(MockUtils.makeCityDTO()));
+        assertDoesNotThrow(() -> service.deleteCity(MockUtils.makeCityDTO()));
+        assertDoesNotThrow(() -> service.getCityList());
     }
 }

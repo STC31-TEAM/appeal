@@ -30,7 +30,7 @@ class UserControllerTest {
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> userController.getAllUsers());
-        assertDoesNotThrow(() -> userController.createUser(new UserDTO()));
+        assertDoesNotThrow(() -> userController.createUser(MockUtils.makeUserDTO()));
     }
 
     @Test

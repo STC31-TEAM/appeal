@@ -28,7 +28,7 @@ class ServiceTypeControllerTest {
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllServiceTypes());
-        assertDoesNotThrow(() -> controller.createServiceType(new ServiceTypeDTO()));
+        assertDoesNotThrow(() -> controller.createServiceType(MockUtils.makeServiceTypeDTO()));
     }
 
     @Test

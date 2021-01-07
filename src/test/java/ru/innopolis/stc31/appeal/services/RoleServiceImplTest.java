@@ -8,18 +8,18 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * Testing ServiceTypesServiceImpl
+ * Testing RoleServiceImpl
  */
 @SpringJUnitConfig
-class ServiceTypesServiceImplTest {
+class RoleServiceImplTest {
 
     @InjectMocks
-    private ServiceTypesServiceImpl service;
+    private RoleServiceImpl service;
 
     @Test
     void checkOnOk() {
-        assertDoesNotThrow(() -> service.createTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.deleteTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.getTypeOfServiceList());
+        assertDoesNotThrow(() -> service.createRole(MockUtils.makeRoleDTO()));
+        assertDoesNotThrow(() -> service.deleteRole(MockUtils.makeRoleDTO()));
+        assertDoesNotThrow(() -> service.getRoleList());
     }
 }

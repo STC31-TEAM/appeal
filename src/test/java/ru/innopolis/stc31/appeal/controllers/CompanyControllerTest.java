@@ -28,7 +28,7 @@ class CompanyControllerTest {
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllCompanies());
-        assertDoesNotThrow(() -> controller.createCompany(new CompanyDTO()));
+        assertDoesNotThrow(() -> controller.createCompany(MockUtils.makeCompanyDTO()));
     }
 
     @Test

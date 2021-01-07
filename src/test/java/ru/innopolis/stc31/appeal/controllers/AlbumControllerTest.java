@@ -28,7 +28,7 @@ class AlbumControllerTest {
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllAlbums());
-        assertDoesNotThrow(() -> controller.createAlbum(new AlbumDTO()));
+        assertDoesNotThrow(() -> controller.createAlbum(MockUtils.makeAlbumDTO()));
     }
 
     @Test

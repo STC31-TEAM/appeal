@@ -28,7 +28,7 @@ class RoleControllerTest {
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllRoles());
-        assertDoesNotThrow(() -> controller.createRole(new RoleDTO()));
+        assertDoesNotThrow(() -> controller.createRole(MockUtils.makeRoleDTO()));
     }
 
     @Test

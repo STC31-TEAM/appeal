@@ -28,7 +28,7 @@ class CityControllerTest {
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllCities());
-        assertDoesNotThrow(() -> controller.createCity(new CityDTO()));
+        assertDoesNotThrow(() -> controller.createCity(MockUtils.makeCityDTO()));
     }
 
     @Test

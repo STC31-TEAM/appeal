@@ -28,7 +28,7 @@ class TicketControllerTest {
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllTickets());
-        assertDoesNotThrow(() -> controller.createTicket(new TicketDTO()));
+        assertDoesNotThrow(() -> controller.createTicket(MockUtils.makeTicketDTO()));
     }
 
     @Test

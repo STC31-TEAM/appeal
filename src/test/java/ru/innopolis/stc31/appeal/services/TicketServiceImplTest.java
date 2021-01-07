@@ -8,18 +8,18 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * Testing ServiceTypesServiceImpl
+ * Testing TicketServiceImpl
  */
 @SpringJUnitConfig
-class ServiceTypesServiceImplTest {
+class TicketServiceImplTest {
 
     @InjectMocks
-    private ServiceTypesServiceImpl service;
+    private TicketServiceImpl service;
 
     @Test
     void checkOnOk() {
-        assertDoesNotThrow(() -> service.createTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.deleteTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.getTypeOfServiceList());
+        assertDoesNotThrow(() -> service.createTicket(MockUtils.makeTicketDTO()));
+        assertDoesNotThrow(() -> service.deleteTicket(MockUtils.makeTicketDTO()));
+        assertDoesNotThrow(() -> service.getTicketList());
     }
 }

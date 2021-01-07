@@ -8,18 +8,18 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * Testing ServiceTypesServiceImpl
+ * Testing AlbumServiceImpl
  */
 @SpringJUnitConfig
-class ServiceTypesServiceImplTest {
+class AlbumServiceImplTest {
 
     @InjectMocks
-    private ServiceTypesServiceImpl service;
+    private AlbumServiceImpl service;
 
     @Test
     void checkOnOk() {
-        assertDoesNotThrow(() -> service.createTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.deleteTypeOfService(MockUtils.makeServiceTypeDTO()));
-        assertDoesNotThrow(() -> service.getTypeOfServiceList());
+        assertDoesNotThrow(() -> service.createAlbum(MockUtils.makeAlbumDTO()));
+        assertDoesNotThrow(() -> service.deleteAlbum(MockUtils.makeAlbumDTO()));
+        assertDoesNotThrow(() -> service.getAlbumList());
     }
 }
