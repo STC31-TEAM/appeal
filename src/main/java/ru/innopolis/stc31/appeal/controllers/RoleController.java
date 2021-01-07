@@ -10,16 +10,13 @@ import java.util.List;
 
 /**
  * Controller for manage roles
- *
- * @author Sergey Fomin
  */
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/role")
 public class RoleController {
-    /**
-     * Service instance
-     */
+
+    /** Role service instance */
     private final RoleService roleService;
 
     /**
@@ -29,7 +26,7 @@ public class RoleController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех ролей")
-    public List<RoleDTO> all() {
+    public List<RoleDTO> getAllRoles() {
         return roleService.getRoleList();
     }
 
@@ -41,7 +38,7 @@ public class RoleController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить роль")
-    public boolean create(@RequestBody RoleDTO dto) {
+    public boolean createRole(@RequestBody RoleDTO dto) {
         return roleService.createRole(dto);
     }
 }

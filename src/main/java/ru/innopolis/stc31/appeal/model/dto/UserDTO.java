@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
 import java.time.LocalDate;
 
 /**
- * @author Sergey Fomin
+ * User data transfer object
  */
 @Data
 @NoArgsConstructor

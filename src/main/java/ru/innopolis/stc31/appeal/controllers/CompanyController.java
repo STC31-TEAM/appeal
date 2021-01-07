@@ -10,16 +10,13 @@ import java.util.List;
 
 /**
  * Controller for manage companies
- *
- * @author Sergey Fomin
  */
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/company")
 public class CompanyController {
-    /**
-     * Service instance
-     */
+
+    /** Company service instance */
     private final CompanyService companyService;
 
     /**
@@ -29,7 +26,7 @@ public class CompanyController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех компаний")
-    public List<CompanyDTO> all() {
+    public List<CompanyDTO> getAllCompanies() {
         return companyService.getCompanyList();
     }
 
@@ -41,7 +38,7 @@ public class CompanyController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить компанию")
-    public boolean create(@RequestBody CompanyDTO dto) {
+    public boolean createCompany(@RequestBody CompanyDTO dto) {
         return companyService.createCompany(dto);
     }
 }

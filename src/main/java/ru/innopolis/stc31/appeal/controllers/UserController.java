@@ -10,16 +10,13 @@ import java.util.List;
 
 /**
  * Controller for manage users
- *
- * @author Sergey Fomin
  */
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/user")
 public class UserController {
-    /**
-     * Service instance
-     */
+
+    /** Users service instance */
     private final UsersService usersService;
 
     /**
@@ -29,7 +26,7 @@ public class UserController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех пользователей")
-    public List<UserDTO> all() {
+    public List<UserDTO> getAllUsers() {
         return usersService.getUserList();
     }
 
@@ -41,7 +38,7 @@ public class UserController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить пользователя")
-    public boolean create(@RequestBody UserDTO dto) {
+    public boolean createUser(@RequestBody UserDTO dto) {
         return usersService.createUser(dto);
     }
 }

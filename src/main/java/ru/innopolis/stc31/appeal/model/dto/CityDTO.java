@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
- * @author Sergey Fomin
+ * City data transfer object
  */
 @Data
 @NoArgsConstructor

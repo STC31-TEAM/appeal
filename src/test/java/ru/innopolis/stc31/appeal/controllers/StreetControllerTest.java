@@ -44,8 +44,8 @@ class StreetControllerTest {
         List<StreetDTO> streetDTOList = MockUtils.makeListStreetDTO(4);
         when(streetService.getStreetList()).thenReturn(streetDTOList);
 
-        assertEquals(streetDTOList.size(), streetController.all().size());
-        assertEquals(streetDTOList.get(1).getStreetName(), streetController.all().get(1).getStreetName());
+        assertEquals(streetDTOList.size(), streetController.getAllStreets().size());
+        assertEquals(streetDTOList.get(1).getStreetName(), streetController.getAllStreets().get(1).getStreetName());
     }
 
     @Test
@@ -55,7 +55,7 @@ class StreetControllerTest {
         street.setId(1);
         when(streetService.createStreet(streetDTO)).thenReturn(street);
 
-        ResponseEntity<StreetDTO> responseEntity = streetController.create(streetDTO);
+        ResponseEntity<StreetDTO> responseEntity = streetController.createStreet(streetDTO);
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
         assertEquals(responseEntity.getBody().getStreetName(), streetDTO.getStreetName());
@@ -68,7 +68,7 @@ class StreetControllerTest {
         SuccessModel successModel = new SuccessModel().setResult("OK");
         when(streetService.deleteStreet(streetDTO)).thenReturn(true);
 
-        ResponseEntity<SuccessModel> responseEntity = streetController.delete(streetDTO);
+        ResponseEntity<SuccessModel> responseEntity = streetController.deleteStreet(streetDTO);
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
         assertEquals(responseEntity.getBody().getResult(), successModel.getResult());
