@@ -15,7 +15,7 @@ import ru.innopolis.stc31.appeal.services.PostgresUserDetailsService;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final PostgresUserDetailsService userDetailsService;
+//    private final PostgresUserDetailsService userDetailsService;
     private final CustomAuthencationProvider customAuthencationProvider;
 
     @Bean
@@ -37,7 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/**").permitAll()
                 .and().formLogin();
-
     }
 
 }
