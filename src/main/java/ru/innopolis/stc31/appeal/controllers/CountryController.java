@@ -7,17 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.CountryToCountryDTO;
-import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
+import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
 import ru.innopolis.stc31.appeal.services.CountryService;
 
 import java.util.List;
 
 /**
  * Controller for manage countries
- *
- * @author Sergey Fomin
- *
  */
 @AllArgsConstructor
 @RestController
@@ -25,8 +22,10 @@ import java.util.List;
 @Slf4j
 public class CountryController {
 
-    /** Service instance   */
+    /** Country service instance */
     private final CountryService countryService;
+
+    /** Converter instance */
     private final CountryToCountryDTO countryToCountryDTO;
 
     /**
@@ -36,7 +35,7 @@ public class CountryController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех стран")
-    public List<CountryDTO> all() {
+    public List<CountryDTO> getAllCountries() {
         return countryService.getCountryList();
     }
 
@@ -48,7 +47,7 @@ public class CountryController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить страну")
-    public ResponseEntity<CountryDTO> create(@RequestBody CountryDTO dto) {
+    public ResponseEntity<CountryDTO> createCountry(@RequestBody CountryDTO dto) {
 
         log.debug("create country method was called with {} ", dto);
 
@@ -63,14 +62,14 @@ public class CountryController {
     }
 
     /**
-     * Delete street
+     * Delete country
      *
      * @param dto Model
      * @return true if success deleted
      */
     @DeleteMapping("/delete")
     @ApiOperation("Удалить страну")
-    public ResponseEntity<SuccessModel> delete(@RequestBody CountryDTO dto) {
+    public ResponseEntity<SuccessModel> deleteCountry(@RequestBody CountryDTO dto) {
 
         log.debug("delete country method was called with {} ", dto);
 

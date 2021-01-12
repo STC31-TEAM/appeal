@@ -10,7 +10,7 @@ import javax.persistence.Column;
 import java.time.LocalDate;
 
 /**
- * @author Sergey Fomin
+ * User data transfer object
  */
 @Data
 @NoArgsConstructor

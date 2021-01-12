@@ -10,16 +10,13 @@ import java.util.List;
 
 /**
  * Controller for manage albums
- *
- * @author Sergey Fomin
  */
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/album")
 public class AlbumController {
-    /**
-     * Service instance
-     */
+
+    /** Album service instance */
     private final AlbumService albumService;
 
     /**
@@ -29,7 +26,7 @@ public class AlbumController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех альбомов")
-    public List<AlbumDTO> all() {
+    public List<AlbumDTO> getAllAlbums() {
         return albumService.getAlbumList();
     }
 
@@ -41,7 +38,7 @@ public class AlbumController {
      */
     @PostMapping("/create")
     @ApiOperation("Добить новый альбом")
-    public boolean create(@RequestBody AlbumDTO dto) {
+    public boolean createAlbum(@RequestBody AlbumDTO dto) {
         return albumService.createAlbum(dto);
     }
 }

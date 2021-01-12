@@ -1,6 +1,6 @@
 package ru.innopolis.stc31.appeal.services;
 
-import ru.innopolis.stc31.appeal.model.dto.TypeOfServiceDTO;
+import ru.innopolis.stc31.appeal.model.dto.ServiceTypeDTO;
 
 import java.util.List;
 
@@ -9,24 +9,24 @@ import java.util.List;
  *
  * @author v.shulepov
  */
-public interface TypeOfServicesService {
+public interface ServiceTypesService {
     /**
      * return list of all type of services
      * @return
      */
-    List<TypeOfServiceDTO> getTypeOfServiceList();
+    List<ServiceTypeDTO> getTypeOfServiceList();
 
     /**
      * create new type of service
-     * @param typeOfServiceDTO type of service
+     * @param serviceTypeDTO type of service
      * @return result of operation
      */
-    boolean createTypeOfService(TypeOfServiceDTO typeOfServiceDTO);
+    boolean createTypeOfService(ServiceTypeDTO serviceTypeDTO);
 
     /**
      * delete type of service from base
-     * @param typeOfServiceDTO type of service needed to remove
+     * @param serviceTypeDTO type of service needed to remove
      * @return result of operation
      */
-    boolean deleteTypeOfService(TypeOfServiceDTO typeOfServiceDTO);
+    boolean deleteTypeOfService(ServiceTypeDTO serviceTypeDTO);
 }

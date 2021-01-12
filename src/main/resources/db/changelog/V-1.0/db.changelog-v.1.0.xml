@@ -19,5 +19,14 @@
     <include file="insert-data/12-changeset-insert-to-country-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/12.1-changeset-insert-to-users-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/12.2-changeset-insert-to-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/13-changeset-insert-city-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/14-changeset-insert-streets-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/15-chengeset-insert-to-service_type-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/16-changeset-insert-to-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/17-changeset-insert-to-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/18-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/19-changeset-insert-to-tickets-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/20-changeset-insert-to-album_links-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/21-changeset-insert-to-ticket_users-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

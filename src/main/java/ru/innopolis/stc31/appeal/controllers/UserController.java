@@ -14,18 +14,15 @@ import java.util.List;
 
 /**
  * Controller for manage users
- *
- * @author Sergey Fomin
  */
 @Slf4j
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/user")
 public class UserController {
-
-    private UserToUserDTO userToUserDTO;
-
-    /** Service instance */
+    /**
+     * Service instance
+     */
     private final UsersService usersService;
 
     /**
@@ -35,7 +32,7 @@ public class UserController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех пользователей")
-    public List<UserDTO> all() {
+    public List<UserDTO> getAllUsers() {
         return usersService.getUserList();
     }
 
@@ -47,18 +44,7 @@ public class UserController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить пользователя")
-    public ResponseEntity<UserDTO> create(@RequestBody UserDTO dto) {
-
-        log.debug("create user method was called with {} ", dto);
-
-        var user = usersService.createUser(dto);
-
-        if(user == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        log.debug("create user method return result {} ", user);
-
-        return new ResponseEntity<>(userToUserDTO.convert(user), HttpStatus.OK);
+    public boolean create(@RequestBody UserDTO dto) {
+        return usersService.createUser(dto);
     }
 }
