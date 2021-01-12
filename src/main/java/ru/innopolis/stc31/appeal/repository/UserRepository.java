@@ -6,4 +6,5 @@ import ru.innopolis.stc31.appeal.model.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
+    User findByLogin(String login);
 }

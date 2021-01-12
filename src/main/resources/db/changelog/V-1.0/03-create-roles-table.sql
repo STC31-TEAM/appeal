@@ -1,7 +1,7 @@
 create table roles (
                        id	    SMALLSERIAL PRIMARY KEY,
 --                        было id_map_roles, стало id_user
-                       id_user  INTEGER UNIQUE NOT NULL,
+                       id_user  INTEGER NOT NULL,
                        role  	VARCHAR(100) UNIQUE NOT NULL
 );
 
