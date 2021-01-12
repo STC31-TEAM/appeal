@@ -1,6 +1,6 @@
 insert into users
 values(DEFAULT,                         /* id */
-            3,                          /* role */
+            1,                          /* role */
             1,                          /* country */
             1,                          /* city */
             3,                          /* street */
@@ -15,7 +15,7 @@ values(DEFAULT,                         /* id */
             'ivan_ivanov@mail.ru');     /* email */
 insert into users
 values(DEFAULT,                         /* id */
-            2,                          /* role */
+            3,                          /* role */
             3,                          /* country */
             6,                          /* city */
             15,                         /* street */
@@ -30,7 +30,7 @@ values(DEFAULT,                         /* id */
             'nikolay_nik@gmail.com');     /* email */
 insert into users
 values(DEFAULT,                         /* id */
-            2,                          /* role */
+            3,                          /* role */
             1,                          /* country */
             2,                          /* city */
             6,                          /* street */
@@ -45,7 +45,7 @@ values(DEFAULT,                         /* id */
             'vas_redact@yandex.ru');     /* email */
 insert into users
 values(DEFAULT,                         /* id */
-            1,                          /* role */
+            2,                          /* role */
             1,                          /* country */
             1,                          /* city */
             2,                          /* street */
@@ -60,7 +60,7 @@ values(DEFAULT,                         /* id */
             'del_pav@yahoo.com');     /* email */
 insert into users
 values(DEFAULT,                         /* id */
-            1,                          /* role */
+            2,                          /* role */
             1,                          /* country */
             3,                          /* city */
             9,                          /* street */
@@ -75,7 +75,7 @@ values(DEFAULT,                         /* id */
             'reg_vlad@mail.ru');     /* email */
 insert into users
 values(DEFAULT,                         /* id */
-            1,                          /* role */
+            2,                          /* role */
             2,                          /* country */
             4,                          /* city */
             10,                          /* street */
@@ -90,7 +90,7 @@ values(DEFAULT,                         /* id */
             'verif_serj@bk.ru');     /* email */
 insert into users
 values(DEFAULT,                         /* id */
-            1,                          /* role */
+            2,                          /* role */
             4,                          /* country */
             7,                          /* city */
             16,                          /* street */
@@ -105,7 +105,7 @@ values(DEFAULT,                         /* id */
             'test_oleg@gmail.com');     /* email */
 insert into users
 values(DEFAULT,                         /* id */
-            3,                          /* role */
+            1,                          /* role */
             1,                          /* country */
             1,                          /* city */
             3,                          /* street */

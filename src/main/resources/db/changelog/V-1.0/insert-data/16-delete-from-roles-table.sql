@@ -1,1 +1,1 @@
-delete from roles where role in ('User', 'Moderator', 'Administrator');
+delete from roles where role in ('MODERATOR');
