@@ -1,7 +1,7 @@
 alter table companies drop column id_map_role;
 
 insert into companies
-values(DEFAULT,                             /* id */
+values(1,                             /* id */
             1,                              /* country */
             1,                              /* city */
             3,                              /* street */
@@ -14,7 +14,7 @@ values(DEFAULT,                             /* id */
             84126942836,                    /* phone */
             'Kuznec_Bucker@mail.ru');       /* email */
 
-values(DEFAULT,                             /* id */
+values(2,                             /* id */
             2,                              /* country */
             4,                              /* city */
             10,                             /* street */
@@ -27,7 +27,7 @@ values(DEFAULT,                             /* id */
             84126857395,                    /* phone */
             'VladRepair@gmail.com');        /* email */
 
-values(DEFAULT,                             /* id */
+values(3,                             /* id */
             2,                              /* country */
             4,                              /* city */
             7,                              /* street */

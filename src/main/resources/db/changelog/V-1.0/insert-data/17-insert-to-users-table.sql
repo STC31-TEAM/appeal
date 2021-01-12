@@ -1,10 +1,12 @@
+alter table users drop constraint users_id_map_role_key;
+
 insert into users
-values(DEFAULT,                         /* id */
+values(2,                         /* id */
             1,                          /* role */
             1,                          /* country */
             1,                          /* city */
             3,                          /* street */
-                ,                       /* company */
+            1,                       /* company */
             1,                          /* status */
             'Administrator',            /* login */
             'Administrator',            /* password */
@@ -14,12 +16,12 @@ values(DEFAULT,                         /* id */
             89059647574,                /* phone */
             'ivan_ivanov@mail.ru');     /* email */
 insert into users
-values(DEFAULT,                         /* id */
+values(3,                         /* id */
             3,                          /* role */
             3,                          /* country */
             6,                          /* city */
             15,                         /* street */
-                ,                       /* company */
+            1,                       /* company */
             1,                          /* status */
             'Moderator',                /* login */
             'Moderator',                /* password */
@@ -29,12 +31,12 @@ values(DEFAULT,                         /* id */
             89113582432,                /* phone */
             'nikolay_nik@gmail.com');     /* email */
 insert into users
-values(DEFAULT,                         /* id */
+values(4,                         /* id */
             3,                          /* role */
             1,                          /* country */
             2,                          /* city */
             6,                          /* street */
-                ,                       /* company */
+            1,                       /* company */
             1,                          /* status */
             'Redactor',            /* login */
             'Redactor',            /* password */
@@ -44,12 +46,12 @@ values(DEFAULT,                         /* id */
             89006859657,                /* phone */
             'vas_redact@yandex.ru');     /* email */
 insert into users
-values(DEFAULT,                         /* id */
+values(5,                         /* id */
             2,                          /* role */
             1,                          /* country */
             1,                          /* city */
             2,                          /* street */
-                ,                       /* company */
+            1,                       /* company */
             2,                          /* status */
             'Deleted_User',            /* login */
             'Deleted_User',            /* password */
@@ -59,7 +61,7 @@ values(DEFAULT,                         /* id */
             89637492288,                /* phone */
             'del_pav@yahoo.com');     /* email */
 insert into users
-values(DEFAULT,                         /* id */
+values(6,                         /* id */
             2,                          /* role */
             1,                          /* country */
             3,                          /* city */
@@ -74,7 +76,7 @@ values(DEFAULT,                         /* id */
             89518473339,                /* phone */
             'reg_vlad@mail.ru');     /* email */
 insert into users
-values(DEFAULT,                         /* id */
+values(7,                         /* id */
             2,                          /* role */
             2,                          /* country */
             4,                          /* city */
@@ -89,12 +91,12 @@ values(DEFAULT,                         /* id */
             89817213581,                /* phone */
             'verif_serj@bk.ru');     /* email */
 insert into users
-values(DEFAULT,                         /* id */
+values(8,                         /* id */
             2,                          /* role */
             4,                          /* country */
             7,                          /* city */
             16,                          /* street */
-                ,                       /* company */
+            1,                       /* company */
             0,                          /* status */
             'Test_User',            /* login */
             'Test_User',            /* password */
@@ -104,12 +106,12 @@ values(DEFAULT,                         /* id */
             89743630204,                /* phone */
             'test_oleg@gmail.com');     /* email */
 insert into users
-values(DEFAULT,                         /* id */
+values(9,                         /* id */
             1,                          /* role */
             1,                          /* country */
             1,                          /* city */
             3,                          /* street */
-                ,                       /* company */
+            1,                       /* company */
             2,                          /* status */
             'Deleted_Admin',            /* login */
             'Deleted_Admin',            /* password */

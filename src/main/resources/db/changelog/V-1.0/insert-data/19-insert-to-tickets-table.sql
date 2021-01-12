@@ -1,7 +1,7 @@
 insert into tickets
-values(DEFAULT,                                                 /* id */
+values(1,                                                 /* id */
             4,                                                  /* user */
-                ,                                               /* company */
+            NULL,                                               /* company */
             1,                                                  /* country */
             1,                                                  /* city */
             3,                                                  /* street */
@@ -10,13 +10,13 @@ values(DEFAULT,                                                 /* id */
             'Автомастерская на Кузнецком мосту',                /* title */
             'Очень нехватает автомастерской рядом с домом',     /* description */
             '2021-01-04',                                       /* open date */
-                ,                                               /* close date */
+            NULL,                                               /* close date */
             3,                                                  /* count likes */
             1,                                                  /* count dislikes */
             0);                                                 /* status */
 
 insert into tickets
-values(DEFAULT,                                                 /* id */
+values(2,                                                 /* id */
             5,                                                  /* user */
             1,                                                  /* company */
             1,                                                  /* country */
@@ -27,13 +27,13 @@ values(DEFAULT,                                                 /* id */
             'Пекарня на Кузнецком Мосту',                       /* title */
             'Открываем пекарню со свежим хлебом',               /* description */
             '2021-01-08',                                       /* open date */
-                ,                                               /* close date */
+            NULL,                                               /* close date */
             5,                                                  /* count likes */
             2,                                                  /* count dislikes */
             1);                                                 /* status */
 
 insert into tickets
-values(DEFAULT,                                                 /* id */
+values(3,                                                 /* id */
             6,                                                  /* user */
             NULL,                                                  /* company */
             1,                                                  /* country */
