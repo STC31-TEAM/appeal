@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import javax.persistence.Column;
 import java.time.LocalDate;
 
 /**
@@ -24,4 +25,9 @@ public class UserDTO {
     private long phone;
     private LocalDate birthday;
     private short status;
+    private long mapRoleId;
+    private long companyId;
+    private long countryId;
+    private long cityId;
+    private long streetId;
 }

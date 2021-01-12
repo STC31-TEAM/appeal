@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
+import ru.innopolis.stc31.appeal.model.entity.User;
 
 import java.util.List;
 
@@ -27,9 +28,9 @@ public interface UsersService {
     /**
      * create new user
      * @param userDTO user
-     * @return result of operation
+     * @return result of operation, object User
      */
-    boolean createUser(UserDTO userDTO);
+    User createUser(UserDTO userDTO);
 
     /**
      * delete user from base

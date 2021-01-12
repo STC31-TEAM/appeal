@@ -2,7 +2,11 @@ package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.innopolis.stc31.appeal.converters.UserToUserDTO;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.services.UsersService;
 
@@ -13,13 +17,15 @@ import java.util.List;
  *
  * @author Sergey Fomin
  */
+@Slf4j
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/user")
 public class UserController {
-    /**
-     * Service instance
-     */
+
+    private UserToUserDTO userToUserDTO;
+
+    /** Service instance */
     private final UsersService usersService;
 
     /**
@@ -41,7 +47,18 @@ public class UserController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить пользователя")
-    public boolean create(@RequestBody UserDTO dto) {
-        return usersService.createUser(dto);
+    public ResponseEntity<UserDTO> create(@RequestBody UserDTO dto) {
+
+        log.debug("create user method was called with {} ", dto);
+
+        var user = usersService.createUser(dto);
+
+        if(user == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        log.debug("create user method return result {} ", user);
+
+        return new ResponseEntity<>(userToUserDTO.convert(user), HttpStatus.OK);
     }
 }
