@@ -8,7 +8,7 @@ values(1,                             /* id */
             5,                              /* user */
             2,                              /* service type */
             1,                              /* status */
-            'Пекарня на Кузнецком Мосту',   /* title */
+            'РџРµРєР°СЂРЅСЏ РЅР° РљСѓР·РЅРµС†РєРѕРј РњРѕСЃС‚Сѓ',   /* title */
             'KuznecBucker',                 /* login */
             'KuznecBucker',                 /* password */
             84126942836,                    /* phone */
@@ -21,7 +21,7 @@ values(2,                             /* id */
             6,                              /* user */
             6,                              /* service type */
             0,                              /* status */
-            'Ремонт на Владимирской',       /* title */
+            'Р РµРјРѕРЅС‚ РЅР° Р’Р»Р°РґРёРјРёСЂСЃРєРѕР№',       /* title */
             'VladRepair',                   /* login */
             'VladRepair',                   /* password */
             84126857395,                    /* phone */
@@ -34,7 +34,7 @@ values(3,                             /* id */
             16,                             /* user */
             4,                              /* service type */
             2,                              /* status */
-            'Магазин на Проспекте Туран',   /* title */
+            'РњР°РіР°Р·РёРЅ РЅР° РџСЂРѕСЃРїРµРєС‚Рµ РўСѓСЂР°РЅ',   /* title */
             'TyranShop',                    /* login */
             'TyranShop',                    /* password */
             84124724192,                    /* phone */
