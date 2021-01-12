@@ -19,5 +19,7 @@
     <include file="insert-data/12-changeset-insert-to-country-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/12.1-changeset-insert-to-users-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/12.2-changeset-insert-to-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/13-changeset-insert-city-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/14-changeset-insert-streets-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

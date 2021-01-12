@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * Controller for review page
+ * UI controller for review page
  */
 @Controller
 public class ReviewController {

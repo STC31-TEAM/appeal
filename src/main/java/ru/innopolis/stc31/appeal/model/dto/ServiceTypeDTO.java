@@ -5,10 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
- * @author Sergey Fomin
+ * Service type data transfer object
  */
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)
-public class TypeOfServiceDTO {
+public class ServiceTypeDTO {
 }

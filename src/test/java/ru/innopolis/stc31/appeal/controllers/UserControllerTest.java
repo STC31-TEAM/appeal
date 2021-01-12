@@ -3,8 +3,6 @@ package ru.innopolis.stc31.appeal.controllers;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.services.UsersService;
@@ -31,8 +29,8 @@ class UserControllerTest {
 
     @Test
     void checkOnOk() {
-        assertDoesNotThrow(() -> userController.all());
-        assertDoesNotThrow(() -> userController.create(new UserDTO()));
+        assertDoesNotThrow(() -> userController.getAllUsers());
+        assertDoesNotThrow(() -> userController.createUser(MockUtils.makeUserDTO()));
     }
 
     @Test
@@ -40,9 +38,9 @@ class UserControllerTest {
         List<UserDTO> users = MockUtils.makeListUserDTO(5);
         when(usersService.getUserList()).thenReturn(users);
 
-        assertEquals(users.size(), userController.all().size());
-        assertEquals(users.get(1).getLogin(), userController.all().get(1).getLogin());
-        assertEquals(users.get(1).getPhone(), userController.all().get(1).getPhone());
+        assertEquals(users.size(), userController.getAllUsers().size());
+        assertEquals(users.get(1).getLogin(), userController.getAllUsers().get(1).getLogin());
+        assertEquals(users.get(1).getPhone(), userController.getAllUsers().get(1).getPhone());
     }
 
     @Test
@@ -51,6 +49,6 @@ class UserControllerTest {
 
         when(usersService.createUser(user)).thenReturn(true);
 
-        assertTrue(userController.create(user));
+        assertTrue(userController.createUser(user));
     }
 }
