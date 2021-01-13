@@ -1,0 +1,1 @@
+delete from album_links where id_link in (1, 2, 3);

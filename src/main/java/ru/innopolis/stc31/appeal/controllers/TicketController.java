@@ -10,16 +10,13 @@ import java.util.List;
 
 /**
  * Controller for manage tickets
- *
- * @author Sergey Fomin
  */
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ticket")
 public class TicketController {
-    /**
-     * Service instance
-     */
+
+    /** Ticket service instance */
     private final TicketService ticketService;
 
     /**
@@ -29,7 +26,7 @@ public class TicketController {
      */
     @GetMapping("/all")
     @ApiOperation("Получить список всех заявок")
-    public List<TicketDTO> all() {
+    public List<TicketDTO> getAllTickets() {
         return ticketService.getTicketList();
     }
 
@@ -41,7 +38,7 @@ public class TicketController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить заявку")
-    public boolean create(@RequestBody TicketDTO dto) {
+    public boolean createTicket(@RequestBody TicketDTO dto) {
         return ticketService.createTicket(dto);
     }
 }

@@ -1,5 +1,5 @@
 create table countries (
-                           id	        		 SMALLSERIAL PRIMARY KEY,
+                           id	        BIGSERIAL,
                            country_name VARCHAR(100) NOT NULL
 );
 

@@ -5,10 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
- * @author Sergey Fomin
+ * Country data transfer object
  */
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)
 public class CountryDTO {
+
+    private long id;
+    private String countryName;
 }

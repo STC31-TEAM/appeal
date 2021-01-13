@@ -5,10 +5,14 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
- * @author Sergey Fomin
+ * Street data transfer object
  */
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)
 public class StreetDTO {
+
+    private long id;
+    private long idCity;
+    private String streetName;
 }

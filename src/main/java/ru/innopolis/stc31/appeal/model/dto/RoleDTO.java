@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
- * @author Sergey Fomin
+ * Role data transfer object
  */
 @Data
 @NoArgsConstructor
