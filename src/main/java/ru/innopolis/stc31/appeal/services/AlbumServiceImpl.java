@@ -36,6 +36,7 @@ public class AlbumServiceImpl implements AlbumService{
 
     @Override
     public boolean deleteAlbum(AlbumDTO albumDTO) {
-        return false;
+        albumLinkRepository.deleteById(albumDTO.getId());
+        return true;
     }
 }

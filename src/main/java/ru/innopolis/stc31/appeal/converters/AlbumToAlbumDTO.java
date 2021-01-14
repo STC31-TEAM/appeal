@@ -11,9 +11,9 @@ public class AlbumToAlbumDTO implements Converter<AlbumLink, AlbumDTO> {
     @Override
     public AlbumDTO convert(AlbumLink source) {
         AlbumDTO albumDTO = new AlbumDTO();
-        albumDTO.setId(source.getId);
-        albumDTO.setId_link(source.getAlbumLinkId);
-        albumDTO.setLink(source.getLink);
+        albumDTO.setId(source.getId());
+        albumDTO.setId_link(source.getAlbumLinkId());
+        albumDTO.setLink(source.getLink());
         return albumDTO;
     }
 }
