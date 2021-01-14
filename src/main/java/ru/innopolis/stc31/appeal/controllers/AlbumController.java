@@ -2,6 +2,7 @@ package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/album")
+@Slf4j
 public class AlbumController {
 
     /** Album service instance */
@@ -43,13 +45,13 @@ public class AlbumController {
      */
     @PostMapping("/create")
     @ApiOperation("Добить новый альбом")
-    public boolean createAlbum(@RequestBody AlbumDTO dto) {
+    public ResponseEntity<AlbumDTO> createAlbum(@RequestBody AlbumDTO dto) {
         log.debug("create album method was called this {} ", dto);
         var album = albumService.createAlbum(dto);
         if (album == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         log.debug("create album method return result {} ", album);
-        return new ResponseEntity<>(albumToAlbumDTO.convert(album),HttpStatus.OK)
+        return new ResponseEntity<>(albumToAlbumDTO.convert(album),HttpStatus.OK);
     }
 }
