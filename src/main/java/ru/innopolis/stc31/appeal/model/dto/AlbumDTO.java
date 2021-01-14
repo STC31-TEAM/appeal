@@ -11,4 +11,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class AlbumDTO {
+    private long id;
+    private long id_link;
+    private String link;
 }
