@@ -7,6 +7,7 @@ import ru.innopolis.stc31.appeal.model.entity.AlbumLink;
 
 @Component
 public class AlbumDTOToAlbum implements Converter {
+
     @Override
     public AlbumLink convert(AlbumDTO source) {
         AlbumLink albumLink = new AlbumLink();
