@@ -11,4 +11,8 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class CityDTO {
+
+    private long id;
+    private int countryId;
+    private String cityName;
 }

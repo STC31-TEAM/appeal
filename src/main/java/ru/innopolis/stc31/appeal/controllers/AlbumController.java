@@ -41,17 +41,19 @@ public class AlbumController {
      * Create new album
      *
      * @param dto Model
-     * @return true if success created
+     * @return ResponseEntity if success created
      */
     @PostMapping("/create")
     @ApiOperation("Добить новый альбом")
     public ResponseEntity<AlbumDTO> createAlbum(@RequestBody AlbumDTO dto) {
         log.debug("create album method was called this {} ", dto);
+
         var album = albumService.createAlbum(dto);
         if (album == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         log.debug("create album method return result {} ", album);
+
         return new ResponseEntity<>(albumToAlbumDTO.convert(album),HttpStatus.OK);
     }
 }
