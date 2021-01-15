@@ -2,8 +2,13 @@ package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.services.CompanyService;
 
 import java.util.List;
@@ -14,10 +19,13 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/company")
+@Slf4j
 public class CompanyController {
 
     /** Company service instance */
     private final CompanyService companyService;
+
+    private final CompanyToCompanyDTO companyToCompanyDTO;
 
     /**
      * Get list of all companies
@@ -38,7 +46,16 @@ public class CompanyController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить компанию")
-    public boolean createCompany(@RequestBody CompanyDTO dto) {
-        return companyService.createCompany(dto);
+    public ResponseEntity<CompanyDTO> createCompany(@RequestBody CompanyDTO dto) {
+
+        log.debug("create company method was called with {} ", dto);
+
+        var company = companyService.createCompany(dto);
+        if (company == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        log.debug("create company method return result {} ", company);
+        return new ResponseEntity<>(companyToCompanyDTO.convert(company), HttpStatus.OK);
     }
 }

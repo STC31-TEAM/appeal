@@ -39,12 +39,12 @@ class CompanyControllerTest {
         assertEquals(companies.size(), controller.getAllCompanies().size());
     }
 
-    @Test
+    /*@Test
     void createCompanyWithOk() {
         CompanyDTO company = MockUtils.makeCompanyDTO();
 
         when(service.createCompany(company)).thenReturn(true);
 
         assertTrue(controller.createCompany(company));
-    }
+    }*/
 }

@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.entity.Company;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public interface CompanyService {
      * @param companyDTO company
      * @return result of operation
      */
-    boolean createCompany(CompanyDTO companyDTO);
+    Company createCompany(CompanyDTO companyDTO);
 
     /**
      * delete company from base
