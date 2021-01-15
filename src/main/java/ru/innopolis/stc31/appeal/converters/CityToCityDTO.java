@@ -10,7 +10,7 @@ public class CityToCityDTO implements Converter<City, CityDTO> {
     @Override
     public CityDTO convert(City source) {
         CityDTO cityDTO = new CityDTO();
-        cityDTO.setId(source.getId);
+        cityDTO.setId(source.getId());
         cityDTO.setCountryId(source.getCountryId());
         cityDTO.setCityName(source.getCityName());
         return cityDTO;

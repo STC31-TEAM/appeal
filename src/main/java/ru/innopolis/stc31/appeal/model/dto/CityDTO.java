@@ -13,6 +13,6 @@ import lombok.experimental.Accessors;
 public class CityDTO {
 
     private long id;
-    private int countryId;
+    private long countryId;
     private String cityName;
 }
