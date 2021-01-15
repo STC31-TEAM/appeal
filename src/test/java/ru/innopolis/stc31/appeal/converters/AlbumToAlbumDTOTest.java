@@ -13,16 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class AlbumToAlbumDTOTest {
 
     @Autowired
-    private AlbumDTOToAlbum albumDTOToAlbum;
-
-    @Autowired
     private AlbumToAlbumDTO albumToAlbumDTO;
 
     @Test
     void convert() {
-        AlbumLink albumLink = albumDTOToAlbum.convert(MockUtils.makeAlbumDTO());
+        AlbumLink albumLink = new AlbumLink(3, 7, "test.album.link");
 
-        assertNotNull(albumLink);
+        assertEquals(albumToAlbumDTO.convert(albumLink).getId(), albumLink.getId());
+        assertEquals(albumToAlbumDTO.convert(albumLink).getId_link(), albumLink.getAlbumLinkId());
         assertEquals(albumToAlbumDTO.convert(albumLink).getLink(), albumLink.getLink());
     }
 }

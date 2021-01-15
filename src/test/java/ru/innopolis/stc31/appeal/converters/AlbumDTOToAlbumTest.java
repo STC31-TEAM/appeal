@@ -17,8 +17,8 @@ class AlbumDTOToAlbumTest {
 
     @Test
     void convert() {
-        AlbumDTO albumDTO = MockUtils.makeAlbumDTO();
-        assertNotNull(albumDTO);
+        AlbumDTO albumDTO = new AlbumDTO(5, 12, "link.to.album");
+        assertEquals(albumDTOToAlbum.convert(albumDTO).getAlbumLinkId(),albumDTO.getId_link());
         assertEquals(albumDTOToAlbum.convert(albumDTO).getLink(),albumDTO.getLink());
     }
 }

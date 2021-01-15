@@ -39,12 +39,12 @@ class CityControllerTest {
         assertEquals(cities.size(), controller.getAllCities().size());
     }
 
-    @Test
+    /*@Test
     void createCityWithOk() {
         CityDTO city = MockUtils.makeCityDTO();
 
         when(service.createCity(city)).thenReturn(true);
 
         assertTrue(controller.createCity(city));
-    }
+    }*/
 }
