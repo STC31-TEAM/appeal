@@ -66,6 +66,6 @@ public class CompanyController {
 
         log.debug("delete company method was called with {}", companyDTO);
 
-        boolean isRemoved = companyService.deleteCompany()
+        boolean isRemoved = companyService.deleteCompany(companyDTO.getId());
     }
 }
