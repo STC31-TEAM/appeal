@@ -68,7 +68,8 @@ public class MockUtils {
      * @return RoleDTO instance
      */
     public static RoleDTO makeRoleDTO() {
-        return new RoleDTO();
+        return new RoleDTO()
+                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
     }
 
     /**
@@ -76,7 +77,8 @@ public class MockUtils {
      * @return ServiceTypeDTO instance
      */
     public static ServiceTypeDTO makeServiceTypeDTO() {
-        return new ServiceTypeDTO();
+        return new ServiceTypeDTO()
+                .setId(RandomUtils.makeId());
     }
 
     /**
@@ -114,7 +116,7 @@ public class MockUtils {
      */
     public static ServiceType makeServiceTypeEntity() {
         return new ServiceType()
-                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
+                .setId(RandomUtils.makeId());
     }
 
     /**
