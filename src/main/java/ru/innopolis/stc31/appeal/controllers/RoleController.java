@@ -38,7 +38,31 @@ public class RoleController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить роль")
-    public boolean createRole(@RequestBody RoleDTO dto) {
+    public RoleDTO createRole(@RequestBody RoleDTO dto) {
         return roleService.createRole(dto);
+    }
+
+    /**
+     * Update role
+     *
+     * @param dto Model
+     * @return true if success created
+     */
+    @PutMapping("/update")
+    @ApiOperation("Добавить роль")
+    public RoleDTO updateRole(@RequestBody RoleDTO dto) {
+        return roleService.updateRole(dto);
+    }
+
+    /**
+     * Delete role
+     *
+     * @param dto Model
+     * @return true if success created
+     */
+    @DeleteMapping("/delete")
+    @ApiOperation("Удалить роль")
+    public RoleDTO deleteRole(@RequestBody RoleDTO dto) {
+        return roleService.deleteRole(dto);
     }
 }

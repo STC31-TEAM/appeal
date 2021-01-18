@@ -38,7 +38,31 @@ public class ServiceTypeController {
      */
     @PostMapping("/create")
     @ApiOperation("Добавить тип услуги")
-    public boolean createServiceType(@RequestBody ServiceTypeDTO dto) {
+    public ServiceTypeDTO createServiceType(@RequestBody ServiceTypeDTO dto) {
         return serviceTypesService.createTypeOfService(dto);
+    }
+
+    /**
+     * Update type of service
+     *
+     * @param dto Model
+     * @return true if success created
+     */
+    @PostMapping("/update")
+    @ApiOperation("Добавить тип услуги")
+    public ServiceTypeDTO updateServiceType(@RequestBody ServiceTypeDTO dto) {
+        return serviceTypesService.updateTypeOfService(dto);
+    }
+
+    /**
+     * Delete new type of service
+     *
+     * @param dto Model
+     * @return true if success created
+     */
+    @PostMapping("/delete")
+    @ApiOperation("Добавить тип услуги")
+    public ServiceTypeDTO deleteServiceType(@RequestBody ServiceTypeDTO dto) {
+        return serviceTypesService.deleteTypeOfService(dto);
     }
 }

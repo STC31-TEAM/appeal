@@ -21,12 +21,19 @@ public interface RoleService {
      * @param roleDTO role
      * @return result of operation
      */
-    boolean createRole(RoleDTO roleDTO);
+    RoleDTO createRole(RoleDTO roleDTO);
+
+    /**
+     * update role
+     * @param roleDTO role
+     * @return result of operation
+     */
+    RoleDTO updateRole(RoleDTO roleDTO);
 
     /**
      * delete ticket from base
      * @param roleDTO ticket needed to remove
      * @return result of operation
      */
-    boolean deleteRole(RoleDTO roleDTO);
+    RoleDTO deleteRole(RoleDTO roleDTO);
 }
