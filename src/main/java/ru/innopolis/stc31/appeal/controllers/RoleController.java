@@ -49,7 +49,7 @@ public class RoleController {
      * @return true if success created
      */
     @PutMapping("/update")
-    @ApiOperation("Добавить роль")
+    @ApiOperation("Обновить роль")
     public RoleDTO updateRole(@RequestBody RoleDTO dto) {
         return roleService.updateRole(dto);
     }

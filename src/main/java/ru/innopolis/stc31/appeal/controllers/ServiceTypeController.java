@@ -49,19 +49,19 @@ public class ServiceTypeController {
      * @return true if success created
      */
     @PutMapping("/update")
-    @ApiOperation("Добавить тип услуги")
+    @ApiOperation("Обновить тип услуги")
     public ServiceTypeDTO updateServiceType(@RequestBody ServiceTypeDTO dto) {
         return serviceTypesService.updateTypeOfService(dto);
     }
 
     /**
-     * Delete new type of service
+     * Delete type of service
      *
      * @param dto Model
      * @return true if success created
      */
     @DeleteMapping("/delete")
-    @ApiOperation("Добавить тип услуги")
+    @ApiOperation("Удалить тип услуги")
     public ServiceTypeDTO deleteServiceType(@RequestBody ServiceTypeDTO dto) {
         return serviceTypesService.deleteTypeOfService(dto);
     }
