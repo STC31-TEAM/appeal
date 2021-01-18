@@ -66,6 +66,13 @@ public class CompanyController {
 
         log.debug("delete company method was called with {}", companyDTO);
 
-        boolean isRemoved = companyService.deleteCompany(companyDTO.getId());
+        boolean isRemoved = companyService.deleteCompany(companyDTO);
+
+        if (!isRemoved) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        SuccessModel successModel = new SuccessModel().setResult("OK");
+        log.debug("delete company method return result {}", successModel);
+        return new ResponseEntity<>(successModel, HttpStatus.OK);
     }
 }
