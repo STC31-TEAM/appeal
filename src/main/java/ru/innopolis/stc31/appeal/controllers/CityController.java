@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.CityToCityDTO;
+import ru.innopolis.stc31.appeal.model.SuccessModel;
+import ru.innopolis.stc31.appeal.model.dto.AlbumDTO;
 import ru.innopolis.stc31.appeal.model.dto.CityDTO;
 import ru.innopolis.stc31.appeal.services.CityService;
 
@@ -55,5 +57,21 @@ public class CityController {
         }
         log.debug("creaty city method return result {}", city);
         return new ResponseEntity<>(cityToCityDTO.convert(city),HttpStatus.OK);
+    }
+
+    @PostMapping("/delete")
+    @ApiOperation("Удалить город")
+    public ResponseEntity<SuccessModel> deleteCity(@RequestBody CityDTO cityDTO) {
+
+        log.debug("delete city method was called with {} ", cityDTO);
+
+        var isRemoved = cityService.deleteCity(cityDTO);
+
+        if (!isRemoved) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        SuccessModel successModel = new SuccessModel().setResult("OK");
+        log.debug("delete album method return result {} ", successModel);
+        return new ResponseEntity<>(successModel, HttpStatus.OK);
     }
 }
