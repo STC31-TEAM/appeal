@@ -34,6 +34,7 @@ class ServiceTypesServiceImplTest {
         ServiceType serviceType = MockUtils.makeServiceTypeEntity();
         when(conversionService.convert(serviceTypeDTO, ServiceType.class)).thenReturn(serviceType);
 
+        assertDoesNotThrow(() -> service.updateTypeOfService(serviceTypeDTO));
         assertDoesNotThrow(() -> service.createTypeOfService(serviceTypeDTO));
         assertDoesNotThrow(() -> service.deleteTypeOfService(serviceTypeDTO));
         assertDoesNotThrow(() -> service.getTypeOfServiceList());

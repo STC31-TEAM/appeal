@@ -34,6 +34,7 @@ class RoleServiceImplTest {
         Role role = MockUtils.makeRoleEntity();
         when(conversionService.convert(roleDTO, Role.class)).thenReturn(role);
 
+        assertDoesNotThrow(() -> service.updateRole(roleDTO));
         assertDoesNotThrow(() -> service.createRole(roleDTO));
         assertDoesNotThrow(() -> service.deleteRole(roleDTO));
         assertDoesNotThrow(() -> service.getRoleList());
