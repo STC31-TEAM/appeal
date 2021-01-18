@@ -1,5 +1,6 @@
 package ru.innopolis.stc31.appeal.controllers;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
 import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.services.CompanyService;
 
@@ -74,5 +76,31 @@ public class CompanyController {
         SuccessModel successModel = new SuccessModel().setResult("OK");
         log.debug("delete company method return result {}", successModel);
         return new ResponseEntity<>(successModel, HttpStatus.OK);
+    }
+
+    @PostMapping("/findByCountry")
+    @ApiOperation("Найти компании по стране")
+    public List<CompanyDTO> getCountryByCountry (@RequestBody CountryDTO countryDTO) {
+
+        log.debug("find company method was called with {}", countryDTO);
+
+        List<CompanyDTO> companyDTOList = companyService.getCompanyListByCountry(countryDTO);
+
+        log.debug("find company method return result {}", companyDTOList);
+
+        return companyDTOList;
+    }
+
+    @PostMapping("/sortByCompletedTickerts")
+    @ApiOperation("Список компаний отсортированный по количеству выполенныех заявок")
+    public List<CompanyDTO> getCompaniesSortedByCompletedTickets() {
+
+        log.debug("sort company by completed tickets method was called");
+
+        List<CompanyDTO> companyDTOList = companyService.getCompaniesSortedByCompletedTickets();
+
+        log.debug("sort company by completed tickets method return {}", companyDTOList);
+
+        return companyDTOList;
     }
 }

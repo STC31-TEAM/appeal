@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
 import ru.innopolis.stc31.appeal.model.entity.Company;
 
 import java.util.List;
@@ -30,4 +31,17 @@ public interface CompanyService {
      * @return result of operation
      */
     boolean deleteCompany(CompanyDTO companyDTO);
+
+    /**
+     * return list of all company in select country
+     * @param countryDTO needed country
+     * @return list of companies in select country
+     */
+    List<CompanyDTO> getCompanyListByCountry(CountryDTO countryDTO);
+
+    /**
+     * return list of companies has completed tickets sort by count of tickets
+     * @return List of company
+     */
+    List<CompanyDTO> getCompaniesSortedByCompletedTickets();
 }

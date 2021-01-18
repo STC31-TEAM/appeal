@@ -10,6 +10,7 @@ import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
 import ru.innopolis.stc31.appeal.model.dto.AlbumDTO;
 import ru.innopolis.stc31.appeal.model.dto.CityDTO;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
 import ru.innopolis.stc31.appeal.model.entity.AlbumLink;
 import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.repository.CompanyRepository;
