@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author Munir Makhmutov
@@ -25,6 +22,10 @@ public class City {
     @Id
     @GeneratedValue
     private long id;
+
+    @Column(name = "id_country")
     private long countryId;
+
+    @Column(name = "city_name")
     private String cityName;
 }
