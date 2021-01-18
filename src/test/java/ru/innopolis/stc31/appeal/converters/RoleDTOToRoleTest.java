@@ -19,6 +19,6 @@ class RoleDTOToRoleTest {
     @Test
     void convert() {
         RoleDTO roleDTO = MockUtils.makeRoleDTO();
-        assertEquals(Objects.requireNonNull(roleDTOToRole.convert(roleDTO)).getId(), roleDTO.getId());
+        assertEquals(0, Objects.requireNonNull(roleDTOToRole.convert(roleDTO)).getId());
     }
 }

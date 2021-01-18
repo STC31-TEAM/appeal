@@ -19,6 +19,6 @@ class ServiceTypeDTOToServiceTypeTest {
     @Test
     void convert() {
         ServiceTypeDTO serviceTypeDTO = MockUtils.makeServiceTypeDTO();
-        assertEquals(Objects.requireNonNull(serviceTypeDTOToServiceType.convert(serviceTypeDTO)).getId(), serviceTypeDTO.getId());
+        assertEquals(0, Objects.requireNonNull(serviceTypeDTOToServiceType.convert(serviceTypeDTO)).getId());
     }
 }
