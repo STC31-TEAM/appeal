@@ -9,6 +9,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.RequestMatcher;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.regex.Pattern;
 
 @AllArgsConstructor
 @EnableWebSecurity
@@ -28,7 +32,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf()
+                .requireCsrfProtectionMatcher(new RequestMatcher() {
+                    private final Pattern allowedMethods = Pattern.compile("^(GET|POST|PUT|DELETE)$");
+
+                    /**
+                     * Allow REST methods
+                     *
+                     * @param request HttpServletRequest
+                     * @return false if permit and true if deny
+                     */
+                    @Override
+                    public boolean matches(HttpServletRequest request) {
+                        return !allowedMethods.matcher(request.getMethod()).matches();
+                    }
+                })
+                .and()
+                .authorizeRequests()
                 .antMatchers("/api/v1.0/user/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/**").permitAll()

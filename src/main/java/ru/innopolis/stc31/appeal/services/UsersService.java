@@ -1,5 +1,6 @@
 package ru.innopolis.stc31.appeal.services;
 
+import ru.innopolis.stc31.appeal.exceptions.UsersErrors;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.model.entity.User;
 
@@ -30,7 +31,7 @@ public interface UsersService {
      * @param userDTO user
      * @return result of operation, object User
      */
-    User createUser(UserDTO userDTO);
+    User createUser(UserDTO userDTO) throws UsersErrors;
 
     /**
      * delete user from base

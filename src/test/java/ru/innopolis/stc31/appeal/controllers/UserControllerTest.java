@@ -3,8 +3,15 @@ package ru.innopolis.stc31.appeal.controllers;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import ru.innopolis.stc31.appeal.converters.UserDTOToUser;
+import ru.innopolis.stc31.appeal.exceptions.UsersErrors;
+import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
+import ru.innopolis.stc31.appeal.model.entity.Country;
+import ru.innopolis.stc31.appeal.model.entity.User;
 import ru.innopolis.stc31.appeal.services.UsersService;
 import ru.innopolis.stc31.appeal.utils.MockUtils;
 
@@ -24,7 +31,10 @@ class UserControllerTest {
     @InjectMocks
     private UserController userController;
 
-    @Mock
+    @Spy
+    private UserDTOToUser userDTOToUser;
+
+    @Spy
     private UsersService usersService;
 
     @Test
@@ -44,11 +54,17 @@ class UserControllerTest {
     }
 
     @Test
-    void checkCreateWithOk() {
-        UserDTO user = MockUtils.makeUserDTO();
+    void checkCreateWithOk() throws UsersErrors {
 
-        when(usersService.createUser(user)).thenReturn(true);
+        UserDTO userDTO = MockUtils.makeUserDTO();
+        User user = userDTOToUser.convert(userDTO);
+        user.setId(1);
+        when(usersService.createUser(userDTO)).thenReturn(user);
 
-        assertTrue(userController.createUser(user));
+        ResponseEntity<UserDTO> responseEntity = userController.createUser(userDTO);
+
+        assertEquals(responseEntity.getStatusCodeValue(), 200);
+        assertEquals(responseEntity.getBody().getLogin(), userDTO.getLogin());
+
     }
 }

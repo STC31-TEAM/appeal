@@ -15,4 +15,9 @@ public class ReviewController {
         model.addAttribute("messagePart", "Appeal application");
         return "index";
     }
+
+    @GetMapping("/user/create_users")
+    public String createUsers(Model model) {
+        return "create-users";
+    }
 }

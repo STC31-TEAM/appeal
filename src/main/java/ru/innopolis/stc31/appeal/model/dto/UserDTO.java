@@ -25,7 +25,6 @@ public class UserDTO {
     private long phone;
     private LocalDate birthday;
     private short status;
-    private long mapRoleId;
     private long companyId;
     private long countryId;
     private long cityId;
