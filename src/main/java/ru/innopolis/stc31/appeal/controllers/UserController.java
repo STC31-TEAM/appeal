@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @AllArgsConstructor
-@RequestMapping("${application.api.uriPrefix}/user")
+@RequestMapping("${application.api.uriPrefix}/userTest")
 public class UserController {
 
     /** Service instance */

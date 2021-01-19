@@ -3,11 +3,55 @@
     <title>Создание пользователя</title>
 </head>
 <body>
-    <form>
-        <p>Введите логин:</p>
-        <p><input name="login"></p>
-        <p><input name="pass"></p>
-        <p><input type="submit" value="Отправить"></p>
+
+    <form action="http://localhost:9080/api/v1.0/user/create" id="sampleForm">
+        <h2>Sample Form to JSON API</h2>
+        <div class="form-row">
+            <label for="login">login</label><br>
+            <input type="text" id="login" name="login">
+        </div>
+        <div class="form-row">
+            <label for="pass">pass</label><br>
+            <input id="pass" type="text" name="pass">
+        </div>
+        <div class="form-row">
+            <label for="email">email</label><br>
+            <input id="email" type="email" name="email">
+        </div>
+        <div class="form-row">
+            <label for="username">username</label><br>
+            <input id="username" type="text" name="username">
+        </div>
+        <div class="form-row">
+            <label for="phone">phone</label><br>
+            <input id="phone" type="tel" name="phone">
+        </div>
+        <div class="form-row">
+            <label for="birthDay">birthDay</label><br>
+            <input id="birthDay" type="datetime-local" name="birthDay">
+        </div>
+        <div class="form-row">
+            <label for="companyId">companyId</label><br>
+            <input id="companyId" type="number" name="companyId">
+        </div>
+        <div class="form-row">
+            <label  for="countryId">countryId</label><br>
+            <input  id="countryId" type="number" name="countryId">
+        </div>
+        <div class="form-row">
+            <label for="cityId">cityId</label><br>
+            <input id="cityId" type="number" name="cityId">
+        </div>
+        <div class="form-row">
+            <label for="streetId">streetId</label><br>
+            <input id="streetId" type="number" name="streetId">
+        </div>
+        <div class="form-row mx-auto">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+                Submit
+            </button>
+        </div>
     </form>
+    <script src="js/json.js"></script>
 </body>
 </html>

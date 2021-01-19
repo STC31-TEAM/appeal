@@ -10,9 +10,10 @@ public class UserToUserDTO {
     public UserDTO convert(User user){
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
-        userDTO.setBirthday(user.getBirthday());
+        userDTO.setBirthday(String.valueOf(user.getBirthday()));
         userDTO.setEmail(user.getEmail());
-        userDTO.setUsername(user.getName());
+        userDTO.setName(user.getName());
+        userDTO.setSurname(user.getSurname());
         userDTO.setLogin(user.getLogin());
         userDTO.setPhone(user.getPhone());
         userDTO.setStatus(user.getStatus());

@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.config;
 
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,12 +10,10 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import ru.innopolis.stc31.appeal.model.entity.Role;
+import ru.innopolis.stc31.appeal.exceptions.ErrorMessage;
+import ru.innopolis.stc31.appeal.exceptions.RoleErrors;
 import ru.innopolis.stc31.appeal.repository.RoleRepository;
 import ru.innopolis.stc31.appeal.repository.UserRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @Component
@@ -23,6 +22,7 @@ public class CustomAuthencationProvider implements AuthenticationProvider {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
+    @SneakyThrows
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String login = authentication.getName();
@@ -35,13 +35,18 @@ public class CustomAuthencationProvider implements AuthenticationProvider {
         if(!password.equals(user.getPassword())){
             throw new BadCredentialsException(("Неверный пароль"));
         }
-        List<String> roles = new ArrayList<>();
-        roleRepository.findByUserId(user.getId()).stream().forEach(role -> roles.add(role.getTitle()));
+
+        String role = roleRepository.findById(user.getRoleId()).getTitle();
+
+        if(role == null){
+            ErrorMessage errorMessage = new ErrorMessage(-2, "Для пользователя: " + login + " не удалось определить роль");
+            throw new RoleErrors(errorMessage);
+        }
 
         UserDetails principal = User.builder()
                 .username(user.getLogin())
                 .password(user.getPassword())
-                .roles(roles.stream().toArray(String[]::new))
+                .roles(role)
                 .build();
 
         return new UsernamePasswordAuthenticationToken(principal, password, principal.getAuthorities());

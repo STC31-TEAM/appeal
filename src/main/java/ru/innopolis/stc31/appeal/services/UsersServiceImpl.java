@@ -35,11 +35,11 @@ public class UsersServiceImpl implements UsersService{
 
     @Override
     public User createUser(UserDTO userDTO) throws UsersErrors {
-        User user = userRepository.save(userDTOToUser.convert(userDTO));
+        User user = userDTOToUser.convert(userDTO);
+        user.setStatus((short) 0);
         Role role = new Role();
-        role.setUserId(user.getId());
-        role.setTitle(Roles.USER.toString());
-        role = roleRepository.save(role);
+        role = roleRepository.findByTitle(Roles.USER.toString());
+        user.setRoleId(role.getId());
 
         if (role.getId() == 0 ){
             ErrorMessage errorMessage = new ErrorMessage(-1, "Не удалось установить роль( "+ role.getTitle() + ") для пользователя: " + user.toString());
@@ -47,7 +47,7 @@ public class UsersServiceImpl implements UsersService{
             throw new UsersErrors(errorMessage);
         }
 
-        return user;
+        return userRepository.save(user);
     }
 
     @Override

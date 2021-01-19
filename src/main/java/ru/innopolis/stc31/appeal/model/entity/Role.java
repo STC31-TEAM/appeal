@@ -21,10 +21,7 @@ public class Role {
 
     @Id
     @GeneratedValue
-    private int id;
-
-    @Column(name = "id_user")
-    private long userId;
+    private long id;
 
     @Column(name = "role")
     private String title;
