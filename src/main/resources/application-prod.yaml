@@ -1,3 +1,6 @@
+server:
+  port: ${PORT:33500}
+
 logging:
   level:
     org.springframework: ERROR
