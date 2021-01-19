@@ -21,12 +21,19 @@ public interface ServiceTypesService {
      * @param serviceTypeDTO type of service
      * @return result of operation
      */
-    boolean createTypeOfService(ServiceTypeDTO serviceTypeDTO);
+    ServiceTypeDTO createTypeOfService(ServiceTypeDTO serviceTypeDTO);
+
+    /**
+     * update new type of service
+     * @param serviceTypeDTO type of service
+     * @return result of operation
+     */
+    ServiceTypeDTO updateTypeOfService(ServiceTypeDTO serviceTypeDTO);
 
     /**
      * delete type of service from base
      * @param serviceTypeDTO type of service needed to remove
      * @return result of operation
      */
-    boolean deleteTypeOfService(ServiceTypeDTO serviceTypeDTO);
+    ServiceTypeDTO deleteTypeOfService(ServiceTypeDTO serviceTypeDTO);
 }

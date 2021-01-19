@@ -1,6 +1,8 @@
 package ru.innopolis.stc31.appeal.utils;
 
 import ru.innopolis.stc31.appeal.model.dto.*;
+import ru.innopolis.stc31.appeal.model.entity.Role;
+import ru.innopolis.stc31.appeal.model.entity.ServiceType;
 import ru.innopolis.stc31.appeal.utils.random.RandomUtils;
 
 import java.time.LocalDate;
@@ -66,7 +68,8 @@ public class MockUtils {
      * @return RoleDTO instance
      */
     public static RoleDTO makeRoleDTO() {
-        return new RoleDTO();
+        return new RoleDTO()
+                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
     }
 
     /**
@@ -74,7 +77,8 @@ public class MockUtils {
      * @return ServiceTypeDTO instance
      */
     public static ServiceTypeDTO makeServiceTypeDTO() {
-        return new ServiceTypeDTO();
+        return new ServiceTypeDTO()
+                .setId(RandomUtils.makeId());
     }
 
     /**
@@ -95,6 +99,24 @@ public class MockUtils {
         return new CountryDTO()
                 .setId(RandomUtils.makeId())
                 .setCountryName(RandomUtils.getRandomCountryName());
+    }
+
+    /**
+     * Single item (Entity)
+     * @return Role instance
+     */
+    public static Role makeRoleEntity() {
+        return new Role()
+                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
+    }
+
+    /**
+     * Single item (Entity)
+     * @return ServiceType instance
+     */
+    public static ServiceType makeServiceTypeEntity() {
+        return new ServiceType()
+                .setId(RandomUtils.makeId());
     }
 
     /**
@@ -167,5 +189,21 @@ public class MockUtils {
      */
     public static List<StreetDTO> makeListStreetDTO(int size) {
         return Stream.generate(MockUtils::makeStreetDTO).limit(size).collect(Collectors.toList());
+    }
+
+    /**
+     * List items (Entity)
+     * @return List of Role objects
+     */
+    public static List<Role> makeListRoleEntity(int size) {
+        return Stream.generate(MockUtils::makeRoleEntity).limit(size).collect(Collectors.toList());
+    }
+
+    /**
+     * List items (Entity)
+     * @return List of ServiceType objects
+     */
+    public static List<ServiceType> makeServiceTypeEntity(int size) {
+        return Stream.generate(MockUtils::makeServiceTypeEntity).limit(size).collect(Collectors.toList());
     }
 }

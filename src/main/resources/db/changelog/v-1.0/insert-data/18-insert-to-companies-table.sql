@@ -13,7 +13,7 @@ values(1,                             /* id */
             'KuznecBucker',                 /* password */
             84126942836,                    /* phone */
             'Kuznec_Bucker@mail.ru');       /* email */
-
+insert into companies
 values(2,                             /* id */
             2,                              /* country */
             4,                              /* city */
@@ -26,7 +26,7 @@ values(2,                             /* id */
             'VladRepair',                   /* password */
             84126857395,                    /* phone */
             'VladRepair@gmail.com');        /* email */
-
+insert into companies
 values(3,                             /* id */
             2,                              /* country */
             4,                              /* city */

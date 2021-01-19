@@ -10,7 +10,8 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 /**
@@ -29,6 +30,8 @@ class ServiceTypeControllerTest {
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllServiceTypes());
         assertDoesNotThrow(() -> controller.createServiceType(MockUtils.makeServiceTypeDTO()));
+        assertDoesNotThrow(() -> controller.updateServiceType(MockUtils.makeServiceTypeDTO()));
+        assertDoesNotThrow(() -> controller.deleteServiceType(MockUtils.makeServiceTypeDTO()));
     }
 
     @Test
@@ -43,8 +46,8 @@ class ServiceTypeControllerTest {
     void createServiceTypeWithOk() {
         ServiceTypeDTO serviceType = MockUtils.makeServiceTypeDTO();
 
-        when(service.createTypeOfService(serviceType)).thenReturn(true);
+        when(service.createTypeOfService(serviceType)).thenReturn(serviceType);
 
-        assertTrue(controller.createServiceType(serviceType));
+        assertEquals(serviceType.getId(), controller.createServiceType(serviceType).getId());
     }
 }

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.innopolis.stc31.appeal.model.entity.ServiceType;
 
 @Repository
-public interface ServiceTypeRepository extends JpaRepository<ServiceType, Integer> {
+public interface ServiceTypeRepository extends JpaRepository<ServiceType, Long> {
 }
