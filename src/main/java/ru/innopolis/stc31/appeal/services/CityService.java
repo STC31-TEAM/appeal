@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.CityDTO;
+import ru.innopolis.stc31.appeal.model.entity.City;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public interface CityService {
      * @param cityDTO city
      * @return result of operation
      */
-    boolean createCity(CityDTO cityDTO);
+    City createCity(CityDTO cityDTO);
 
     /**
      * delete city from base

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.innopolis.stc31.appeal.model.entity.AlbumLink;
 
 @Repository
-public interface AlbumLinkRepository  extends JpaRepository<AlbumLink, Integer> {
+public interface AlbumLinkRepository  extends JpaRepository<AlbumLink, Long> {
 }

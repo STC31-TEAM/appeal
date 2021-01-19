@@ -7,8 +7,6 @@ import java.util.List;
 
 /**
  * interface for Street services
- *
- * @author v.shulepov
  */
 public interface StreetService {
     /**

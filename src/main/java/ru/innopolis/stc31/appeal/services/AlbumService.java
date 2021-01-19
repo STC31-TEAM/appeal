@@ -1,13 +1,12 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.AlbumDTO;
+import ru.innopolis.stc31.appeal.model.entity.AlbumLink;
 
 import java.util.List;
 
 /**
  * interface for Album services
- *
- * @author v.shulepov
  */
 public interface AlbumService {
     /**
@@ -21,7 +20,7 @@ public interface AlbumService {
      * @param albumDTO album
      * @return result of operation
      */
-    boolean createAlbum(AlbumDTO albumDTO);
+    AlbumLink createAlbum(AlbumDTO albumDTO);
 
     /**
      * delete album from base
