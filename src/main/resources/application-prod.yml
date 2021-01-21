@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8088}
+
+logging:
+  level:
+    org.springframework: ERROR
+    ru.innopolis.stc31.appeal: DEBUG
+  pattern:
+    console: "[%-5level] %d{HH:mm:ss.SSS} g:%X{guid} o:%X{oper} [%-26logger{26}:%L]: %m%wEx%n"
+
+spring:
+  datasource:
+    url: jdbc:postgres://xwcncwowkmyhxk:8571f17bc366db3e511176b2646497fd59adb604fe44e69051276ab302ff404e@ec2-34-248-165-3.eu-west-1.compute.amazonaws.com:5432/dc47m50iod2grn
+    username: xwcncwowkmyhxk
+    password: 8571f17bc366db3e511176b2646497fd59adb604fe44e69051276ab302ff404e
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    hibernate.ddl-auto: none
+  liquibase:
+    change-log: 'classpath:db/changelog/db.changelog-master.xml'
+
+application:
+  api:
+    uriPrefix: /api/v1.0
