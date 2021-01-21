@@ -16,8 +16,7 @@ import ru.innopolis.stc31.appeal.repository.RoleRepository;
 import ru.innopolis.stc31.appeal.repository.UserRepository;
 import ru.innopolis.stc31.appeal.utils.MockUtils;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 /**
@@ -41,7 +40,7 @@ class UsersServiceImplTest {
     private UsersServiceImpl service;
 
     @Test
-    void createUser() throws UsersErrors {
+    void createUserOk() throws UsersErrors {
         UserDTO userDTO = MockUtils.makeUserDTO();
         User user = userDTOToUser.convert(userDTO);
         user.setCountryId(1);
@@ -58,6 +57,17 @@ class UsersServiceImplTest {
     }
 
     @Test
+    void createUserFail() throws UsersErrors {
+        Role role = new Role();
+        UserDTO userDTO = MockUtils.makeUserDTO();
+        User user = userDTOToUser.convert(userDTO);
+        when(userDTOToUser.convert(userDTO)).thenReturn(user);
+        when(roleRepository.findByTitle(Roles.USER.toString())).thenReturn(role);
+
+        assertThrows(UsersErrors.class, () -> service.createUser(userDTO));
+    }
+
+        @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> service.deleteUser(MockUtils.makeUserDTO()));
         assertDoesNotThrow(() -> service.getUserByName(MockUtils.makeUserDTO().getName()));
