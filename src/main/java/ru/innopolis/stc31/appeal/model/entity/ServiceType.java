@@ -14,7 +14,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Accessors
+@Accessors(chain = true)
 public class ServiceType {
 
     @Id
