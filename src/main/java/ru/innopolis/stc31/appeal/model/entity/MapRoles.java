@@ -7,10 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-/**
- * @author Munir Makhmutov
- * @version 1.0.0
- */
+@Deprecated
 @Entity
 @Table(name = "map_roles")
 @Data

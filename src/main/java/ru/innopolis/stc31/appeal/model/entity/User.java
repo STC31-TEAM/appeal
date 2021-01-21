@@ -8,10 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-/**
- * @author Munir Makhmutov
- * @version 1.0.0
- */
 @Entity
 @Table(name = "users")
 @Data
@@ -24,8 +20,8 @@ public class User {
     @GeneratedValue
     private long id;
 
-    @Column(name = "id_map_role")
-    private long mapRoleId;
+    @Column(name = "id_role")
+    private long roleId;
 
     @Column(name = "id_company")
     private long companyId;
