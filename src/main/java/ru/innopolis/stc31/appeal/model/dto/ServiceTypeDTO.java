@@ -11,4 +11,6 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class ServiceTypeDTO {
+    private long id;
+    private String type;
 }

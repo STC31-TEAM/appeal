@@ -10,7 +10,8 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 /**
@@ -29,6 +30,8 @@ class RoleControllerTest {
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllRoles());
         assertDoesNotThrow(() -> controller.createRole(MockUtils.makeRoleDTO()));
+        assertDoesNotThrow(() -> controller.updateRole(MockUtils.makeRoleDTO()));
+        assertDoesNotThrow(() -> controller.deleteRole(MockUtils.makeRoleDTO()));
     }
 
     @Test
@@ -43,8 +46,8 @@ class RoleControllerTest {
     void createRoleWithOk() {
         RoleDTO role = MockUtils.makeRoleDTO();
 
-        when(service.createRole(role)).thenReturn(true);
+        when(service.createRole(role)).thenReturn(role);
 
-        assertTrue(controller.createRole(role));
+        assertEquals(role.getId(), controller.createRole(role).getId());
     }
 }
