@@ -6,9 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Column;
-import java.time.LocalDate;
-
 /**
  * User data transfer object
  */
