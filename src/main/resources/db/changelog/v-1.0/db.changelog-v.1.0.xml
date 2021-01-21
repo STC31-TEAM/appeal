@@ -28,5 +28,9 @@
     <include file="insert-data/19-changeset-insert-to-tickets-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/20-changeset-insert-to-album_links-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/21-changeset-insert-to-ticket_users-table.xml" relativeToChangelogFile="true"/>
+    <include file="22-changeset-alter-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/23-changeset-update-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="32-changeset-alter-album_links-table.xml" relativeToChangelogFile="true"/>
+
 
 </databaseChangeLog>
