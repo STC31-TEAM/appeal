@@ -7,9 +7,8 @@ import ru.innopolis.stc31.appeal.model.entity.Role;
 import java.util.List;
 
 @Repository
-public interface RoleRepository  extends JpaRepository<Role, Integer> {
+public interface RoleRepository  extends JpaRepository<Role, Long> {
 
-//    List<Role> findByUserId(long userId);
     Role findById(long id);
     Role findByTitle(String title);
 }

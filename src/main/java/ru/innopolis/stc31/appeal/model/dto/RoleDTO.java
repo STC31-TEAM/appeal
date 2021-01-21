@@ -1,5 +1,6 @@
 package ru.innopolis.stc31.appeal.model.dto;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -11,6 +12,6 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class RoleDTO {
-    private int id;
+    private long id;
     private String title;
 }
