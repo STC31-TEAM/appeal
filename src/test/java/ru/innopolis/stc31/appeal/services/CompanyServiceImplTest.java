@@ -50,9 +50,6 @@ class CompanyServiceImplTest {
     void getCompanyList() {
         List<Company> companyList = new ArrayList<>();
         for (int count = 1; count < 6; count++){
-//            companyList.add(new Company(count, count * 3, count * 4, count * 2, count * 8, count * 3,
-//                    "TestLogin" + count, "TestPassword" + count, "mail" + count +"@gmail.com",
-//                    84728 + count * 11, "Company" + count + " Tilte", (short) 2));
             companyList.add(new Company(count, count * 4, count * 2, count * 8, count * 3,
                     "TestLogin" + count, "TestPassword" + count, "mail" + count + "@gmail.com",
                     84728 + count * 11, "Company" + count + " Tilte", (short) 2));
@@ -70,9 +67,6 @@ class CompanyServiceImplTest {
 
     @Test
     void createCompany() {
-//        CompanyDTO companyDTO = new CompanyDTO(1, 3, 4, 2, 8, 3,
-//                "TestLogin", "TestPassword", "mail@gmail.com",
-//                84728568747L, "Company Tilte", (short) 2);
         CompanyDTO companyDTO = new CompanyDTO(1, 4, 2, 8, 3,
                 "TestLogin", "TestPassword", "mail@gmail.com",
                 84728568747L, "Company Tilte", (short) 2);
