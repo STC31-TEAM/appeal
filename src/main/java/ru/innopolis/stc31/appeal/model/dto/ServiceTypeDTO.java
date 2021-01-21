@@ -13,4 +13,5 @@ import lombok.experimental.Accessors;
 public class ServiceTypeDTO {
     private long id;
     private String type;
+    private String description;
 }

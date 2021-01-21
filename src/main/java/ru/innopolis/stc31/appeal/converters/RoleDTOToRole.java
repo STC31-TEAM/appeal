@@ -17,7 +17,10 @@ public class RoleDTOToRole implements Converter<RoleDTO, Role> {
      */
     @Override
     public Role convert(RoleDTO source) {
-        return new Role()
-                .setTitle(source.getTitle());
+        Role role = new Role();
+        role.setTitle(source.getTitle());
+        return role;
+//        return new Role()
+//                .setTitle(source.getTitle());
     }
 }

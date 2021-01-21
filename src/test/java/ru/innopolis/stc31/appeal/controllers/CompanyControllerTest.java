@@ -9,7 +9,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.CompanyDTOToCompany;
 import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
-import ru.innopolis.stc31.appeal.model.dto.CityDTO;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
 import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.services.CompanyService;
@@ -17,7 +16,8 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 /**
@@ -54,7 +54,10 @@ class CompanyControllerTest {
 
     @Test
     void createCompany() {
-        CompanyDTO companyDTO = new CompanyDTO(1, 3, 4, 2, 8, 3,
+//        CompanyDTO companyDTO = new CompanyDTO(1, 3, 4, 2, 8, 3,
+//                "TestLogin", "TestPassword", "mail@gmail.com",
+//                84728568747L, "Company Tilte", (short) 2);
+        CompanyDTO companyDTO = new CompanyDTO(1, 4, 2, 8, 3,
                 "TestLogin", "TestPassword", "mail@gmail.com",
                 84728568747L, "Company Tilte", (short) 2);
         Company company = companyDTOToCompany.convert(companyDTO);

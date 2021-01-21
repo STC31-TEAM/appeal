@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
 public class CompanyDTO {
 
     private long id;
-    private long mapRoleId;
+//    private long mapRoleId;
     private long serviceTypeId;
     private long countryId;
     private long cityId;
