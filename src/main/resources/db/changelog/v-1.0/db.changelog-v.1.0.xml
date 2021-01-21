@@ -16,6 +16,16 @@
     <include file="09-changeset-countries-table.xml" relativeToChangelogFile="true"/>
     <include file="10-changeset-cities-table.xml" relativeToChangelogFile="true"/>
     <include file="11-changeset-streets-table.xml" relativeToChangelogFile="true"/>
+    <include file="22-changeset-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="23-changeset-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="24-changeset-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="25-changeset-service_types-table.xml" relativeToChangelogFile="true"/>
+    <include file="26-changeset-tickets-table.xml" relativeToChangelogFile="true"/>
+    <include file="27-changeset-tickets_users-table.xml" relativeToChangelogFile="true"/>
+    <include file="28-changeset-album_links-table.xml" relativeToChangelogFile="true"/>
+    <include file="29-changeset-countries-table.xml" relativeToChangelogFile="true"/>
+    <include file="30-changeset-cities-table.xml" relativeToChangelogFile="true"/>
+    <include file="31-changeset-streets-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/12-changeset-insert-to-country-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/12.1-changeset-insert-to-users-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/12.2-changeset-insert-to-roles-table.xml" relativeToChangelogFile="true"/>
