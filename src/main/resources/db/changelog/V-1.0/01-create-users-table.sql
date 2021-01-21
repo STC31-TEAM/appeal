@@ -1,5 +1,5 @@
 create table users (
-                           id 			 BIGSERIAL primary key,
+                           id 			     BIGSERIAL primary key,
                            id_map_role   INTEGER UNIQUE NOT NULL,
                            id_country    SMALLINT NOT NULL,
                            id_city 	     INTEGER NOT NULL,
