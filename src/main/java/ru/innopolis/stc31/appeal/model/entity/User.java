@@ -21,11 +21,11 @@ import java.time.LocalDate;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "id_map_role")
-    private long mapRoleId;
+    @Column(name = "id_role")
+    private long roleId;
 
     @Column(name = "id_company")
     private long companyId;

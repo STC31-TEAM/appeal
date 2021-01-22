@@ -36,7 +36,14 @@ public class RandomUtils {
     /**
      * @return Random name
      */
-    public static String makeUsername() {
+    public static String makeName() {
+        return makeWord(getRandomValue(3, 32));
+    }
+
+    /**
+     * @return Random name
+     */
+    public static String makeSurname() {
         return makeWord(getRandomValue(3, 32));
     }
 

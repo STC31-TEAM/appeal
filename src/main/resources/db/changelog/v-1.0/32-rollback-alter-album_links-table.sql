@@ -1,0 +1,1 @@
+DROP SEQUENCE album_links_id_seq;

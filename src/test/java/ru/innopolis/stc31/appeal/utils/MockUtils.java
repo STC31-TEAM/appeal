@@ -23,10 +23,11 @@ public class MockUtils {
     public static UserDTO makeUserDTO() {
         return new UserDTO()
                 .setId(RandomUtils.makeId())
-                .setBirthday(LocalDate.now())
+                .setBirthday(String.valueOf(LocalDate.now()))
                 .setEmail(RandomUtils.makeEmail())
                 .setLogin(RandomUtils.makeLogin())
-                .setUsername(RandomUtils.makeUsername())
+                .setName(RandomUtils.makeName())
+                .setSurname(RandomUtils.makeName())
                 .setPhone(RandomUtils.getRandomPhone())
                 .setStatus((short) RandomUtils.getRandomValue(0, 2));
     }

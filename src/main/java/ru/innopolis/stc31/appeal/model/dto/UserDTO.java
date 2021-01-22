@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import java.time.LocalDate;
-
 /**
  * User data transfer object
  */
@@ -19,9 +17,15 @@ import java.time.LocalDate;
 public class UserDTO {
     private long id;
     private String login;
-    private String username;
+    private String name;
+    private String surname;
+    private String password;
     private String email;
     private long phone;
-    private LocalDate birthday;
+    private String birthday;
     private short status;
+    private long companyId;
+    private long countryId;
+    private long cityId;
+    private long streetId;
 }
