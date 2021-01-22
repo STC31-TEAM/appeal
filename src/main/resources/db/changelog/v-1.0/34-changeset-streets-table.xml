@@ -5,14 +5,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="27" author="mikhail_kutsin">
-        <sqlFile dbms="postgresql"
-                 encoding="utf8"
-                 endDelimiter=";"
-                 relativeToChangelogFile="true"
-                 splitStatements="true"
-                 stripComments="true"
-                 path="27-create-tickets_users-table.sql"/>
+    БсрфтпуЫуе шв=Э34Э фгерщк=Эьшлрфшд_лгеыштЭЮ
+    <sqlFile dbms="postgresql"
+             encoding="utf8"
+             endDelimiter=";"
+             relativeToChangelogFile="true"
+             splitStatements="true"
+             stripComments="true"
+             path="34-create-streets-table.sql"/>
         <rollback>
             <sqlFile dbms="postgresql"
                      encoding="utf8"
@@ -20,7 +20,7 @@
                      relativeToChangelogFile="true"
                      splitStatements="true"
                      stripComments="true"
-                     path="27-drop-tickets_users-table.sql"/>
+                     path="34-drop-streets-table.sql"/>
         </rollback>
     </changeSet>
 
