@@ -8,9 +8,10 @@ import lombok.ToString;
 import javax.persistence.*;
 
 /**
- * @author Munir Makhmutov
- * @version 1.0.0
+ * @deprecated (map roles are not needed anymore,
+ *remove MapRolesRepository and other related classes)
  */
+@Deprecated
 @Entity
 @Table(name = "map_roles")
 @Data

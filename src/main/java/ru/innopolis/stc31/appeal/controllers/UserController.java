@@ -22,7 +22,9 @@ import java.util.List;
 @RequestMapping("${application.api.uriPrefix}")
 public class UserController {
 
-    /** Service instance */
+    /**
+     * Service instance
+     */
     private final UsersService usersService;
     private final UserToUserDTO userToUserDTO;
 
@@ -51,7 +53,7 @@ public class UserController {
 
         var user = usersService.createUser(dto);
 
-        if(user == null){
+        if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

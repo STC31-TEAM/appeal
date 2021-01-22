@@ -4,7 +4,6 @@ import ru.innopolis.stc31.appeal.utils.random.dictionaries.Dictionary;
 
 import java.security.SecureRandom;
 import java.util.Locale;
-import java.util.Random;
 
 /**
  * @author Sergey Fomin

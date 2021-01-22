@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    БсрфтпуЫуе шв=Э34Э фгерщк=Эьшлрфшд_лгеыштЭЮ
+    <sqlFile dbms="postgresql"
+             encoding="utf8"
+             endDelimiter=";"
+             relativeToChangelogFile="true"
+             splitStatements="true"
+             stripComments="true"
+             path="34-create-streets-table.sql"/>
+        <rollback>
+            <sqlFile dbms="postgresql"
+                     encoding="utf8"
+                     endDelimiter=";"
+                     relativeToChangelogFile="true"
+                     splitStatements="true"
+                     stripComments="true"
+                     path="34-drop-streets-table.sql"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

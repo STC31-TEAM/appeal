@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @AllArgsConstructor
 @Service
-public class UsersServiceImpl implements UsersService{
+public class UsersServiceImpl implements UsersService {
 
     private UserRepository userRepository;
     private UserDTOToUser userDTOToUser;
@@ -48,8 +48,8 @@ public class UsersServiceImpl implements UsersService{
         Role role = roleRepository.findByTitle(Roles.USER.toString());
         user.setRoleId(role.getId());
 
-        if (role.getId() == 0 ){
-            ErrorMessage errorMessage = new ErrorMessage(-1, "Не удалось установить роль( "+ role.getTitle() + ") для пользователя: " + user.toString());
+        if (role.getId() == 0) {
+            ErrorMessage errorMessage = new ErrorMessage(-1, "Не удалось установить роль( " + role.getTitle() + ") для пользователя: " + user.toString());
             log.error(errorMessage.toString());
             throw new UsersErrors(errorMessage);
         }

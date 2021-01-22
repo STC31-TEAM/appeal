@@ -1,6 +1,6 @@
 package ru.innopolis.stc31.appeal.exceptions;
 
-public class RoleErrors extends Exception{
+public class RoleErrors extends Exception {
 
     private final ErrorMessage errorMessage;
 
