@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.CityToCityDTO;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
-import ru.innopolis.stc31.appeal.model.dto.AlbumDTO;
 import ru.innopolis.stc31.appeal.model.dto.CityDTO;
 import ru.innopolis.stc31.appeal.services.CityService;
 

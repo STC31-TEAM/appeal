@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping("${application.api.uriPrefix}/role")
+@RequestMapping("${application.api.uriPrefix}/role/admin")
 public class RoleController {
 
     /** Role service instance */

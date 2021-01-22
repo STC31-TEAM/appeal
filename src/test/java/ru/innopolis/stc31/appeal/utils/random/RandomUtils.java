@@ -4,7 +4,6 @@ import ru.innopolis.stc31.appeal.utils.random.dictionaries.Dictionary;
 
 import java.security.SecureRandom;
 import java.util.Locale;
-import java.util.Random;
 
 /**
  * @author Sergey Fomin
@@ -36,7 +35,14 @@ public class RandomUtils {
     /**
      * @return Random name
      */
-    public static String makeUsername() {
+    public static String makeName() {
+        return makeWord(getRandomValue(3, 32));
+    }
+
+    /**
+     * @return Random name
+     */
+    public static String makeSurname() {
         return makeWord(getRandomValue(3, 32));
     }
 

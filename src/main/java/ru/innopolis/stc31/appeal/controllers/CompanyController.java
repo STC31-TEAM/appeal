@@ -1,6 +1,5 @@
 package ru.innopolis.stc31.appeal.controllers;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +10,6 @@ import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
 import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
-import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.services.CompanyService;
 
 import java.util.List;
