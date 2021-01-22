@@ -36,7 +36,7 @@ public class TicketController {
      * @param dto Model
      * @return true if success created
      */
-    @PostMapping("/create")
+    @PostMapping("/user/create")
     @ApiOperation("Добавить заявку")
     public boolean createTicket(@RequestBody TicketDTO dto) {
         return ticketService.createTicket(dto);
