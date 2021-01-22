@@ -7,6 +7,10 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+/**
+ * @deprecated (map roles are not needed anymore,
+ *remove MapRolesRepository and other related classes)
+ */
 @Deprecated
 @Entity
 @Table(name = "map_roles")
