@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @AllArgsConstructor
-@RequestMapping("${application.api.uriPrefix}/user")
+@RequestMapping("${application.api.uriPrefix}")
 public class UserController {
 
     /** Service instance */
@@ -31,7 +31,7 @@ public class UserController {
      *
      * @return List of users
      */
-    @GetMapping("/all")
+    @GetMapping("/admin/all")
     @ApiOperation("Получить список всех пользователей")
     public List<UserDTO> getAllUsers() {
         return usersService.getUserList();
@@ -43,7 +43,7 @@ public class UserController {
      * @param dto Model
      * @return ResponseEntity<UserDTO>
      */
-    @PostMapping("/create")
+    @PostMapping("/user/create")
     @ApiOperation("Добавить пользователя")
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO dto) throws UsersErrors {
 
