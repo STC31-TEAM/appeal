@@ -3,11 +3,17 @@ package ru.innopolis.stc31.appeal.controllers;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import ru.innopolis.stc31.appeal.converters.TicketDTOToTicket;
+import ru.innopolis.stc31.appeal.converters.TicketToTicketDTO;
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
+import ru.innopolis.stc31.appeal.model.entity.Ticket;
 import ru.innopolis.stc31.appeal.services.TicketService;
 import ru.innopolis.stc31.appeal.utils.MockUtils;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,6 +31,13 @@ class TicketControllerTest {
     @Mock
     private TicketService service;
 
+    @Spy
+    private TicketDTOToTicket ticketDTOToTicket;
+
+    @Spy
+    private TicketToTicketDTO ticketToTicketDTO;
+
+
     @Test
     void checkOnOk() {
         assertDoesNotThrow(() -> controller.getAllTickets());
@@ -41,10 +54,21 @@ class TicketControllerTest {
 
     @Test
     void createTicketWithOk() {
-        TicketDTO ticket = MockUtils.makeTicketDTO();
+        LocalDate dateOpen = LocalDate.of(2021, 1, 22);
+        LocalDate dateClose = LocalDate.of(2021, 1, 23);
 
-        when(service.createTicket(ticket)).thenReturn(true);
+        TicketDTO ticketDTO = new TicketDTO(1,1,1,1,1,1,1,1,
+                "TestTicket1","TestTicketDescription1",dateOpen,dateClose,
+                10,1,(short)0);
 
-        assertTrue(controller.createTicket(ticket));
+        Ticket ticket=ticketDTOToTicket.convert(ticketDTO);
+
+        when(service.createTicket(ticketDTO)).thenReturn(ticket);
+
+        ResponseEntity<TicketDTO> responseEntity=controller.createTicket(ticketDTO);
+
+        assertEquals(responseEntity.getStatusCodeValue(), 200);
+        assertEquals(responseEntity.getBody().getId(), ticketDTO.getId());
+
     }
 }
