@@ -7,6 +7,7 @@ import org.mockito.Spy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.TicketDTOToTicket;
+import ru.innopolis.stc31.appeal.converters.TicketToTicketDTO;
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
 import ru.innopolis.stc31.appeal.model.entity.Ticket;
 import ru.innopolis.stc31.appeal.services.TicketService;
@@ -15,8 +16,7 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 /**
@@ -34,6 +34,8 @@ class TicketControllerTest {
     @Spy
     private TicketDTOToTicket ticketDTOToTicket;
 
+    @Spy
+    private TicketToTicketDTO ticketToTicketDTO;
 
 
     @Test
@@ -58,12 +60,15 @@ class TicketControllerTest {
         TicketDTO ticketDTO = new TicketDTO(1,1,1,1,1,1,1,1,
                 "TestTicket1","TestTicketDescription1",dateOpen,dateClose,
                 10,1,(short)0);
+
         Ticket ticket=ticketDTOToTicket.convert(ticketDTO);
 
         when(service.createTicket(ticketDTO)).thenReturn(ticket);
+
         ResponseEntity<TicketDTO> responseEntity=controller.createTicket(ticketDTO);
+
         assertEquals(responseEntity.getStatusCodeValue(), 200);
-        assertEquals(responseEntity.getBody().getTitles(), ticketDTO.getTitles());
+        assertEquals(responseEntity.getBody().getId(), ticketDTO.getId());
 
     }
 }
