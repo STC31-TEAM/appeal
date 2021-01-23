@@ -45,7 +45,7 @@ public class TicketController {
     @PostMapping("/user/create")
     @ApiOperation("Добавить заявку")
     public ResponseEntity <TicketDTO> createTicket(@RequestBody TicketDTO dto) {
-        log.debug("create user method was called with {} ", dto);
+        log.debug("create ticket method was called with {} ", dto);
         var ticket =ticketService.createTicket(dto);
 
         if(ticket==null) {
