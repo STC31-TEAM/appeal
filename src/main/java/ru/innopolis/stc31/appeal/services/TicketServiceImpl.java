@@ -30,9 +30,8 @@ public class TicketServiceImpl implements TicketService{
     }
 
     @Override
-    public boolean createTicket(TicketDTO ticketDTO) {
-        ticketRepository.save(ticketDTOToTicket.convert(ticketDTO));
-        return true;
+    public Ticket createTicket(TicketDTO ticketDTO) {
+        return ticketRepository.save(ticketDTOToTicket.convert(ticketDTO));
     }
 
     @Override
