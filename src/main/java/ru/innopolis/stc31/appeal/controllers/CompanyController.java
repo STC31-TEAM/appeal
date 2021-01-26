@@ -5,8 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
+import ru.innopolis.stc31.appeal.exceptions.CompanyErrors;
+import ru.innopolis.stc31.appeal.exceptions.ErrorMessage;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
 import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
@@ -17,7 +21,7 @@ import java.util.List;
 /**
  * Controller for manage companies
  */
-@RestController
+@Controller
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/company")
 @Slf4j
@@ -45,7 +49,7 @@ public class CompanyController {
      * @param companyDTO Model
      * @return true if success created
      */
-    @PostMapping("/create")
+    @PostMapping("/createCompany")
     @ApiOperation("Добавить компанию")
     public ResponseEntity<CompanyDTO> createCompany(@RequestBody CompanyDTO companyDTO) {
 

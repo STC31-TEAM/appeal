@@ -5,6 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class UsersErrors extends Exception {
+public class HashAlgorithmError extends Exception {
     private ErrorMessage errorMessage;
+
 }

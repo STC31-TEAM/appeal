@@ -72,9 +72,9 @@ class CompanyServiceImplTest {
 
     @Test
     void createCompany() {
-        CompanyDTO companyDTO = new CompanyDTO(1, 3, 4, 2, 8, 3,
+        CompanyDTO companyDTO = new CompanyDTO(1l, 3l, 4l, 2l, 8l, 3l,
                 "TestLogin", "TestPassword", "mail@gmail.com",
-                84728568747L, "Company Tilte", (short) 2);
+                84728568747L, "Company Tilte", (short) 2, "Full address");
         Company company = companyDTOToCompany.convert(companyDTO);
         when(companyRepository.save(company)).thenReturn(company);
 

@@ -32,5 +32,4 @@
     <include file="insert-data/23-changeset-update-users-table.xml" relativeToChangelogFile="true"/>
     <include file="24-changeset-alter-album_links-table.xml" relativeToChangelogFile="true"/>
 
-
 </databaseChangeLog>

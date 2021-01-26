@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #content},
+                                                ~{:: #nav-left},
+                                                ~{:: #nav-right}
+                                               )}" lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap-icons-1.3.0/bootstrap-icons.css}"/>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <script th:src="@{/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/bootstrap-5.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/scripts.js}"></script>
+    <title>Регистрация пользователя</title>
+</head>
+<body>
+<!-- Left navigation -->
+<ul id="nav-left" class="nav nav-main dropdown">
+    <button class="btn dropdown-toggle dropbtn">Explore</button>
+    <li class="nav-item dropdown-content">
+        <a class="nav-link" href="/companyAll">Компании</a>
+        <a class="nav-link" href="#">Explore2</a>
+        <a class="nav-link" href="#">Explore3</a>
+    </li>
+</ul>
+
+<!-- Right navigation -->
+<ul id="nav-right" class="nav nav-main justify-content-end">
+    <li class="nav-item">
+        <a class="nav-link" href="#">Log In</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/createUserOrCompany">Sign Up</a>
+    </li>
+</ul>
+<div id="content" class="content">
+
+    <div class="container-md div-form">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation" >
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Регистрация пользователя</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Регистрация компании</a>
+            </li>
+
+        </ul>
+
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <h3>Регистрация пользователя</h3>
+                <form action="#" th:action="@{/api/v1.0/ui/createUser}" th:object="${userDTO}" method="post">
+
+                    <label for="login">Логин</label><br>
+                    <input type="text" th:field="*{login}" id="login" placeholder="Login">
+
+                    <label for="password">Пароль</label><br>
+                    <input type="text" th:field="*{password}" id="password" placeholder="Password">
+
+                    <label for="email">Электронный адрес</label><br>
+                    <input type="email" th:field="*{email}" id="email" placeholder="Email">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+                    <label for="name">Имя</label><br>
+                    <input type="text" th:field="*{name}" id="name" placeholder="Имя">
+
+                    <label for="surname">Фамилия</label><br>
+                    <input type="text" th:field="*{surname}" id="surname" placeholder="Фамилия">
+
+                    <label for="phone">Номер сотового телефона</label><br>
+                    <input type="tel" th:field="*{phone}" id="phone" placeholder="79XXXXXXXXX">
+
+                    <label for="birthday">Дату рождения</label><br>
+                    <input type="datetime-local" th:field="*{birthday}" id="birthday" placeholder="YYYY-MM-dd">
+
+                    <label for="companyId">Компания</label><br>
+                    <select id="companyId" name="companyId"  th:field="*{companyId}">
+                        <option th:each="company : ${allCompanyTitle}"
+                                th:value="${company.value}"
+                                th:text="${company.key}">
+                            Компания
+                        </option>
+                    </select>
+
+                    <label for="countryId">Страна</label><br>
+                    <select id="countryId" name="countryId"  th:field="*{countryId}">
+                        <option th:each="country : ${allCountryTitle}"
+                                th:value="${country.value}"
+                                th:text="${country.key}">
+                            Страна
+                        </option>
+                    </select>
+
+                    <label for="cityId">Город</label><br>
+                    <select id="cityId" name="cityId"  th:field="*{cityId}">
+                        <option th:each="city : ${allCityName}"
+                                th:value="${city.value}"
+                                th:text="${city.key}">
+                            Город
+                        </option>
+                    </select>
+
+                    <label for="streetId">Улица</label><br>
+                    <select id="streetId" name="streetId"  th:field="*{streetId}">
+                        <option th:each="street : ${allStreetName}"
+                                th:value="${street.value}"
+                                th:text="${street.key}">
+                            Улица
+                        </option>
+                    </select>
+
+                    <input type="submit" value="Отправить">
+                </form>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <h3>Регистрация компании</h3>
+                <form action="#" th:action="@{/api/v1.0/ui/company/createCompany}" th:object="${companyDTO}" method="post">
+
+                    <label for="loginCompany">Логин</label><br>
+                    <input type="text" th:field="*{login}" id="loginCompany" placeholder="Login">
+
+                    <label for="passwordCompany">Пароль</label><br>
+                    <input type="text" th:field="*{password}" id="passwordCompany" placeholder="Password">
+
+                    <label for="emailCompany">Электронный адрес</label><br>
+                    <input type="email" th:field="*{email}" id="emailCompany" placeholder="Email">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+                    <label for="nameCompany">Наименование компании</label><br>
+                    <input type="text" th:field="*{title}" id="nameCompany" placeholder="Наименование">
+
+                    <label for="phoneCompany">Номер телефона</label><br>
+                    <input type="tel" th:field="*{phone}" id="phoneCompany" placeholder="79XXXXXXXXX">
+
+                    <label for="countryIdCompany">Страна</label><br>
+                    <select id="countryIdCompany" name="countryIdCompany"  th:field="*{countryId}">
+                        <option th:each="country : ${allCountryTitle}"
+                                th:value="${country.value}"
+                                th:text="${country.key}">
+                            Страна
+                        </option>
+                    </select>
+
+                    <label for="cityIdCompany">Город</label><br>
+                    <select id="cityIdCompany" name="cityIdCompany"  th:field="*{cityId}">
+                        <option th:each="city : ${allCityName}"
+                                th:value="${city.value}"
+                                th:text="${city.key}">
+                            Город
+                        </option>
+                    </select>
+
+                    <label for="streetIdCompany">Улица</label><br>
+                    <select id="streetIdCompany" name="streetIdCompany"  th:field="*{streetId}">
+                        <option th:each="street : ${allStreetName}"
+                                th:value="${street.value}"
+                                th:text="${street.key}">
+                            Улица
+                        </option>
+                    </select>
+
+                    <input type="submit" value="Отправить">
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+</body>
+</html>

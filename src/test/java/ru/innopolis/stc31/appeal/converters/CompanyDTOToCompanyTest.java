@@ -17,9 +17,11 @@ class CompanyDTOToCompanyTest {
 
     @Test
     void convert() {
-        CompanyDTO companyDTO = new CompanyDTO(3, 4, 2, 1, 2, 4, "Test Company", "pass22", "company_test@mail.ru", 84012587315L, "Company of Australia", (short)1);
+        CompanyDTO companyDTO = new CompanyDTO(3l, 4l, 2l, 1l, 2l, 4l,
+                "Test Company", "pass22", "company_test@mail.ru",
+                84012587315L, "Company of Australia", (short)1, "Full address");
 
-        assertEquals(companyDTOToCompany.convert(companyDTO).getMapRoleId(), companyDTO.getMapRoleId());
+        assertEquals(companyDTOToCompany.convert(companyDTO).getUserId(), companyDTO.getUserId());
         assertEquals(companyDTOToCompany.convert(companyDTO).getServiceTypeId(), companyDTO.getServiceTypeId());
         assertEquals(companyDTOToCompany.convert(companyDTO).getCountryId(), companyDTO.getCountryId());
         assertEquals(companyDTOToCompany.convert(companyDTO).getCityId(), companyDTO.getCityId());

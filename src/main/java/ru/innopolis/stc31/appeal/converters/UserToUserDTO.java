@@ -15,8 +15,13 @@ public class UserToUserDTO {
         userDTO.setName(user.getName());
         userDTO.setSurname(user.getSurname());
         userDTO.setLogin(user.getLogin());
+        userDTO.setPassword(user.getPassword());
         userDTO.setPhone(user.getPhone());
         userDTO.setStatus(user.getStatus());
+        userDTO.setCompanyId(user.getCompanyId());
+        userDTO.setCountryId(user.getCountryId());
+        userDTO.setCityId(user.getCityId());
+        userDTO.setStreetId(user.getStreetId());
         return userDTO;
     }
 

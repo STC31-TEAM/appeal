@@ -18,7 +18,7 @@ class CompanyToCompanyDTOTest {
     void convert() {
        Company company = new Company(5, 2, 3, 2, 1, 4, "Company test", "password123", "test@gmail.com", 84012379156L, "British Company", (short)1);
 
-        assertEquals(companyToCompanyDTO.convert(company).getMapRoleId(), company.getMapRoleId());
+        assertEquals(companyToCompanyDTO.convert(company).getUserId(), company.getUserId());
         assertEquals(companyToCompanyDTO.convert(company).getServiceTypeId(), company.getServiceTypeId());
         assertEquals(companyToCompanyDTO.convert(company).getCountryId(), company.getCountryId());
         assertEquals(companyToCompanyDTO.convert(company).getCityId(), company.getCityId());
