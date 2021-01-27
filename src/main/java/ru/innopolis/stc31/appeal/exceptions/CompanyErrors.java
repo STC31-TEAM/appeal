@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class UsersErrors extends Exception {
+public class CompanyErrors extends Exception {
     private ErrorMessage errorMessage;
 }
