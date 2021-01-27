@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.UserDTOToUser;
+import ru.innopolis.stc31.appeal.converters.UserToUserDTO;
 import ru.innopolis.stc31.appeal.exceptions.UsersErrors;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.model.entity.Role;
