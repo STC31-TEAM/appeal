@@ -18,7 +18,7 @@ import ru.innopolis.stc31.appeal.services.UsersService;
 @Controller
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ui")
-public class UserUiController {
+public class UserUiController extends BaseCredentialController {
 
     /** Service instance */
     private final UsersService usersService;
