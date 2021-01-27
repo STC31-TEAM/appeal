@@ -3,10 +3,7 @@ package ru.innopolis.stc31.appeal.services;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import ru.innopolis.stc31.appeal.model.dto.CityDTO;
-import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
-import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
-import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
+import ru.innopolis.stc31.appeal.model.dto.*;
 import ru.innopolis.stc31.appeal.model.entity.City;
 import ru.innopolis.stc31.appeal.model.entity.Country;
 import ru.innopolis.stc31.appeal.model.entity.Street;
@@ -28,6 +25,7 @@ public class ReviewService {
     private final CountryService countryService;
     private final CityService cityService;
     private final StreetService streetService;
+    private final TicketService ticketService;
 
     private final CountryRepository countryRepository;
     private final CityRepository cityRepository;
@@ -157,6 +155,15 @@ public class ReviewService {
             listStreet.put(streetDTO.getStreetName(), streetDTO.getId() );
         }
         return listStreet;
+    }
+
+    public Map<String, TicketDTO> getAllTickets(){
+        List<TicketDTO> ticketDTOList = ticketService.getTicketList();
+        Map<String,TicketDTO> ticketDTOMap = new HashMap<>();
+        for (TicketDTO ticketDTO: ticketDTOList){
+            ticketDTOMap.put(ticketDTO.getTitles(), ticketDTO);
+        }
+        return ticketDTOMap;
     }
 
 }

@@ -1,8 +1,14 @@
 package ru.innopolis.stc31.appeal.controllers.ui;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
+import ru.innopolis.stc31.appeal.model.dto.UserDTO;
+import ru.innopolis.stc31.appeal.services.ReviewService;
 
 /**
  * UI controller for review page
@@ -41,5 +47,11 @@ public class ReviewController {
         return "list-company";
     }
 
-
+    @GetMapping("/ticketAll")
+    public String ticketAll(Model model) {
+        TicketDTO ticketDTO = new TicketDTO();
+        model.addAttribute("ticketDTO", ticketDTO);
+        model.addAttribute("allTicket", reviewService.getAllTickets());
+        return "list-company";
+    }
 }
