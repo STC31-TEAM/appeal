@@ -74,7 +74,7 @@ class CompanyControllerTest {
     void createCompanyWithFail() {
         CompanyDTO companyDTO = MockUtils.makeCompanyDTO();
 
-        when(companyService.deleteCompany(companyDTO)).thenReturn(false);
+        when(companyService.createCompany(companyDTO)).thenReturn(null);
 
         ResponseEntity<CompanyDTO> responseEntity = controller.createCompany(companyDTO);
 
