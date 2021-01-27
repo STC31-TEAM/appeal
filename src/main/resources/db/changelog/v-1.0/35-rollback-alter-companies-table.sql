@@ -1,2 +1,1 @@
 DROP SEQUENCE companies_id_seq;
-ALTER TABLE companies ADD COLUMN id_map_role INTEGER UNIQUE NOT NULL;
