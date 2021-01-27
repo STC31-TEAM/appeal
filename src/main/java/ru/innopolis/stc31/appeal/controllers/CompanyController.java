@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Controller for manage companies
  */
-@Controller
+@RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/company")
 @Slf4j
