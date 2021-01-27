@@ -18,7 +18,7 @@ import static org.mockito.Mockito.doReturn;
 @SpringBootTest
 class ReviewControllerTest {
 
-    @Spy
+    @Mock
     private ReviewService reviewService;
 
     @InjectMocks

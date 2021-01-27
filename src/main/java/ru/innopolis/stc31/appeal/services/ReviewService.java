@@ -37,10 +37,6 @@ public class ReviewService {
     private CityRepository cityRepository;
     @Autowired
     private StreetRepository streetRepository;
-//
-//    public ReviewService() {
-//        // TO DO ...
-//    }
 
     /**
      * Метод возвращает наименования всех
