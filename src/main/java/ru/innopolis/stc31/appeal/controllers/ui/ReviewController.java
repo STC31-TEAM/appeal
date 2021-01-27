@@ -52,6 +52,6 @@ public class ReviewController {
         TicketDTO ticketDTO = new TicketDTO();
         model.addAttribute("ticketDTO", ticketDTO);
         model.addAttribute("allTicket", reviewService.getAllTickets());
-        return "list-company";
+        return "list-ticket";
     }
 }
