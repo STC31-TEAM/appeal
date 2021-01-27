@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="01-changeset-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="02-changeset-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="03-changeset-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="04-changeset-map_roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="05-changeset-service_types-table.xml" relativeToChangelogFile="true"/>
+    <include file="06-changeset-tickets-table.xml" relativeToChangelogFile="true"/>
+    <include file="07-changeset-tickets_users-table.xml" relativeToChangelogFile="true"/>
+    <include file="08-changeset-album_links-table.xml" relativeToChangelogFile="true"/>
+    <include file="09-changeset-countries-table.xml" relativeToChangelogFile="true"/>
+    <include file="10-changeset-cities-table.xml" relativeToChangelogFile="true"/>
+    <include file="11-changeset-streets-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/12-changeset-insert-to-country-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/12.1-changeset-insert-to-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/12.2-changeset-insert-to-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/13-changeset-insert-city-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/14-changeset-insert-streets-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/15-chengeset-insert-to-service_type-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/16-changeset-insert-to-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/17-changeset-insert-to-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/18-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/19-changeset-insert-to-tickets-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/20-changeset-insert-to-album_links-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/21-changeset-insert-to-ticket_users-table.xml" relativeToChangelogFile="true"/>
+    <include file="22-changeset-alter-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/23-changeset-update-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="24-changeset-alter-album_links-table.xml" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>

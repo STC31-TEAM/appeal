@@ -1,0 +1,18 @@
+logging:
+  level:
+    org.springframework: ERROR
+    ru.innopolis.stc31.appeal: DEBUG
+  pattern:
+    console: "[%-5level] %d{HH:mm:ss.SSS} g:%X{guid} o:%X{oper} [%-26logger{26}:%L]: %m%wEx%n"
+
+spring:
+  datasource:
+    url: jdbc:h2:~/testdb;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName : org.h2.Driver
+  jpa:
+    database-platform:  org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: none
+  liquibase:
+    enabled: false

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    container_name: db
+    environment:
+      POSTGRES_DB: 'appeal'
+      POSTGRES_USER: 'appeal'
+      POSTGRES_PASSWORD: 'appeal'
