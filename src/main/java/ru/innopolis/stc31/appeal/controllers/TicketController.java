@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.TicketToTicketDTO;
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
@@ -16,7 +17,7 @@ import java.util.List;
  * Controller for manage tickets
  */
 @Slf4j
-@RestController
+@Controller
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ticket")
 public class TicketController {
@@ -42,9 +43,9 @@ public class TicketController {
      * @param dto Model
      * @return true if success created
      */
-    @PostMapping("/user/create")
+    @PostMapping("/create")
     @ApiOperation("Добавить заявку")
-    public ResponseEntity <TicketDTO> createTicket(@RequestBody TicketDTO dto) {
+    public ResponseEntity <TicketDTO> createTicket(TicketDTO dto) {
         log.debug("create ticket method was called with {} ", dto);
         var ticket =ticketService.createTicket(dto);
 

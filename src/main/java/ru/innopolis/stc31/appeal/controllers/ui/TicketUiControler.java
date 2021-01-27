@@ -19,7 +19,7 @@ public class TicketUiControler {
 
     public String createTicket(TicketDTO ticketDTO, Model model) {
 
-        Ticket ticket = TicketService.createTicket(ticketDTO);
+        Ticket ticket = ticketService.createTicket(ticketDTO);
 
         if (ticket == null) {
             return "ticket-create-fail";
