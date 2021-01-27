@@ -11,6 +11,7 @@ import ru.innopolis.stc31.appeal.converters.UserToUserDTO;
 import ru.innopolis.stc31.appeal.exceptions.ErrorMessage;
 import ru.innopolis.stc31.appeal.exceptions.UsersErrors;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
+import ru.innopolis.stc31.appeal.model.entity.User;
 import ru.innopolis.stc31.appeal.services.UsersService;
 
 @Slf4j
@@ -36,10 +37,7 @@ public class UserUiController {
         log.debug("create user method was called with {} ", userDTO);
 
         try {
-            var user = usersService.createUser(userDTO);
-
-            log.debug("create user method return result {} ", user);
-
+            User user = usersService.createUser(userDTO);
             if (user == null) {
                 ErrorMessage errorMessage = new ErrorMessage(-4,
                         "Не удалось создать учетную запись, исходные данные: " + userDTO);

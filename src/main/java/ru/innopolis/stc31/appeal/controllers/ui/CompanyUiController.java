@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.innopolis.stc31.appeal.exceptions.CompanyErrors;
 import ru.innopolis.stc31.appeal.exceptions.ErrorMessage;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.services.CompanyService;
 
 @Controller
@@ -36,7 +37,7 @@ public class CompanyUiController {
         log.debug("create company method was called with {} ", companyDTO);
 
         try {
-            var company = companyService.createCompany(companyDTO);
+            Company company = companyService.createCompany(companyDTO);
             if (company == null){
                 ErrorMessage errorMessage = new ErrorMessage(-4,
                         "Не удалось создать запись, исходные данные: " + companyDTO);

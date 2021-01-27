@@ -8,13 +8,14 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.ui.Model;
 import ru.innopolis.stc31.appeal.converters.CompanyDTOToCompany;
 import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
+import ru.innopolis.stc31.appeal.exceptions.CompanyErrors;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
 import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.services.CompanyService;
 import ru.innopolis.stc31.appeal.utils.MockUtils;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 @SpringJUnitConfig
@@ -23,8 +24,8 @@ class CompanyUiControllerTest {
     @InjectMocks
     private CompanyUiController companyUiController;
 
-    @Mock
-    private CompanyService service;
+    @Spy
+    private CompanyService companyService;
 
     @Spy
     private CompanyDTOToCompany companyDTOToCompany;
@@ -41,15 +42,26 @@ class CompanyUiControllerTest {
     }
 
     @Test
-    void createCompany() {
-        CompanyDTO companyDTO = new CompanyDTO(1l, 3l, 4l, 2l, 8l, 3l,
-                "TestLogin", "TestPassword", "mail@gmail.com",
-                84728568747L, "Company Tilte", (short) 2, "Full address");
+    void createCompanyWithOk() {
+        CompanyDTO companyDTO = MockUtils.makeCompanyDTO();
         Company company = companyDTOToCompany.convert(companyDTO);
-        when(service.createCompany(companyDTO)).thenReturn(company);
+        when(companyService.createCompany(companyDTO)).thenReturn(company);
 
         String view = companyUiController.createCompany(companyDTO, model);
 
         assertNotNull(view);
+        assertTrue(view.contains("success"));
+    }
+
+    @Test
+    void createCompanyWithFail() {
+        CompanyDTO companyDTO = MockUtils.makeCompanyDTO();
+        when(companyService.createCompany(companyDTO)).thenReturn(null);
+//        doReturn(null).when(companyService).createCompany(companyDTO);
+
+        String view = companyUiController.createCompany(companyDTO, model);
+
+        assertNotNull(view);
+        assertTrue(view.contains("fail"));
     }
 }

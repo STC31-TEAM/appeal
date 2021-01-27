@@ -82,7 +82,7 @@ public class CompanyController {
 
     @PostMapping("/findByCountry")
     @ApiOperation("Найти компании по стране")
-    public List<CompanyDTO> getCountryByCountry (@RequestBody CountryDTO countryDTO) {
+    public List<CompanyDTO> getCompanyByCountry(@RequestBody CountryDTO countryDTO) {
 
         log.debug("find company method was called with {}", countryDTO);
 

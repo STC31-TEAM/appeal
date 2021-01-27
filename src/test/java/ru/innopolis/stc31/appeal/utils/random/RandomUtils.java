@@ -132,4 +132,13 @@ public class RandomUtils {
         return  streets[new SecureRandom().nextInt(streets.length)];
     }
 
+    /**
+     * Generate random city
+     *
+     * @return Random name city
+     */
+    public static String getRandomTitle() {
+        return  makeWord(10);
+    }
+
 }
