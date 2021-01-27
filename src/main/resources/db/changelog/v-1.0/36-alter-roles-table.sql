@@ -1,0 +1,5 @@
+ALTER TABLE roles DROP COLUMN id_user;
+CREATE SEQUENCE roles_id_seq START WITH 10;
+ALTER TABLE roles ALTER COLUMN id SET NOT NULL;
+ALTER TABLE roles ALTER COLUMN id SET DEFAULT nextval('roles_id_seq');
+ALTER SEQUENCE roles_id_seq OWNED BY roles.id;

@@ -1,0 +1,2 @@
+DROP SEQUENCE roles_id_seq;
+ALTER TABLE roles ADD COLUMN id_user INTEGER NOT NULL;
