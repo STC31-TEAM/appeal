@@ -21,7 +21,7 @@ public class UserDTO {
     private String surname;
     private String password;
     private String email;
-    private long phone;
+    private long phone; // TO DO нужно поменять формат поля для телефона в модели и в БД на String
     private String birthday;
     private short status;
     private long companyId;

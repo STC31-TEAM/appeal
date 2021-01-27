@@ -4,20 +4,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
+/**
+ * @author Munir Makhmutov
+ * @version 1.0.0
+ */
 @Entity
 @Table(name = "companies")
 @Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Accessors(chain = true)
 public class Company {
 
     @Id
     @GeneratedValue
     private long id;
+
+    @Column(name = "id_user")
+    private long userId;
 
     @Column(name = "id_service_type")
     private long serviceTypeId;

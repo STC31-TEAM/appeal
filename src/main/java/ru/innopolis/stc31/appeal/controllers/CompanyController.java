@@ -5,8 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
+import ru.innopolis.stc31.appeal.exceptions.CompanyErrors;
+import ru.innopolis.stc31.appeal.exceptions.ErrorMessage;
 import ru.innopolis.stc31.appeal.model.SuccessModel;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
 import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
@@ -45,7 +49,7 @@ public class CompanyController {
      * @param companyDTO Model
      * @return true if success created
      */
-    @PostMapping("/create")
+    @PostMapping("/createCompany")
     @ApiOperation("Добавить компанию")
     public ResponseEntity<CompanyDTO> createCompany(@RequestBody CompanyDTO companyDTO) {
 
@@ -78,7 +82,7 @@ public class CompanyController {
 
     @PostMapping("/findByCountry")
     @ApiOperation("Найти компании по стране")
-    public List<CompanyDTO> getCountryByCountry (@RequestBody CountryDTO countryDTO) {
+    public List<CompanyDTO> getCompanyByCountry(@RequestBody CountryDTO countryDTO) {
 
         log.debug("find company method was called with {}", countryDTO);
 
