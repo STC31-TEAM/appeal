@@ -10,7 +10,11 @@ import ru.innopolis.stc31.appeal.model.entity.Role;
 import ru.innopolis.stc31.appeal.repository.RoleRepository;
 import ru.innopolis.stc31.appeal.utils.MockUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 /**
@@ -33,6 +37,9 @@ class RoleServiceImplTest {
         RoleDTO roleDTO = MockUtils.makeRoleDTO();
         Role role = MockUtils.makeRoleEntity();
         when(conversionService.convert(roleDTO, Role.class)).thenReturn(role);
+        List<Role> roleList = new ArrayList<>();
+        roleList.add(role);
+        doReturn(roleList).when(repository).findAll();
 
         assertDoesNotThrow(() -> service.updateRole(roleDTO));
         assertDoesNotThrow(() -> service.createRole(roleDTO));

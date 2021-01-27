@@ -2,14 +2,12 @@ package ru.innopolis.stc31.appeal.config;
 
 
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.RequestMatcher;
+import ru.innopolis.stc31.appeal.services.Roles;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Pattern;
@@ -18,16 +16,11 @@ import java.util.regex.Pattern;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final CustomAuthencationProvider customAuthencationProvider;
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    private final CustomAuthenticationProvider customAuthenticationProvider;
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(customAuthencationProvider);
+        auth.authenticationProvider(customAuthenticationProvider);
     }
 
     @Override
@@ -49,9 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 })
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/v1.0/user/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/swagger-ui.html").hasRole("ADMIN")
+                .antMatchers("/api/v1.0/user/**").hasAnyRole(Roles.USER.toString(), Roles.ADMIN.toString())
+                .antMatchers("/admin/**").hasRole(Roles.ADMIN.toString())
+                .antMatchers("/moderator/**").hasRole(Roles.MODERATOR.toString())
+                .antMatchers("/swagger-ui.html").hasRole(Roles.ADMIN.toString())
                 .antMatchers("/**").permitAll()
                 .and().formLogin();
     }
