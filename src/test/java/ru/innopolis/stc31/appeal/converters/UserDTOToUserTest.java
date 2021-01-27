@@ -19,6 +19,6 @@ class UserDTOToUserTest {
     @Test
     void convert() {
         UserDTO userDTO = MockUtils.makeUserDTO();
-        assertEquals( userDTO.getLogin(), userDTOToUser.convert(userDTO).getLogin());
+        assertEquals(userDTO.getLogin(), userDTOToUser.convert(userDTO).getLogin());
     }
 }

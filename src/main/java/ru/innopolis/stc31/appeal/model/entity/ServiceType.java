@@ -8,10 +8,6 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
-/**
- * @author Munir Makhmutov
- * @version 1.0.0
- */
 @Entity
 @Table(name = "service_types")
 @Data
@@ -22,7 +18,7 @@ import javax.persistence.*;
 public class ServiceType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private long id;
 
     @Column(name = "service_type")

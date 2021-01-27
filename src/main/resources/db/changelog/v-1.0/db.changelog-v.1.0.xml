@@ -31,5 +31,15 @@
     <include file="22-changeset-alter-users-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/23-changeset-update-users-table.xml" relativeToChangelogFile="true"/>
     <include file="24-changeset-alter-album_links-table.xml" relativeToChangelogFile="true"/>
+    <include file="25-changeset-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="26-changeset-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="27-changeset-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="28-changeset-service_types-table.xml" relativeToChangelogFile="true"/>
+    <include file="29-changeset-tickets-table.xml" relativeToChangelogFile="true"/>
+    <include file="30-changeset-tickets_users-table.xml" relativeToChangelogFile="true"/>
+    <include file="31-changeset-album_links-table.xml" relativeToChangelogFile="true"/>
+    <include file="32-changeset-countries-table.xml" relativeToChangelogFile="true"/>
+    <include file="33-changeset-cities-table.xml" relativeToChangelogFile="true"/>
+    <include file="34-changeset-streets-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

@@ -8,10 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-/**
- * @author Munir Makhmutov
- * @version 1.0.0
- */
 @Entity
 @Table(name = "users")
 @Data

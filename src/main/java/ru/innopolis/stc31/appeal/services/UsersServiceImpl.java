@@ -22,7 +22,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class UsersServiceImpl implements UsersService{
+public class UsersServiceImpl implements UsersService {
 
     @Value("${config.security.secret}")
     private String secret;
@@ -68,8 +68,8 @@ public class UsersServiceImpl implements UsersService{
         user.setRoleId(role.getId());
         user.setPassword(passwordEncoder.encode(user.getPassword()+secret));
 
-        if (role.getId() == 0 ){
-            ErrorMessage errorMessage = new ErrorMessage(-1, "Не удалось установить роль( "+ role.getTitle() + ") для пользователя: " + user.toString());
+        if (role.getId() == 0) {
+            ErrorMessage errorMessage = new ErrorMessage(-1, "Не удалось установить роль( " + role.getTitle() + ") для пользователя: " + user.toString());
             log.error(errorMessage.toString());
             throw new UsersErrors(errorMessage);
         }

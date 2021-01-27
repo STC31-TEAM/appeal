@@ -43,16 +43,16 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = passwordEncoder.encode(authentication.getCredentials().toString()+secret);
 
         ru.innopolis.stc31.appeal.model.entity.User user = userRepository.findByLogin(login);
-        if(user == null){
+        if (user == null) {
             throw new BadCredentialsException("Неизвестный логин пользователя: " + login);
         }
-        if(!password.equals(user.getPassword())){
+        if (!password.equals(user.getPassword())) {
             throw new BadCredentialsException(("Неверный пароль"));
         }
 
         String role = roleRepository.findById(user.getRoleId()).getTitle();
 
-        if(role == null){
+        if (role == null) {
             ErrorMessage errorMessage = new ErrorMessage(-2, "Для пользователя: " + login + " не удалось определить роль");
             throw new RoleErrors(errorMessage);
         }

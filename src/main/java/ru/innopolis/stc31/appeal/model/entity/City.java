@@ -6,12 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-/**
- * @author Munir Makhmutov
- * @version 1.0.0
- */
 @Entity
 @Table(name = "cities")
 @Data
@@ -24,10 +23,6 @@ public class City {
     @Id
     @GeneratedValue
     private long id;
-
-    @Column(name = "id_country")
     private long countryId;
-
-    @Column(name = "city_name")
     private String cityName;
 }

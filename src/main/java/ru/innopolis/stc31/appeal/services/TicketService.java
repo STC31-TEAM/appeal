@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
+import ru.innopolis.stc31.appeal.model.entity.Ticket;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public interface TicketService {
      * @param ticketDTO ticket
      * @return result of operation
      */
-    boolean createTicket(TicketDTO ticketDTO);
+    Ticket createTicket(TicketDTO ticketDTO);
 
     /**
      * delete ticket from base

@@ -2,7 +2,11 @@ package ru.innopolis.stc31.appeal.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.innopolis.stc31.appeal.converters.TicketToTicketDTO;
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
 import ru.innopolis.stc31.appeal.services.TicketService;
 
@@ -11,6 +15,7 @@ import java.util.List;
 /**
  * Controller for manage tickets
  */
+@Slf4j
 @RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ticket")
@@ -18,6 +23,7 @@ public class TicketController {
 
     /** Ticket service instance */
     private final TicketService ticketService;
+    private final TicketToTicketDTO ticketToTicketDTO;
 
     /**
      * Get list of all tickets
@@ -38,7 +44,15 @@ public class TicketController {
      */
     @PostMapping("/user/create")
     @ApiOperation("Добавить заявку")
-    public boolean createTicket(@RequestBody TicketDTO dto) {
-        return ticketService.createTicket(dto);
+    public ResponseEntity <TicketDTO> createTicket(@RequestBody TicketDTO dto) {
+        log.debug("create ticket method was called with {} ", dto);
+        var ticket =ticketService.createTicket(dto);
+
+        if(ticket==null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        log.debug("create ticket method return result {} ", ticket);
+        return new ResponseEntity<>(ticketToTicketDTO.convert(ticket), HttpStatus.OK);
     }
+
 }
