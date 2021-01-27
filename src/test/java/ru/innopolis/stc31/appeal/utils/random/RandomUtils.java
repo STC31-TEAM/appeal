@@ -121,4 +121,14 @@ public class RandomUtils {
         return  streets[new SecureRandom().nextInt(streets.length)];
     }
 
+    /**
+     * Generate random city
+     *
+     * @return Random name city
+     */
+    public static String getRandomCityName() {
+        String[] streets = new String[]{"Москва","Киев","Астана","Минск"};
+        return  streets[new SecureRandom().nextInt(streets.length)];
+    }
+
 }

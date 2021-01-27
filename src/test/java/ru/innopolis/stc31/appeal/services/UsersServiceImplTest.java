@@ -3,6 +3,7 @@ package ru.innopolis.stc31.appeal.services;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.UserDTOToUser;
@@ -33,6 +34,9 @@ class UsersServiceImplTest {
 
     @Spy
     RoleRepository roleRepository;
+
+    @Spy
+    PasswordEncoder passwordEncoder;
 
     @InjectMocks
     private UsersServiceImpl service;

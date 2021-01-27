@@ -1,8 +1,7 @@
 package ru.innopolis.stc31.appeal.utils;
 
 import ru.innopolis.stc31.appeal.model.dto.*;
-import ru.innopolis.stc31.appeal.model.entity.Role;
-import ru.innopolis.stc31.appeal.model.entity.ServiceType;
+import ru.innopolis.stc31.appeal.model.entity.*;
 import ru.innopolis.stc31.appeal.utils.random.RandomUtils;
 
 import java.time.LocalDate;
@@ -61,7 +60,17 @@ public class MockUtils {
      * @return CompanyDTO instance
      */
     public static CompanyDTO makeCompanyDTO() {
-        return new CompanyDTO();
+        return new CompanyDTO()
+                .setId(1l)
+                .setTitle("SomeCompany")
+                .setUserId(1l)
+                .setEmail("someEmail@email.com")
+                .setCityId(1l)
+                .setCountryId(1l)
+                .setLogin("SomeLogin")
+                .setPassword("SDFLSKDJHFLKDFJHDLDSHFLJFD")
+                .setStreetId(1l)
+                .setPhone(791111111);
     }
 
     /**
@@ -207,4 +216,35 @@ public class MockUtils {
     public static List<ServiceType> makeServiceTypeEntity(int size) {
         return Stream.generate(MockUtils::makeServiceTypeEntity).limit(size).collect(Collectors.toList());
     }
+
+    /**
+     * List items (Entity)
+     * @return List of ServiceType objects
+     */
+    public static City makeCityEntity() {
+        return new City()
+                .setCityName(RandomUtils.getRandomCityName())
+                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
+    }
+
+    /**
+     * List items (Entity)
+     * @return List of Street objects
+     */
+    public static Street makeStreetEntity() {
+        return new Street()
+                .setStreetName(RandomUtils.getRandomStreetName())
+                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
+    }
+
+    /**
+     * List items (Entity)
+     * @return List of Country objects
+     */
+    public static Country makeCountryEntity() {
+        return new Country()
+                .setCountryName(RandomUtils.getRandomCountryName())
+                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
+    }
+
 }

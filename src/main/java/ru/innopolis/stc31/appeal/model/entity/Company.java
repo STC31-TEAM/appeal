@@ -19,6 +19,9 @@ public class Company {
     @GeneratedValue
     private long id;
 
+    @Column(name = "id_user")
+    private long userId;
+
     @Column(name = "id_service_type")
     private long serviceTypeId;
 

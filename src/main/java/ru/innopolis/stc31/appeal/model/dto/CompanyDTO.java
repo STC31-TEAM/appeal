@@ -15,6 +15,7 @@ import lombok.experimental.Accessors;
 public class CompanyDTO {
 
     private long id;
+    private long userId;
     private long serviceTypeId;
     private long countryId;
     private long cityId;
@@ -25,4 +26,9 @@ public class CompanyDTO {
     private long phone;
     private String title;
     private short status;
+    private String fullAddress;
+
+    public CompanyDTO() {
+
+    }
 }

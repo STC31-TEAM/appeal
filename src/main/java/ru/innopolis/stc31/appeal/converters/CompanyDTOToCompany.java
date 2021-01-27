@@ -11,6 +11,7 @@ public class CompanyDTOToCompany implements Converter<CompanyDTO, Company> {
     @Override
     public Company convert(CompanyDTO source) {
         Company company = new Company();
+        company.setUserId(source.getUserId());
         company.setServiceTypeId(source.getServiceTypeId());
         company.setCountryId(source.getCountryId());
         company.setCityId(source.getCityId());

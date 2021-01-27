@@ -10,73 +10,192 @@
     <title>Appeal application</title>
 </head>
 <body>
-<!-- Left navigation -->
-<ul id="nav-left" class="nav nav-main dropdown">
-    <button class="btn dropdown-toggle dropbtn">Explore</button>
-    <li class="nav-item dropdown-content">
-        <a class="nav-link" href="/companyAll">Компании</a>
-        <a class="nav-link" href="/ticketAll">Заявки</a>
-        <a class="nav-link" href="#">Explore3</a>
-    </li>
-</ul>
+    <!-- Left navigation -->
+    <ul id="nav-left" class="nav nav-main dropdown">
+        <button class="btn dropdown-toggle dropbtn">Explore</button>
+            <li class="nav-item dropdown-content">
+                <a class="nav-link" href="/companyAll">Компании</a>
+                <a class="nav-link" href="#">Explore2</a>
+                <a class="nav-link" href="#">Explore3</a>
+            </li>
+    </ul>
 
-<!-- Right navigation -->
-<ul id="nav-right" class="nav nav-main justify-content-end">
-    <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/createUserOrCompany">Sign Up</a>
-    </li>
-</ul>
+    <!-- Right navigation -->
+    <ul id="nav-right" class="nav nav-main justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Log In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/createUserOrCompany">Sign Up</a>
+        </li>
+    </ul>
 
-<!-- Content -->
-<div id="content" class="content">
-    <div class="container-md">
-        <div class="row">
-            <div class="col-lg-9">
-                <h5 class="title-main">Closed tickets</h5>
-                <div class="cards closed-cards">
-                    <div class="card card-ticket">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h5 class="card-title">Открыть магазин одежды</h5>
-                                    <p class="card-text">В северной части города нет ни одного магазина одежды.</p>
-                                    <div class="card-geo">
-                                        <em class="bi bi-geo-alt-fill text-danger"></em> <span class="card-town">г. Уфа</span>
+    <!-- Content -->
+    <div id="content" class="content">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h5 class="title-main">Closed tickets</h5>
+                    <div class="cards closed-cards">
+                        <div class="card card-ticket">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Открыть магазин одежды</h5>
+                                        <p class="card-text">В северной части города нет ни одного магазина одежды.</p>
+                                        <div class="card-geo">
+                                            <em class="bi bi-geo-alt-fill text-danger"></em> <span class="card-town">г. Уфа</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="float-end">
+                                            <div class="card-doer text-end">
+                                                <span class="badge bg-success">Closed</span> <span class="card-label">by</span> <span class="text-primary">O'stin</span>
+                                            </div>
+                                            <div class="card-votes text-end text-success">
+                                                <em class="bi bi-heart"></em> <span class="likes">+9</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="float-end">
-                                        <div class="card-doer text-end">
-                                            <span class="badge bg-success">Closed</span> <span class="card-label">by</span> <span class="text-primary">O'stin</span>
+                            </div>
+                        </div>
+                        <div class="card card-ticket">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Построить автомойку</h5>
+                                        <p class="card-text">На весь город одна автомойка. Хотим ещё.</p>
+                                        <div class="card-geo">
+                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Алапаевск</span>
                                         </div>
-                                        <div class="card-votes text-end text-success">
-                                            <em class="bi bi-heart"></em> <span class="likes">+9</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="float-end">
+                                            <div class="card-doer text-end">
+                                                <span class="badge bg-success">Closed</span> <span class="card-label">by</span> <span class="text-primary">Автопилот</span>
+                                            </div>
+                                            <div class="card-votes text-end text-success">
+                                                <em class="bi bi-heart"></em> <span class="likes">+12</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card card-ticket">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h5 class="card-title">Построить автомойку</h5>
-                                    <p class="card-text">На весь город одна автомойка. Хотим ещё.</p>
-                                    <div class="card-geo">
-                                        <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Алапаевск</span>
+                    <h5 class="title-main title-recent-tickets">Recent tickets</h5>
+                    <div class="cards recent-cards">
+                        <div class="card card-ticket">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Ремонт моста</h5>
+                                        <p class="card-text">Под мост начали проваливаться машины. Не хорошо.</p>
+                                        <div class="card-geo">
+                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Тюмень</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="float-end">
+                                            <div class="card-doer">
+                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
+                                            </div>
+                                            <div class="card-votes text-end text-success">
+                                                <em class="bi bi-heart"></em> <span class="likes">+5</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="float-end">
-                                        <div class="card-doer text-end">
-                                            <span class="badge bg-success">Closed</span> <span class="card-label">by</span> <span class="text-primary">Автопилот</span>
+                            </div>
+                        </div>
+                        <div class="card card-ticket">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Открыть подпольное казино</h5>
+                                        <p class="card-text">Не помешает.</p>
+                                        <div class="card-geo">
+                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Новый Уренгой</span>
                                         </div>
-                                        <div class="card-votes text-end text-success">
-                                            <em class="bi bi-heart"></em> <span class="likes">+12</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="float-end">
+                                            <div class="card-doer">
+                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
+                                            </div>
+                                            <div class="card-votes text-end text-success">
+                                                <em class="bi bi-heart"></em> <span class="likes">+14</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-ticket">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Почистить озеро</h5>
+                                        <p class="card-text">Не возможно купаться.</p>
+                                        <div class="card-geo">
+                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Ялуторовск</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="float-end">
+                                            <div class="card-doer">
+                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
+                                            </div>
+                                            <div class="card-votes text-end text-success">
+                                                <em class="bi bi-heart"></em> <span class="likes">+12</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-ticket">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Вырубить лес</h5>
+                                        <p class="card-text">Бегают волки.</p>
+                                        <div class="card-geo">
+                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">с. Заблудкино</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="float-end">
+                                            <div class="card-doer">
+                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
+                                            </div>
+                                            <div class="card-votes text-end text-danger">
+                                                <em class="bi bi-heart"></em> <span class="likes">-3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-ticket">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Построить пиццерию</h5>
+                                        <p class="card-text">В селе не где поесть.</p>
+                                        <div class="card-geo">
+                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">с. Заблудкино</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="float-end">
+                                            <div class="card-doer">
+                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
+                                            </div>
+                                            <div class="card-votes text-end text-success">
+                                                <em class="bi bi-heart"></em> <span class="likes">+9</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -84,151 +203,33 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="title-main title-recent-tickets">Recent tickets</h5>
-                <div class="cards recent-cards">
-                    <div class="card card-ticket">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h5 class="card-title">Ремонт моста</h5>
-                                    <p class="card-text">Под мост начали проваливаться машины. Не хорошо.</p>
-                                    <div class="card-geo">
-                                        <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Тюмень</span>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="float-end">
-                                        <div class="card-doer">
-                                            <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                        </div>
-                                        <div class="card-votes text-end text-success">
-                                            <em class="bi bi-heart"></em> <span class="likes">+5</span>
-                                        </div>
-                                    </div>
+                <div class="col-lg-3">
+                    <h5 class="title-main">Top companies</h5>
+                    <div class="card card-top-companies">
+                        <div class="card-list">
+                            <div class="card-list-item card-body">
+                                <h5 class="card-title">ПАО "Газпром"</h5>
+                                <div class="card-notice">
+                                    Исполнено заявок <span class="card-counter text-success">23</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card card-ticket">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h5 class="card-title">Открыть подпольное казино</h5>
-                                    <p class="card-text">Не помешает.</p>
-                                    <div class="card-geo">
-                                        <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Новый Уренгой</span>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="float-end">
-                                        <div class="card-doer">
-                                            <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                        </div>
-                                        <div class="card-votes text-end text-success">
-                                            <em class="bi bi-heart"></em> <span class="likes">+14</span>
-                                        </div>
-                                    </div>
+                            <div class="card-list-item card-body">
+                                <h5 class="card-title">ПАО "ВТБ"</h5>
+                                <div class="card-notice">
+                                    Исполнено заявок <span class="card-counter text-success">13</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card card-ticket">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h5 class="card-title">Почистить озеро</h5>
-                                    <p class="card-text">Не возможно купаться.</p>
-                                    <div class="card-geo">
-                                        <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Ялуторовск</span>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="float-end">
-                                        <div class="card-doer">
-                                            <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                        </div>
-                                        <div class="card-votes text-end text-success">
-                                            <em class="bi bi-heart"></em> <span class="likes">+12</span>
-                                        </div>
-                                    </div>
+                            <div class="card-list-item card-body">
+                                <h5 class="card-title">ПАО "Сбербанк"</h5>
+                                <div class="card-notice">
+                                    Исполнено заявок <span class="card-counter text-success">12</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card card-ticket">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h5 class="card-title">Вырубить лес</h5>
-                                    <p class="card-text">Бегают волки.</p>
-                                    <div class="card-geo">
-                                        <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">с. Заблудкино</span>
-                                    </div>
+                            <div class="card-list-item card-body">
+                                <h5 class="card-title">ПАО НК "Роснефть"</h5>
+                                <div class="card-notice">
+                                    Исполнено заявок <span class="card-counter text-success">8</span>
                                 </div>
-                                <div class="col-4">
-                                    <div class="float-end">
-                                        <div class="card-doer">
-                                            <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                        </div>
-                                        <div class="card-votes text-end text-danger">
-                                            <em class="bi bi-heart"></em> <span class="likes">-3</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-ticket">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h5 class="card-title">Построить пиццерию</h5>
-                                    <p class="card-text">В селе не где поесть.</p>
-                                    <div class="card-geo">
-                                        <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">с. Заблудкино</span>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="float-end">
-                                        <div class="card-doer">
-                                            <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                        </div>
-                                        <div class="card-votes text-end text-success">
-                                            <em class="bi bi-heart"></em> <span class="likes">+9</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <h5 class="title-main">Top companies</h5>
-                <div class="card card-top-companies">
-                    <div class="card-list">
-                        <div class="card-list-item card-body">
-                            <h5 class="card-title">ПАО "Газпром"</h5>
-                            <div class="card-notice">
-                                Исполнено заявок <span class="card-counter text-success">23</span>
-                            </div>
-                        </div>
-                        <div class="card-list-item card-body">
-                            <h5 class="card-title">ПАО "ВТБ"</h5>
-                            <div class="card-notice">
-                                Исполнено заявок <span class="card-counter text-success">13</span>
-                            </div>
-                        </div>
-                        <div class="card-list-item card-body">
-                            <h5 class="card-title">ПАО "Сбербанк"</h5>
-                            <div class="card-notice">
-                                Исполнено заявок <span class="card-counter text-success">12</span>
-                            </div>
-                        </div>
-                        <div class="card-list-item card-body">
-                            <h5 class="card-title">ПАО НК "Роснефть"</h5>
-                            <div class="card-notice">
-                                Исполнено заявок <span class="card-counter text-success">8</span>
                             </div>
                         </div>
                     </div>
@@ -236,6 +237,5 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
