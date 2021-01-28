@@ -1,13 +1,11 @@
 package ru.innopolis.stc31.appeal.controllers.ui;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
-import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.services.ReviewService;
 
@@ -18,14 +16,13 @@ import java.util.Map;
  */
 @Slf4j
 @Controller
-public class ReviewController {
+@RequiredArgsConstructor
+public class ReviewController extends BaseCredentialController {
 
-    @Autowired
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
 
     @GetMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("messagePart", "Appeal application");
         return "index";
     }
 
