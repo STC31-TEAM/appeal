@@ -31,8 +31,6 @@
     <include file="22-changeset-alter-users-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/23-changeset-update-users-table.xml" relativeToChangelogFile="true"/>
     <include file="24-changeset-alter-album_links-table.xml" relativeToChangelogFile="true"/>
-    <include file="35-changeset-alter-companies-table.xml" relativeToChangelogFile="true"/>
-    <include file="36-changeset-alter-roles-table.xml" relativeToChangelogFile="true"/>
-    <include file="37-changeset-alter-streets-table.xml" relativeToChangelogFile="true"/>
+    <include file="25-changeset-alter-companies-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

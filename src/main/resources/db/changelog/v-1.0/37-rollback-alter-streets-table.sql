@@ -1,2 +1,0 @@
-DROP SEQUENCE streets_id_seq;
-ALTER TABLE streets ADD COLUMN id_map_role INTEGER UNIQUE NOT NULL;
