@@ -11,9 +11,7 @@ import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
 import ru.innopolis.stc31.appeal.model.entity.Ticket;
 import ru.innopolis.stc31.appeal.services.TicketService;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Controller
 @AllArgsConstructor
