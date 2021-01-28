@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Controller for manage companies
  */
-@Controller
+@RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/company")
 @Slf4j
@@ -82,7 +82,7 @@ public class CompanyController {
 
     @PostMapping("/findByCountry")
     @ApiOperation("Найти компании по стране")
-    public List<CompanyDTO> getCountryByCountry (@RequestBody CountryDTO countryDTO) {
+    public List<CompanyDTO> getCompanyByCountry(@RequestBody CountryDTO countryDTO) {
 
         log.debug("find company method was called with {}", countryDTO);
 

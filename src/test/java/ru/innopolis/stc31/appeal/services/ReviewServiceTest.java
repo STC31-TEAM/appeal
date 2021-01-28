@@ -73,7 +73,7 @@ class ReviewServiceTest {
         companyDTOList.add(companyDTO);
         when(companyService.getCompanyList()).thenReturn(companyDTOList);
 
-        assertTrue(reviewService.getAllCompanyTitle().containsKey(companyDTO.getTitle()));
+        assertTrue(reviewService.getAllCompany().containsKey(companyDTO.getTitle()));
     }
 
     @Test

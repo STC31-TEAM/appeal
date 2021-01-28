@@ -44,9 +44,10 @@ class UserUiControllerTest {
         user.setId(1);
         when(usersService.createUser(userDTO)).thenReturn(user);
 
-        String responseEntity = userUiController.createUser(userDTO, model);
+        String view = userUiController.createUser(userDTO, model);
 
-        assertNotNull(responseEntity);
+        assertNotNull(view);
+        assertTrue(view.contains("success"));
     }
 
     @Test
@@ -58,5 +59,6 @@ class UserUiControllerTest {
         String view = userUiController.createUser(userDTO, model);
 
         assertNotNull(view);
+        assertTrue(view.contains("fail"));
     }
 }

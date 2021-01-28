@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.UserDTOToUser;
+import ru.innopolis.stc31.appeal.converters.UserToUserDTO;
 import ru.innopolis.stc31.appeal.exceptions.UsersErrors;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.model.entity.Role;
@@ -14,6 +15,9 @@ import ru.innopolis.stc31.appeal.model.entity.User;
 import ru.innopolis.stc31.appeal.repository.RoleRepository;
 import ru.innopolis.stc31.appeal.repository.UserRepository;
 import ru.innopolis.stc31.appeal.utils.MockUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -33,13 +37,16 @@ class UsersServiceImplTest {
     UserDTOToUser userDTOToUser;
 
     @Spy
+    UserToUserDTO userToUserDTO;
+
+    @Spy
     RoleRepository roleRepository;
 
     @Spy
     PasswordEncoder passwordEncoder;
 
     @InjectMocks
-    private UsersServiceImpl service;
+    private UsersServiceImpl usersService;
 
     @Test
     void createUserOk() throws UsersErrors {
@@ -55,24 +62,38 @@ class UsersServiceImplTest {
         when(userDTOToUser.convert(userDTO)).thenReturn(user);
         when(roleRepository.findByTitle(Roles.USER.toString())).thenReturn(role);
         when(userRepository.save(user)).thenReturn(user);
-        assertEquals(user.getLogin(), service.createUser(userDTO).getLogin());
+        assertEquals(user.getLogin(), usersService.createUser(userDTO).getLogin());
     }
 
     @Test
-    void createUserFail() throws UsersErrors {
+    void createUserFail(){
         Role role = new Role();
         UserDTO userDTO = MockUtils.makeUserDTO();
         User user = userDTOToUser.convert(userDTO);
         when(userDTOToUser.convert(userDTO)).thenReturn(user);
         when(roleRepository.findByTitle(Roles.USER.toString())).thenReturn(role);
 
-        assertThrows(UsersErrors.class, () -> service.createUser(userDTO));
+        assertThrows(UsersErrors.class, () -> usersService.createUser(userDTO));
     }
 
     @Test
     void checkOnOk() {
-        assertDoesNotThrow(() -> service.deleteUser(MockUtils.makeUserDTO()));
-        assertDoesNotThrow(() -> service.getUserByName(MockUtils.makeUserDTO().getName()));
-        assertDoesNotThrow(() -> service.getUserList());
+        assertDoesNotThrow(() -> usersService.deleteUser(MockUtils.makeUserDTO()));
+        assertDoesNotThrow(() -> usersService.getUserByName(MockUtils.makeUserDTO().getName()));
+        assertDoesNotThrow(() -> usersService.getUserList());
+    }
+
+    @Test
+    void getUserList() {
+        List<User> userList = new ArrayList<>();
+        MockUtils.makeListUserDTO(4).stream().forEach(userDTO -> {
+            userList.add(
+                    userDTOToUser.convert(userDTO)
+            );
+        } );
+        when(userRepository.findAll()).thenReturn(userList);
+
+        assertEquals(userList.size(), usersService.getUserList().size());
+        assertEquals(userList.get(1).getLogin(), usersService.getUserList().get(1).getLogin());
     }
 }

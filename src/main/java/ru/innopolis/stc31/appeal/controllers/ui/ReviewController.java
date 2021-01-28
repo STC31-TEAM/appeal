@@ -2,6 +2,7 @@ package ru.innopolis.stc31.appeal.controllers.ui;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,15 +11,17 @@ import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
 import ru.innopolis.stc31.appeal.model.dto.UserDTO;
 import ru.innopolis.stc31.appeal.services.ReviewService;
 
+import java.util.Map;
+
 /**
  * UI controller for review page
  */
 @Slf4j
-@AllArgsConstructor
 @Controller
 public class ReviewController {
 
-    private final ReviewService reviewService;
+    @Autowired
+    private ReviewService reviewService;
 
     @GetMapping("/")
     public String welcome(Model model) {
@@ -32,7 +35,8 @@ public class ReviewController {
         CompanyDTO companyDTO = new CompanyDTO();
         model.addAttribute("companyDTO", companyDTO);
         model.addAttribute("userDTO", userDTO);
-        model.addAttribute("allCompanyTitle", reviewService.getAllCompanyTitle());
+        Map<String, Long> mapCompany = reviewService.getAllCompanyTitle();
+        model.addAttribute("allCompanyTitle", mapCompany);
         model.addAttribute("allCountryTitle", reviewService.getAllCountryName());
         model.addAttribute("allCityName", reviewService.getAllCityName());
         model.addAttribute("allStreetName", reviewService.getAllStreetName());

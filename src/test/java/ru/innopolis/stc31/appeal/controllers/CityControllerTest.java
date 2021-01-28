@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.CityDTOToCity;
@@ -61,12 +62,12 @@ class CityControllerTest {
         ResponseEntity<CityDTO> responseEntity = controller.createCity(cityDTO);
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
-        assertEquals(responseEntity.getBody().getCountryId(), cityDTO.getCountryId());
-        assertEquals(responseEntity.getBody().getCityName(), cityDTO.getCityName());
+        assertEquals(cityDTO.getCountryId(), responseEntity.getBody().getCountryId());
+        assertEquals(cityDTO.getCityName(), responseEntity.getBody().getCityName());
     }
 
     @Test
-    void deleteCity() {
+    void deleteCityWithOk() {
         CityDTO cityDTO = MockUtils.makeCityDTO();
 
         SuccessModel successModel = new SuccessModel().setResult("OK");
@@ -74,7 +75,19 @@ class CityControllerTest {
 
         ResponseEntity<SuccessModel> responseEntity = controller.deleteCity(cityDTO);
 
-        assertEquals(responseEntity.getStatusCodeValue(), 200);
-        assertEquals(responseEntity.getBody().getResult(), successModel.getResult());
+        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue());
+        assertEquals(successModel.getResult(),responseEntity.getBody().getResult());
+    }
+
+    @Test
+    void deleteCityWithFail() {
+        CityDTO cityDTO = MockUtils.makeCityDTO();
+
+        SuccessModel successModel = new SuccessModel().setResult("OK");
+        when(service.deleteCity(cityDTO)).thenReturn(false);
+
+        ResponseEntity<SuccessModel> responseEntity = controller.deleteCity(cityDTO);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCodeValue());
     }
 }

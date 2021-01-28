@@ -247,4 +247,29 @@ public class MockUtils {
                 .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE));
     }
 
+    /**
+     * List items (Entity)
+     * @return List of Country objects
+     */
+    public static Company makeCompanyEntity() {
+        return new Company()
+                .setId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE))
+                .setTitle(RandomUtils.getRandomTitle())
+                .setCountryId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE))
+                .setUserId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE))
+                .setCityId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE))
+                .setServiceTypeId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE))
+                .setEmail("some@email.ru")
+                .setLogin("SomeLogin")
+                .setPhone(79122121212l);
+    }
+
+    /**
+     * List items
+     * @return List of UserDTO objects
+     */
+    public static List<Company> makeListCompanyEntity(int size) {
+        return Stream.generate(MockUtils::makeCompanyEntity).limit(size).collect(Collectors.toList());
+    }
+
 }

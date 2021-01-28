@@ -1,9 +1,12 @@
 package ru.innopolis.stc31.appeal.services;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.innopolis.stc31.appeal.model.dto.*;
+import ru.innopolis.stc31.appeal.model.dto.CityDTO;
+import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
+import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
+import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
 import ru.innopolis.stc31.appeal.model.entity.City;
 import ru.innopolis.stc31.appeal.model.entity.Country;
 import ru.innopolis.stc31.appeal.model.entity.Street;
@@ -17,19 +20,23 @@ import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
-@AllArgsConstructor
 @Service
 public class ReviewService {
 
-    private final CompanyService companyService;
-    private final CountryService countryService;
-    private final CityService cityService;
-    private final StreetService streetService;
-    private final TicketService ticketService;
-
-    private final CountryRepository countryRepository;
-    private final CityRepository cityRepository;
-    private final StreetRepository streetRepository;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    private CountryService countryService;
+    @Autowired
+    private CityService cityService;
+    @Autowired
+    private StreetService streetService;
+    @Autowired
+    private CountryRepository countryRepository;
+    @Autowired
+    private CityRepository cityRepository;
+    @Autowired
+    private StreetRepository streetRepository;
 
     /**
      * Метод возвращает наименования всех
