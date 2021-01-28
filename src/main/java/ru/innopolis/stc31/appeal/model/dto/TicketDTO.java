@@ -16,12 +16,12 @@ import java.time.LocalDate;
 public class TicketDTO {
     private long id;
     private long idUser;
-    private long idCompany;
+    private Integer idCompany;
     private long idCountry;
     private long idCity;
     private long idStreet;
     private long idTypesServices;
-    private long idLink;
+    private long idAlbumLink;
     private String titles;
     private String description;
     private LocalDate openDate;

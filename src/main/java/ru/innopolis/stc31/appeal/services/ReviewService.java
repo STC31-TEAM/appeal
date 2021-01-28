@@ -3,10 +3,7 @@ package ru.innopolis.stc31.appeal.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.innopolis.stc31.appeal.model.dto.CityDTO;
-import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
-import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
-import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
+import ru.innopolis.stc31.appeal.model.dto.*;
 import ru.innopolis.stc31.appeal.model.entity.City;
 import ru.innopolis.stc31.appeal.model.entity.Country;
 import ru.innopolis.stc31.appeal.model.entity.Street;
@@ -37,6 +34,8 @@ public class ReviewService {
     private CityRepository cityRepository;
     @Autowired
     private StreetRepository streetRepository;
+    @Autowired
+    private TicketService ticketService;
 
     /**
      * Метод возвращает наименования всех

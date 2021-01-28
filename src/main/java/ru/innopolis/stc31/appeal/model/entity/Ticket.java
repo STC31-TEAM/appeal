@@ -33,12 +33,12 @@ public class Ticket {
     private long creatorUserId;
 
     @Column(name = "id_company")
-    private long companyId;
+    private Integer companyId;
 
     @Column(name = "id_service_type")
     private long serviceTypeId;
 
-    @Column(name = "id_link")
+    @Column(name = "id_album_link")
     private long albumLinkId;
 
     private String title;

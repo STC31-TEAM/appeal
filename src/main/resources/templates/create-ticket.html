@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #content},
+                                                ${isAnonymous},
+                                                ${authUser}
+                                               )}" lang="ru">
+<head>
+    <title>Новая заявка</title>
+</head>
+<body>
+<div id="content" class="content">
+    <div class="container-md div-form">
+
+            <form action="#" th:action="@{/api/v1.0/ui/createTicket}" th:object="${ticketDTO}" method="post">
+
+                <label for="title">Заголовок</label><br>
+                <input type="text" th:field="*{titles}" id="title" placeholder="title">
+
+                <label for="description">Описание</label><br>
+                <input type="text" th:field="*{description}" id="description" placeholder="description">
+
+                <label for="companyId">Компания</label><br>
+                <select id="companyId" name="companyId"  th:field="*{idCompany}">
+                    <option th:each="company : ${allCompanyTitle}"
+                            th:value="${company.value}"
+                            th:text="${company.key}">
+                        Компания
+                    </option>
+                </select>
+
+                <label for="countryId">Страна</label><br>
+                <select id="countryId" name="countryId"  th:field="*{idCountry}">
+                    <option th:each="country : ${allCountryTitle}"
+                            th:value="${country.value}"
+                            th:text="${country.key}">
+                        Страна
+                    </option>
+                </select>
+
+                <label for="cityId">Город</label><br>
+                <select id="cityId" name="cityId"  th:field="*{idCity}">
+                    <option th:each="city : ${allCityName}"
+                            th:value="${city.value}"
+                            th:text="${city.key}">
+                        Город
+                    </option>
+                </select>
+
+                <label for="streetId">Улица</label><br>
+                <select id="streetId" name="streetId"  th:field="*{idStreet}">
+                    <option th:each="street : ${allStreetName}"
+                            th:value="${street.value}"
+                            th:text="${street.key}">
+                        Улица
+                    </option>
+                </select>
+
+                <input type="submit" value="Сохранить">
+            </form>
+
+    </div>
+</div>
+</body>
+</html>

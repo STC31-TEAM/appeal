@@ -31,7 +31,7 @@ public class TicketController {
      *
      * @return List of tickets
      */
-    @GetMapping("/all")
+    @GetMapping("/allTickets")
     @ApiOperation("Получить список всех заявок")
     public List<TicketDTO> getAllTickets() {
         return ticketService.getTicketList();
@@ -43,7 +43,7 @@ public class TicketController {
      * @param dto Model
      * @return true if success created
      */
-    @PostMapping("/create")
+    @PostMapping("/createTicket")
     @ApiOperation("Добавить заявку")
     public ResponseEntity <TicketDTO> createTicket(TicketDTO dto) {
         log.debug("create ticket method was called with {} ", dto);
