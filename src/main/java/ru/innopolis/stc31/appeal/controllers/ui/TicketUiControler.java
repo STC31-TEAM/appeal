@@ -11,6 +11,10 @@ import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
 import ru.innopolis.stc31.appeal.model.entity.Ticket;
 import ru.innopolis.stc31.appeal.services.TicketService;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
 @Controller
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ui")
@@ -24,6 +28,8 @@ public class TicketUiControler extends BaseCredentialController  {
     public String createTicket(TicketDTO ticketDTO, Model model) {
 
         log.debug("create ticket method was called with {} ", ticketDTO);
+
+        ticketDTO.setOpenDate(LocalDate.now());
 
         Ticket ticket = ticketService.createTicket(ticketDTO);
 
