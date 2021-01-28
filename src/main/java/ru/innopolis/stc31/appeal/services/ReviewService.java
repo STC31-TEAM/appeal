@@ -36,6 +36,8 @@ public class ReviewService {
     private StreetRepository streetRepository;
     @Autowired
     private TicketService ticketService;
+    @Autowired
+    private ServiceTypesService serviceTypesService;
 
     /**
      * Метод возвращает наименования всех
@@ -170,6 +172,15 @@ public class ReviewService {
             ticketDTOMap.put(ticketDTO.getTitles(), ticketDTO);
         }
         return ticketDTOMap;
+    }
+
+    public Map<String,Long> getAllServiceType(){
+        List<ServiceTypeDTO> serviceTypeDTOList = serviceTypesService.getTypeOfServiceList();
+        Map<String,Long> serviceTypeMap = new HashMap<>();
+        for (ServiceTypeDTO serviceTypeDTO: serviceTypeDTOList){
+            serviceTypeMap.put(serviceTypeDTO.getType(), serviceTypeDTO.getId() );
+        }
+        return serviceTypeMap;
     }
 
 }

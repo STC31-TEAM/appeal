@@ -23,6 +23,8 @@ public class TicketUiControler extends BaseCredentialController  {
     @ApiOperation("Создать заявку")
     public String createTicket(TicketDTO ticketDTO, Model model) {
 
+        log.debug("create ticket method was called with {} ", ticketDTO);
+
         Ticket ticket = ticketService.createTicket(ticketDTO);
 
         if (ticket == null) {

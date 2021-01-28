@@ -66,6 +66,7 @@ public class ReviewController extends BaseCredentialController {
         model.addAttribute("allCountryTitle", reviewService.getAllCountryName());
         model.addAttribute("allCityName", reviewService.getAllCityName());
         model.addAttribute("allStreetName", reviewService.getAllStreetName());
+        model.addAttribute("allServiceType", reviewService.getAllServiceType());
         return "create-ticket";
     }
 }

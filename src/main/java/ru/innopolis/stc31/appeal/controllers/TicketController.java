@@ -17,7 +17,7 @@ import java.util.List;
  * Controller for manage tickets
  */
 @Slf4j
-@Controller
+@RestController
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ticket")
 public class TicketController {
@@ -45,7 +45,7 @@ public class TicketController {
      */
     @PostMapping("/createTicket")
     @ApiOperation("Добавить заявку")
-    public ResponseEntity <TicketDTO> createTicket(TicketDTO dto) {
+    public ResponseEntity <TicketDTO> createTicket(@RequestBody TicketDTO dto) {
         log.debug("create ticket method was called with {} ", dto);
         var ticket =ticketService.createTicket(dto);
 

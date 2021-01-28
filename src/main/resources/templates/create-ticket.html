@@ -21,6 +21,15 @@
                 <label for="description">Описание</label><br>
                 <input type="text" th:field="*{description}" id="description" placeholder="description">
 
+                <label for="idTypesServices">Тип сервиса</label><br>
+                <select id="idTypesServices" name="idTypesServices"  th:field="*{idTypesServices}">
+                    <option th:each="serviceType : ${allServiceType}"
+                            th:value="${serviceType.value}"
+                            th:text="${serviceType.key}">
+                        Компания
+                    </option>
+                </select>
+
                 <label for="companyId">Компания</label><br>
                 <select id="companyId" name="companyId"  th:field="*{idCompany}">
                     <option th:each="company : ${allCompanyTitle}"
@@ -56,6 +65,9 @@
                         Улица
                     </option>
                 </select>
+
+                <label for="opendate">Дата создания</label><br>
+                <input type="datetime-local" th:field="*{openDate}" id="opendate" placeholder="YYYY-MM-dd">
 
                 <input type="submit" value="Сохранить">
             </form>
