@@ -9,7 +9,7 @@ values(2,                         /* id */
             1,                       /* company */
             1,                          /* status */
             'Administrator',            /* login */
-            'Administrator',            /* password */
+            '41ffbfd17a405e414317462720cfad0c6ca43dd4',            /* password */
             'Иван',                     /* name */
             'Иванов',                   /* surname */
             '1982-04-21',               /* birthday */
@@ -24,7 +24,7 @@ values(3,                         /* id */
             1,                       /* company */
             1,                          /* status */
             'Moderator',                /* login */
-            'Moderator',                /* password */
+            '0165ee6c8ca8cbdb0faaa7fa869ccf992b233b0f',                /* password */
             'Николай',                  /* name */
             'Николаев',                 /* surname */
             '1979-03-12',               /* birthday */
@@ -39,7 +39,7 @@ values(4,                         /* id */
             1,                       /* company */
             1,                          /* status */
             'Redactor',            /* login */
-            'Redactor',            /* password */
+            '8904486a6eb692d11a7b088931f6ffbc7e038772',            /* password */
             'Василий',                     /* name */
             'Васильев',                   /* surname */
             '1976-10-02',               /* birthday */
@@ -54,7 +54,7 @@ values(5,                         /* id */
             1,                       /* company */
             2,                          /* status */
             'Deleted_User',            /* login */
-            'Deleted_User',            /* password */
+            '2965690f248754ece7c85c7206fbb5118f1b0de7',            /* password */
             'Павел',                     /* name */
             'Павлов',                   /* surname */
             '1991-07-30',               /* birthday */
@@ -69,7 +69,7 @@ values(6,                         /* id */
             1,                       /* company */
             0,                          /* status */
             'Reg_User',            /* login */
-            'Reg_User',            /* password */
+            '232f658e40e6953751a18fa98f410deb5910bd24',            /* password */
             'Владимир',                     /* name */
             'Владимиров',                   /* surname */
             '1988-07-04',               /* birthday */
@@ -84,7 +84,7 @@ values(7,                         /* id */
             2,                       /* company */
             1,                          /* status */
             'Verified_User',            /* login */
-            'Verified_User',            /* password */
+            'db6e42816e4f1e5586a1581f011c2f0908beec78',            /* password */
             'Олег',                     /* name */
             'Олегов',                   /* surname */
             '1989-11-20',               /* birthday */
@@ -99,7 +99,7 @@ values(8,                         /* id */
             1,                       /* company */
             0,                          /* status */
             'Test_User',            /* login */
-            'Test_User',            /* password */
+            '68844745189a4ef683a5f0c34c51be328b060d88',            /* password */
             'Сергей',                     /* name */
             'Сергеев',                   /* surname */
             '1993-01-05',               /* birthday */
@@ -114,7 +114,7 @@ values(9,                         /* id */
             1,                       /* company */
             2,                          /* status */
             'Deleted_Admin',            /* login */
-            'Deleted_Admin',            /* password */
+            '5d418d6efc4e4251d16fe5633754e7ce4fb7f379',            /* password */
             'Валерий',                     /* name */
             'Валерьев',                   /* surname */
             '1977-12-03',               /* birthday */

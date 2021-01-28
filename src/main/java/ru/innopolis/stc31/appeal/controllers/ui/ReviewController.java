@@ -1,7 +1,7 @@
 package ru.innopolis.stc31.appeal.controllers.ui;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +16,10 @@ import java.util.Map;
  */
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class ReviewController extends BaseCredentialController {
 
-    @Autowired
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
 
     @GetMapping("/")
     public String welcome(Model model) {
@@ -47,6 +47,4 @@ public class ReviewController extends BaseCredentialController {
         model.addAttribute("allCompany", reviewService.getAllCompany());
         return "list-company";
     }
-
-
 }

@@ -19,7 +19,5 @@ public class BaseCredentialController {
         if (!isAnonymous) {
             model.addAttribute("authUser", principal);
         }
-
-        System.out.println(isAnonymous);
     }
 }
