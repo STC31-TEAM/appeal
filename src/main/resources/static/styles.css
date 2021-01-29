@@ -131,12 +131,19 @@ footer {
 .card.card-top-companies .card-counter {
     font-weight: bold;
 }
+.card.card-top-companies .card-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+.card.card-top-companies .card-body {
+    padding: .7rem .5rem;
+}
 
 .card-list {
 
 }
 .card-list-item + .card-list-item {
-    border-top: 1px dashed #bbb;
+    border-top: 1px dashed #ccc;
 }
 
 .navbar-header-right {
