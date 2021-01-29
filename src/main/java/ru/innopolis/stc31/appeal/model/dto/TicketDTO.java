@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+
 import java.time.LocalDate;
 
 /**
@@ -29,5 +30,18 @@ public class TicketDTO {
     private int countLikes;
     private int countDisLikes;
     private short status;
+    private CompanyDTO companyDTO;
+    private CityDTO cityDTO;
 
+    public int getLikes() {
+        return countLikes - countDisLikes;
+    }
+
+    public String getLikesString() {
+        int diff = getLikes();
+
+        if (diff == 0) return "0";
+
+        return diff > 0 ? "+" + diff : "" + diff;
+    }
 }

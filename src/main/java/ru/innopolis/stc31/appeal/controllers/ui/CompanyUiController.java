@@ -17,7 +17,7 @@ import ru.innopolis.stc31.appeal.services.CompanyService;
 @AllArgsConstructor
 @RequestMapping("${application.api.uriPrefix}/ui/company")
 @Slf4j
-public class CompanyUiController {
+public class CompanyUiController extends BaseCredentialController {
 
     /** Company service instance */
     private final CompanyService companyService;

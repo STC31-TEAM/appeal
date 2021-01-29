@@ -1,2 +1,2 @@
 insert into users(id,id_city,id_company,id_country,id_map_role,id_street,status,login,password,name,surname,birthday,phone,email)
-values (1,1,1,1,1,1,1,'appeal','appeal','appeal','appeal','2021-01-05','79129999999','appeal@gmail.com');
+values (1,1,1,1,1,1,1,'appeal','4b5a4b1a4337d426163e71448878f6d864b2ac51','appeal','appeal','2021-01-05','79129999999','appeal@gmail.com');
