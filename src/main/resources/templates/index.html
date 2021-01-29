@@ -72,10 +72,11 @@
                     <h5 class="title-main">Top companies</h5>
                     <div class="card card-top-companies">
                         <div class="card-list">
-                            <div class="card-list-item card-body" th:each="topCompany : ${topCompanies}">
-                                <h5 class="card-title" th:text="${topCompany.getTitle()}"></h5>
-                                <div class="card-notice">
-                                    Исполнено заявок <span class="card-counter text-success" th:text="${topCompany.getCountClosedTickets()}"></span>
+                            <div class="card-list-item card-body text-center" th:each="topCompany : ${topCompanies}">
+                                <span class="card-title" th:text="${topCompany.getTitle()}"></span>
+                                <div class="text-center">
+                                    <i class="bi bi-bookmark-check text-warning"></i>
+                                    <b class="text-warning" data-bs-toggle="tooltip" data-bs-placement="right" title="Исполненных заявок" th:text="${topCompany.getCountClosedTickets()}"></b>
                                 </div>
                             </div>
                         </div>
