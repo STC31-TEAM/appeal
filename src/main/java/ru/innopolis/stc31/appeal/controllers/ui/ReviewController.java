@@ -59,6 +59,27 @@ public class ReviewController extends BaseCredentialController {
         return "list-company";
     }
 
+    @GetMapping("/ticketAll")
+    public String ticketAll(Model model) {
+        TicketDTO ticketDTO = new TicketDTO();
+        model.addAttribute("ticketDTO", ticketDTO);
+        model.addAttribute("allTicket", reviewService.getAllTickets());
+        return "list-ticket";
+    }
+
+    @GetMapping("/createTicket")
+    public String createTicket(Model model) {
+        TicketDTO ticketDTO = new TicketDTO();
+        model.addAttribute("ticketDTO", ticketDTO);
+        Map<String, Long> mapCompany = reviewService.getAllCompanyTitle();
+        model.addAttribute("allCompanyTitle", mapCompany);
+        model.addAttribute("allCountryTitle", reviewService.getAllCountryName());
+        model.addAttribute("allCityName", reviewService.getAllCityName());
+        model.addAttribute("allStreetName", reviewService.getAllStreetName());
+        model.addAttribute("allServiceType", reviewService.getAllServiceType());
+        return "create-ticket";
+    }
+
     /**
      * Temp data stub
      * TODO: Must be removed
