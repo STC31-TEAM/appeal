@@ -54,8 +54,6 @@ class TicketServiceImplTest {
             ticketList.add(new Ticket(count, count * 2, count * 3, count * 3, count * 4, count * 4,
                     count * 5, count * 5, "TestTitles" + count, "TestDescription1" + count,
                     (short) 1, dateOpen, dateClose, 10, 1));
-
-
         }
 
             when(ticketRepository.findAll()).thenReturn(ticketList);

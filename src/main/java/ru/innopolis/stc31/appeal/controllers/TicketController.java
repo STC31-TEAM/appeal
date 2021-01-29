@@ -70,7 +70,7 @@ public class TicketController {
 
     @PostMapping("/sortByRecentlyOpenedTickets")
     @ApiOperation("Список заявок, отсортированный по дате создания")
-    public List<TicketDTO> getCompaniesSortedByCompletedTickets() {
+    public List<TicketDTO> getTicketsSortedByOpening() {
 
         log.debug("sort tickets by opening time method was called");
 
