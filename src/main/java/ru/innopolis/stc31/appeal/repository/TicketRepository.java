@@ -15,6 +15,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     List<Ticket> findClosedTickets();
 
     @Query(value = "SELECT * FROM tickets " +
+            "WHERE close_date IS NULL " +
             "ORDER BY open_date DESC", nativeQuery = true)
     List<Ticket> ticketsSortedByCreationTime();
 }
