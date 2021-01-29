@@ -17,6 +17,8 @@ import ru.innopolis.stc31.appeal.exceptions.RoleErrors;
 import ru.innopolis.stc31.appeal.repository.RoleRepository;
 import ru.innopolis.stc31.appeal.repository.UserRepository;
 
+import java.util.Locale;
+
 @Slf4j
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
@@ -40,7 +42,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
         String login = authentication.getName();
-        String password = passwordEncoder.encode(authentication.getCredentials().toString()+secret);
+        String password = passwordEncoder.encode(authentication.getCredentials().toString()).toLowerCase(Locale.ROOT);
 
         ru.innopolis.stc31.appeal.model.entity.User user = userRepository.findByLogin(login);
         if (user == null) {
