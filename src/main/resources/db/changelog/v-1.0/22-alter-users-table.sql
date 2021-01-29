@@ -4,3 +4,4 @@ CREATE SEQUENCE users_id_seq START WITH 10;
 ALTER TABLE users ALTER COLUMN id SET NOT NULL;
 ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_id_seq');
 ALTER SEQUENCE users_id_seq OWNED BY users.id;
+ALTER TABLE users ALTER COLUMN id_company DROP NOT NULL;
