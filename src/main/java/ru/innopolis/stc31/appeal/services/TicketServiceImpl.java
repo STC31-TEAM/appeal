@@ -42,25 +42,21 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public List<TicketDTO> getClosedTicketList() {
-//        List<Ticket> ticketList = ticketRepository.findClosedTickets();
-//        List<TicketDTO> ticketDTOList = new ArrayList<>();
-//        for (Ticket ticket : ticketList) {
-//            ticketDTOList.add(ticketToTicketDTO.convert(ticket));
-//        }
-//        return ticketDTOList;
-        return null;
+        List<Ticket> ticketList = ticketRepository.findClosedTickets();
+        List<TicketDTO> ticketDTOList = new ArrayList<>();
+        for (Ticket ticket : ticketList) {
+            ticketDTOList.add(ticketToTicketDTO.convert(ticket));
+        }
+        return ticketDTOList;
     }
 
     @Override
-    public List<TicketDTO> getLastCreatedTicketList() {
-//        List<Ticket> ticketList = ticketRepository.ticketsSortedByCreationTime();
-//        List<TicketDTO> ticketDTOList = new ArrayList<>();
-//        for (Ticket ticket : ticketList) {
-//            ticketDTOList.add(ticketToTicketDTO.convert(ticket));
-//        }
-//        return ticketDTOList;
-        return null;
+    public List<TicketDTO> getRecentTicketList() {
+        List<Ticket> ticketList = ticketRepository.ticketsSortedByCreationTime();
+        List<TicketDTO> ticketDTOList = new ArrayList<>();
+        for (Ticket ticket : ticketList) {
+            ticketDTOList.add(ticketToTicketDTO.convert(ticket));
+        }
+        return ticketDTOList;
     }
-
-
 }

@@ -46,5 +46,5 @@ public interface TicketService {
      *
      * @return list of last created tickets
      */
-    List<TicketDTO> getLastCreatedTicketList();
+    List<TicketDTO> getRecentTicketList();
 }

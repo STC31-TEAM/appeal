@@ -46,13 +46,38 @@ public class TicketController {
     @ApiOperation("Добавить заявку")
     public ResponseEntity <TicketDTO> createTicket(@RequestBody TicketDTO dto) {
         log.debug("create ticket method was called with {} ", dto);
-        var ticket =ticketService.createTicket(dto);
+        var ticket = ticketService.createTicket(dto);
 
-        if(ticket==null) {
+        if (ticket == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         log.debug("create ticket method return result {} ", ticket);
         return new ResponseEntity<>(ticketToTicketDTO.convert(ticket), HttpStatus.OK);
     }
 
+    @PostMapping("/getClosedTickets")
+    @ApiOperation("Найти закрытые заявки")
+    public List<TicketDTO> getClosedTickets() {
+
+        log.debug("get closed tickets method was called");
+
+        List<TicketDTO> ticketDTOList = ticketService.getClosedTicketList();
+
+        log.debug("get closed tickets method returns {}", ticketDTOList);
+
+        return ticketDTOList;
+    }
+
+    @PostMapping("/sortByRecentlyOpenedTickets")
+    @ApiOperation("Список заявок, отсортированный по дате создания")
+    public List<TicketDTO> getCompaniesSortedByCompletedTickets() {
+
+        log.debug("sort tickets by opening time method was called");
+
+        List<TicketDTO> ticketDTOList = ticketService.getRecentTicketList();
+
+        log.debug("sort tickets by opening time method returns {}", ticketDTOList);
+
+        return ticketDTOList;
+    }
 }
