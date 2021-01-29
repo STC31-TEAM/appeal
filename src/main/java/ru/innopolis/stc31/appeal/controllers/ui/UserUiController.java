@@ -51,6 +51,7 @@ public class UserUiController extends BaseCredentialController {
             log.error(exception.getMessage());
             return "create-fail";
         }
+
         return "create-success";
     }
 }

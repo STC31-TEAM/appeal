@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import ru.innopolis.stc31.appeal.converters.StreetDTOToStreet;
@@ -49,7 +50,7 @@ class StreetControllerTest {
     }
 
     @Test
-    void create() {
+    void createWithOk() {
         StreetDTO streetDTO = MockUtils.makeStreetDTO();
         Street street = streetDTOToStreet.convert(streetDTO);
         street.setId(1);
@@ -62,7 +63,18 @@ class StreetControllerTest {
     }
 
     @Test
-    void delete() {
+    void createWithFail() {
+        StreetDTO streetDTO = MockUtils.makeStreetDTO();
+        Street street = null;
+        when(streetService.createStreet(streetDTO)).thenReturn(street);
+
+        ResponseEntity<StreetDTO> responseEntity = streetController.createStreet(streetDTO);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCodeValue());
+    }
+
+    @Test
+    void deleteWithOk() {
         StreetDTO streetDTO = MockUtils.makeStreetDTO();
 
         SuccessModel successModel = new SuccessModel().setResult("OK");
@@ -72,5 +84,16 @@ class StreetControllerTest {
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
         assertEquals(responseEntity.getBody().getResult(), successModel.getResult());
+    }
+
+    @Test
+    void deleteWithFail() {
+        StreetDTO streetDTO = MockUtils.makeStreetDTO();
+
+        when(streetService.deleteStreet(streetDTO)).thenReturn(false);
+
+        ResponseEntity<SuccessModel> responseEntity = streetController.deleteStreet(streetDTO);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCodeValue());
     }
 }

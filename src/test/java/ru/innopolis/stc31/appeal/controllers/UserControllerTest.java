@@ -3,6 +3,7 @@ package ru.innopolis.stc31.appeal.controllers;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.UserDTOToUser;
@@ -67,6 +68,19 @@ class UserControllerTest {
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
         assertEquals(responseEntity.getBody().getLogin(), userDTO.getLogin());
+
+    }
+
+    @Test
+    void checkCreateWithFail() throws UsersErrors {
+
+        UserDTO userDTO = MockUtils.makeUserDTO();
+        User user = null;
+        when(usersService.createUser(userDTO)).thenReturn(user);
+
+        ResponseEntity<UserDTO> responseEntity = userController.createUser(userDTO);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCodeValue());
 
     }
 }
