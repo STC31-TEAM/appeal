@@ -25,6 +25,7 @@ public class CompanyDTO {
     private String title;
     private short status;
     private String fullAddress;
+    private int countClosedTickets;
 
     public CompanyDTO() {
 
