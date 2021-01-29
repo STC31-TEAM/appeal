@@ -2,12 +2,10 @@ package ru.innopolis.stc31.appeal.converters;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
-import ru.innopolis.stc31.appeal.model.entity.Company;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringJUnitConfig
 class CompanyDTOToCompanyTest {
@@ -19,7 +17,7 @@ class CompanyDTOToCompanyTest {
     void convert() {
         CompanyDTO companyDTO = new CompanyDTO(3l, 4l, 2l, 1l, 2l, 4l,
                 "Test Company", "pass22", "company_test@mail.ru",
-                84012587315L, "Company of Australia", (short)1, "Full address");
+                84012587315L, "Company of Australia", (short)1, "Full address", 12);
 
         assertEquals(companyDTOToCompany.convert(companyDTO).getUserId(), companyDTO.getUserId());
         assertEquals(companyDTOToCompany.convert(companyDTO).getServiceTypeId(), companyDTO.getServiceTypeId());
