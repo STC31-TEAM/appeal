@@ -7,11 +7,8 @@ import org.mockito.Spy;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.CompanyDTOToCompany;
 import ru.innopolis.stc31.appeal.converters.CompanyToCompanyDTO;
-import ru.innopolis.stc31.appeal.model.dto.AlbumDTO;
-import ru.innopolis.stc31.appeal.model.dto.CityDTO;
 import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
 import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
-import ru.innopolis.stc31.appeal.model.entity.AlbumLink;
 import ru.innopolis.stc31.appeal.model.entity.Company;
 import ru.innopolis.stc31.appeal.repository.CompanyRepository;
 import ru.innopolis.stc31.appeal.utils.MockUtils;
@@ -22,7 +19,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.shortThat;
 import static org.mockito.Mockito.*;
 
 /**
@@ -73,7 +69,7 @@ class CompanyServiceImplTest {
     void createCompany() {
         CompanyDTO companyDTO = new CompanyDTO(1l, 3l, 4l, 2l, 8l, 3l,
                 "TestLogin", "TestPassword", "mail@gmail.com",
-                84728568747L, "Company Tilte", (short) 2, "Full address");
+                84728568747L, "Company Tilte", (short) 2, "Full address", 14);
         Company company = companyDTOToCompany.convert(companyDTO);
         when(companyRepository.save(company)).thenReturn(company);
 
