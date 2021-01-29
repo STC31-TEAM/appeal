@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class TicketServiceImpl implements TicketService{
+public class TicketServiceImpl implements TicketService {
 
     private final TicketRepository ticketRepository;
     private final TicketDTOToTicket ticketDTOToTicket;
@@ -21,9 +21,9 @@ public class TicketServiceImpl implements TicketService{
 
     @Override
     public List<TicketDTO> getTicketList() {
-        List <Ticket> ticketList=ticketRepository.findAll();
-        List <TicketDTO> ticketDTOList=new ArrayList<>();
-        for (Ticket ticket:ticketList) {
+        List<Ticket> ticketList = ticketRepository.findAll();
+        List<TicketDTO> ticketDTOList = new ArrayList<>();
+        for (Ticket ticket : ticketList) {
             ticketDTOList.add(ticketToTicketDTO.convert(ticket));
         }
         return ticketDTOList;
@@ -39,5 +39,28 @@ public class TicketServiceImpl implements TicketService{
         ticketRepository.deleteById(ticketDTO.getId());
         return false;
     }
+
+    @Override
+    public List<TicketDTO> getClosedTicketList() {
+//        List<Ticket> ticketList = ticketRepository.findClosedTickets();
+//        List<TicketDTO> ticketDTOList = new ArrayList<>();
+//        for (Ticket ticket : ticketList) {
+//            ticketDTOList.add(ticketToTicketDTO.convert(ticket));
+//        }
+//        return ticketDTOList;
+        return null;
+    }
+
+    @Override
+    public List<TicketDTO> getLastCreatedTicketList() {
+//        List<Ticket> ticketList = ticketRepository.ticketsSortedByCreationTime();
+//        List<TicketDTO> ticketDTOList = new ArrayList<>();
+//        for (Ticket ticket : ticketList) {
+//            ticketDTOList.add(ticketToTicketDTO.convert(ticket));
+//        }
+//        return ticketDTOList;
+        return null;
+    }
+
 
 }

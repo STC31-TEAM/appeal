@@ -6,4 +6,7 @@ import ru.innopolis.stc31.appeal.model.entity.Ticket;
 
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
+//    List<Ticket> findClosedTickets();
+
+//    List<Ticket> ticketsSortedByCreationTime();
 }
