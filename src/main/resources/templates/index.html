@@ -15,14 +15,14 @@
         <div class="container-md">
             <div class="row">
                 <div class="col-lg-9">
-                    <h5 class="title-main">Closed tickets</h5>
+                    <h5 class="title-main">Исполненные заявки</h5>
                     <div class="cards closed-cards">
                         <div class="card card-ticket" th:each="closedTicket: ${closedTickets}">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">
                                         <h5 class="card-title" th:text="${closedTicket.getTitles()}"></h5>
-                                        <p class="card-text" th:text="${closedTicket.getDescription()}">В северной части города нет ни одного магазина одежды.</p>
+                                        <p class="card-text" th:text="${closedTicket.getDescription()}"></p>
                                         <div class="card-geo">
                                             <em class="bi bi-geo-alt-fill text-danger"></em> <span class="card-town" th:text="${closedTicket.getCityDTO().getCityName()}"></span>
                                         </div>
@@ -30,10 +30,11 @@
                                     <div class="col-4">
                                         <div class="float-end">
                                             <div class="card-doer text-end">
-                                                <span class="badge bg-success">Closed</span> <span class="card-label">by</span> <span class="text-primary" th:text="${closedTicket.getCompanyDTO().getTitle()}"></span>
+                                                <span class="badge bg-success">Закрыта</span> <span class="card-label">by</span> <span class="text-primary" th:text="${closedTicket.getCompanyDTO().getTitle()}"></span>
                                             </div>
-                                            <div class="card-votes text-end" th:classappend="${closedTicket.getLikes() > 0} ? 'text-success' : 'text-danger'">
-                                                <em class="bi bi-heart"></em> <span class="likes" th:text="${closedTicket.getLikesString()}"></span>
+                                            <div class="card-votes text-end">
+                                                <em class="bi bi-hand-thumbs-up text-success"></em> <span th:text="${closedTicket.getCountLikes()}"></span>
+                                                &nbsp;&nbsp;<em class="bi bi-hand-thumbs-down text-danger"></em> <span th:text="${closedTicket.getCountDisLikes()}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -41,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="title-main title-recent-tickets">Recent tickets</h5>
+                    <h5 class="title-main title-recent-tickets">Недавние заявки</h5>
                     <div class="cards recent-cards">
                         <div class="card card-ticket" th:each="recentTicket: ${recentTickets}">
                             <div class="card-body">
@@ -56,10 +57,11 @@
                                     <div class="col-4">
                                         <div class="float-end">
                                             <div class="card-doer">
-                                                <span class="badge bg-primary">Open</span>
+                                                <span class="badge bg-primary">Открыта</span>
                                             </div>
-                                            <div class="card-votes text-end" th:classappend="${recentTicket.getLikes() > 0} ? 'text-success' : 'text-danger'">
-                                                <em class="bi bi-heart"></em> <span class="likes" th:text="${recentTicket.getLikesString()}"></span>
+                                            <div class="card-votes text-end">
+                                                <em class="bi bi-hand-thumbs-up text-success"></em> <span th:text="${recentTicket.getCountLikes()}"></span>
+                                                &nbsp;&nbsp;<em class="bi bi-hand-thumbs-down text-danger"></em> <span th:text="${recentTicket.getCountDisLikes()}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -69,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <h5 class="title-main">Top companies</h5>
+                    <h5 class="title-main">Топ компаний</h5>
                     <div class="card card-top-companies">
                         <div class="card-list">
                             <div class="card-list-item card-body text-center" th:each="topCompany : ${topCompanies}">

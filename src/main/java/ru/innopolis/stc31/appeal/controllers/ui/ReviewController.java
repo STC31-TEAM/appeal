@@ -81,7 +81,7 @@ public class ReviewController extends BaseCredentialController {
                 .setTitles("Построить автомойку")
                 .setDescription("На весь город одна автомойка. Хотим ещё.")
                 .setCountLikes(37)
-                .setCountDisLikes(23)
+                .setCountDisLikes(12)
                 .setCompanyDTO(new CompanyDTO().setTitle("Автопилот"))
                 .setCityDTO(new CityDTO().setCityName("г. Алапаевск"))
         );
@@ -102,7 +102,7 @@ public class ReviewController extends BaseCredentialController {
                 .setTitles("Ремонт моста")
                 .setDescription("Под мост начали проваливаться машины. Не хорошо.")
                 .setCountLikes(55)
-                .setCountDisLikes(43)
+                .setCountDisLikes(8)
                 .setCityDTO(new CityDTO().setCityName("г. Тюмень"))
         );
 
@@ -110,7 +110,7 @@ public class ReviewController extends BaseCredentialController {
                 .setTitles("Открыть подпольное казино")
                 .setDescription("Не помешает.")
                 .setCountLikes(25)
-                .setCountDisLikes(43)
+                .setCountDisLikes(54)
                 .setCityDTO(new CityDTO().setCityName("г. Новый Уренгой"))
         );
 
@@ -118,7 +118,7 @@ public class ReviewController extends BaseCredentialController {
                 .setTitles("Почистить озеро")
                 .setDescription("Не возможно купаться.")
                 .setCountLikes(63)
-                .setCountDisLikes(43)
+                .setCountDisLikes(31)
                 .setCityDTO(new CityDTO().setCityName("г. Ялуторовск"))
         );
 
@@ -126,7 +126,7 @@ public class ReviewController extends BaseCredentialController {
                 .setTitles("Вырубить лес")
                 .setDescription("Бегают волки.")
                 .setCountLikes(32)
-                .setCountDisLikes(43)
+                .setCountDisLikes(75)
                 .setCityDTO(new CityDTO().setCityName("с. Заблудкино"))
         );
 
@@ -134,7 +134,7 @@ public class ReviewController extends BaseCredentialController {
                 .setTitles("Построить пиццерию")
                 .setDescription("В селе не где поесть.")
                 .setCountLikes(76)
-                .setCountDisLikes(43)
+                .setCountDisLikes(27)
                 .setCityDTO(new CityDTO().setCityName("с. Заблудкино"))
         );
 
