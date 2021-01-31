@@ -1,0 +1,1 @@
+ALTER TABLE companies ALTER COLUMN phone TYPE bigint USING phone::bigint;

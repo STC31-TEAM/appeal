@@ -10,6 +10,7 @@ import ru.innopolis.stc31.appeal.exceptions.HashAlgorithmError;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Locale;
 
 @Slf4j
 @Component
@@ -32,7 +33,7 @@ public class AppealPasswordEncoder implements PasswordEncoder {
 
     @Override
     public boolean matches(CharSequence rawPassword, String encodedPassword) {
-        String rawPasswordHashMD5 = (rawPassword.toString()+secret);
+        String rawPasswordHashMD5 = (rawPassword.toString().toLowerCase(Locale.ROOT)+secret);
         return rawPasswordHashMD5.equals(encodedPassword);
     }
 
