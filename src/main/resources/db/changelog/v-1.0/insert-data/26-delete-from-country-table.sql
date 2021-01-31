@@ -1,1 +1,0 @@
-delete from countries where country_name in ('Уфа', 'Алапаевск', 'Тюмень', 'Новый Уренгой', 'Ялуторовск', 'Заблудкино');

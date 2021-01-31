@@ -12,7 +12,7 @@
                  relativeToChangelogFile="true"
                  splitStatements="true"
                  stripComments="true"
-                 path="29-insert-to-tickets-table.sql"/>
+                 path="32-insert-to-tickets-table.sql"/>
         <rollback>
             <sqlFile dbms="postgresql"
                      encoding="utf8"
@@ -20,7 +20,7 @@
                      relativeToChangelogFile="true"
                      splitStatements="true"
                      stripComments="true"
-                     path="29-delete-from-tickets-table.sql"/>
+                     path="32-delete-from-tickets-table.sql"/>
         </rollback>
     </changeSet>
 

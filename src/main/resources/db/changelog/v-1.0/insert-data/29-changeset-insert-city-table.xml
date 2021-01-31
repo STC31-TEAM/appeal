@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="18" author="shulepov_vadim">
+    <changeSet id="26" author="v.shulepov">
         <sqlFile dbms="postgresql"
                  encoding="utf8"
                  endDelimiter=";"
                  relativeToChangelogFile="true"
                  splitStatements="true"
                  stripComments="true"
-                 path="28-insert-to-companies-table.sql"/>
+                 path="29-insert-city-table.sql"/>
         <rollback>
             <sqlFile dbms="postgresql"
                      encoding="utf8"
@@ -20,7 +20,7 @@
                      relativeToChangelogFile="true"
                      splitStatements="true"
                      stripComments="true"
-                     path="28-delete-from-companies-table.sql"/>
+                     path="29-delete-from-city-table.sql"/>
         </rollback>
     </changeSet>
 

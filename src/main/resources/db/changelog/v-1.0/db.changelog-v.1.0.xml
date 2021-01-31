@@ -32,9 +32,9 @@
     <include file="insert-data/23-changeset-update-users-table.xml" relativeToChangelogFile="true"/>
     <include file="24-changeset-alter-album_links-table.xml" relativeToChangelogFile="true"/>
     <include file="25-changeset-alter-companies-table.xml" relativeToChangelogFile="true"/>
-    <include file="insert-data/26-changeset-insert-city-table.xml" relativeToChangelogFile="true"/>
-    <include file="insert-data/27-chengeset-insert-to-service_type-table.xml" relativeToChangelogFile="true"/>
-    <include file="insert-data/28-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
-    <include file="insert-data/29-changeset-insert-to-tickets-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/29-changeset-insert-city-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/30-chengeset-insert-to-service_type-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/31-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/32-changeset-insert-to-tickets-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
