@@ -19,7 +19,9 @@ import ru.innopolis.stc31.appeal.utils.MockUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 /**
@@ -56,6 +58,7 @@ class UsersServiceImplTest {
         user.setStreetId(1);
         user.setCityId(1);
         user.setStatus((short) 0);
+        user.setPassword("123");
         Role role = new Role();
         role.setId(1);
         role.setTitle(Roles.USER.toString());
@@ -69,6 +72,7 @@ class UsersServiceImplTest {
     void createUserFail(){
         Role role = new Role();
         UserDTO userDTO = MockUtils.makeUserDTO();
+        userDTO.setPassword("123");
         User user = userDTOToUser.convert(userDTO);
         when(userDTOToUser.convert(userDTO)).thenReturn(user);
         when(roleRepository.findByTitle(Roles.USER.toString())).thenReturn(role);

@@ -52,7 +52,7 @@ class CompanyServiceImplTest {
         for (int count = 1; count < 6; count++){
             companyList.add(new Company(count, count * 3, count * 4, count * 2, count * 8, count * 3,
                     "TestLogin" + count, "TestPassword" + count, "mail" + count +"@gmail.com",
-                    84728 + count * 11, "Company" + count + " Tilte", (short) 2));
+                    "84728" + count * 11, "Company" + count + " Tilte", (short) 2));
         }
         when(companyRepository.findAll()).thenReturn(companyList);
 
@@ -69,7 +69,7 @@ class CompanyServiceImplTest {
     void createCompany() {
         CompanyDTO companyDTO = new CompanyDTO(1l, 3l, 4l, 2l, 8l, 3l,
                 "TestLogin", "TestPassword", "mail@gmail.com",
-                84728568747L, "Company Tilte", (short) 2, "Full address", 14);
+                "84728568747", "Company Tilte", (short) 2, "Full address", 14);
         Company company = companyDTOToCompany.convert(companyDTO);
         when(companyRepository.save(company)).thenReturn(company);
 
