@@ -1,0 +1,1 @@
+ALTER TABLE companies ALTER COLUMN phone TYPE varchar(11);

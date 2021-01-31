@@ -22,7 +22,7 @@ import javax.persistence.*;
 public class Company {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "id_user")
@@ -43,7 +43,7 @@ public class Company {
     private String login;
     private String password;
     private String email;
-    private long phone;
+    private String phone;
     private String title;
     private short status;
 }

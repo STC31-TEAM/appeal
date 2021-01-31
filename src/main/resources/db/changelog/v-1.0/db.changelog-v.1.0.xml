@@ -32,5 +32,8 @@
     <include file="insert-data/23-changeset-update-users-table.xml" relativeToChangelogFile="true"/>
     <include file="24-changeset-alter-album_links-table.xml" relativeToChangelogFile="true"/>
     <include file="25-changeset-alter-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/26-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="27-changeset-alter-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="28-changeset-alter-companies-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

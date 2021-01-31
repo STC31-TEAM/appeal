@@ -97,8 +97,8 @@ public class RandomUtils {
      *
      * @return Random phone number
      */
-    public static Long getRandomPhone() {
-        return (1000000000L * getRandomValue(1, 9)) + getRandomValue(0, 999999999);
+    public static String getRandomPhone() {
+        return ""+(1000000000L * getRandomValue(1, 9) + getRandomValue(0, 999999999));
     }
 
     /**

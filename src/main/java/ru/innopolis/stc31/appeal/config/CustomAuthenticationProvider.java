@@ -42,7 +42,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
         String login = authentication.getName();
-        String password = passwordEncoder.encode(authentication.getCredentials().toString()).toLowerCase(Locale.ROOT);
+        String password = passwordEncoder.encode(authentication.getCredentials().toString().toLowerCase(Locale.ROOT));
 
         ru.innopolis.stc31.appeal.model.entity.User user = userRepository.findByLogin(login);
         if (user == null) {
