@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #content},
+                                                ${isAnonymous},
+                                                ${authUser}
+                                               )}" lang="ru">
+<head>
+    <title>Список заявок</title>
+</head>
+<body>
+<div id="content" class="content">
+    <div class="container-md">
+        <h2 class="title-main">Список заявок</h2>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/createTicket}">Новая заявка</a>
+            </li>
+        <div class="accordion" id="accordion" >
+            <th:block th:each="ticket : ${allTicket}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" th:id="'heading' + ${ticket.value.getId()}">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse' + ${ticket.value.getId()}" aria-expanded="true" th:data-bs-aria="'collapse' + ${ticket.value.getId()}" th:text="${ticket.key}">
+                        </button>
+                    </h2>
+                    <div th:id="'collapse' + ${ticket.value.getId()}" class="accordion-collapse collapse" th:labelledby="'heading' + ${ticket.value.getId()}" data-bs-parent="#accordion">
+                        <div class="accordion-body">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li th:text="'Описание: ' + *{ticket.value.getDescription()}"></li>
+                                        <li th:text="'Дата открытия: ' + *{ticket.value.getOpenDate()}"></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+</body>
+</html>

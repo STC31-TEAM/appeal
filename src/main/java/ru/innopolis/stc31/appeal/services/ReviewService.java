@@ -3,10 +3,7 @@ package ru.innopolis.stc31.appeal.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.innopolis.stc31.appeal.model.dto.CityDTO;
-import ru.innopolis.stc31.appeal.model.dto.CompanyDTO;
-import ru.innopolis.stc31.appeal.model.dto.CountryDTO;
-import ru.innopolis.stc31.appeal.model.dto.StreetDTO;
+import ru.innopolis.stc31.appeal.model.dto.*;
 import ru.innopolis.stc31.appeal.model.entity.City;
 import ru.innopolis.stc31.appeal.model.entity.Country;
 import ru.innopolis.stc31.appeal.model.entity.Street;
@@ -37,6 +34,10 @@ public class ReviewService {
     private CityRepository cityRepository;
     @Autowired
     private StreetRepository streetRepository;
+    @Autowired
+    private TicketService ticketService;
+    @Autowired
+    private ServiceTypesService serviceTypesService;
 
     /**
      * Метод возвращает наименования всех
@@ -162,6 +163,24 @@ public class ReviewService {
             listStreet.put(streetDTO.getStreetName(), streetDTO.getId() );
         }
         return listStreet;
+    }
+
+    public Map<String, TicketDTO> getAllTickets(){
+        List<TicketDTO> ticketDTOList = ticketService.getTicketList();
+        Map<String,TicketDTO> ticketDTOMap = new HashMap<>();
+        for (TicketDTO ticketDTO: ticketDTOList){
+            ticketDTOMap.put(ticketDTO.getTitles(), ticketDTO);
+        }
+        return ticketDTOMap;
+    }
+
+    public Map<String,Long> getAllServiceType(){
+        List<ServiceTypeDTO> serviceTypeDTOList = serviceTypesService.getTypeOfServiceList();
+        Map<String,Long> serviceTypeMap = new HashMap<>();
+        for (ServiceTypeDTO serviceTypeDTO: serviceTypeDTOList){
+            serviceTypeMap.put(serviceTypeDTO.getType(), serviceTypeDTO.getId() );
+        }
+        return serviceTypeMap;
     }
 
 }

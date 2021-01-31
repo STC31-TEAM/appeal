@@ -19,7 +19,7 @@ public class TicketDTOToTicket implements Converter<TicketDTO, Ticket>  {
         ticket.setCityId(source.getIdCity());
         ticket.setStreetId(source.getIdStreet());
         ticket.setServiceTypeId(source.getIdTypesServices());
-        ticket.setAlbumLinkId(source.getIdLink());
+        ticket.setAlbumLinkId(source.getIdAlbumLink());
         ticket.setTitle(source.getTitles());
         ticket.setDescription(source.getDescription());
         ticket.setOpenedOn(source.getOpenDate());
