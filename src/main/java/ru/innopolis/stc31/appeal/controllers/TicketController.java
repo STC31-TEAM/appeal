@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc31.appeal.converters.TicketToTicketDTO;
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
@@ -30,7 +31,7 @@ public class TicketController {
      *
      * @return List of tickets
      */
-    @GetMapping("/all")
+    @GetMapping("/allTickets")
     @ApiOperation("Получить список всех заявок")
     public List<TicketDTO> getAllTickets() {
         return ticketService.getTicketList();
@@ -42,7 +43,7 @@ public class TicketController {
      * @param dto Model
      * @return true if success created
      */
-    @PostMapping("/user/create")
+    @PostMapping("/createTicket")
     @ApiOperation("Добавить заявку")
     public ResponseEntity <TicketDTO> createTicket(@RequestBody TicketDTO dto) {
         log.debug("create ticket method was called with {} ", dto);

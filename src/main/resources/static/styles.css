@@ -21,6 +21,12 @@ footer {
     padding: 15px 0;
 }
 
+.header-logo {
+    max-width: 152px;
+    width: 100%;
+    height: auto;
+}
+
 .nav-main {
     margin-top: 3px;
 }

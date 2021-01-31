@@ -16,11 +16,13 @@
     <header class="header-main">
         <div class="container-md">
             <div class="row row-align-middle">
-                <div class="col-4 col-sm-5" th:insert="fragments/navigation.html :: left-navigation"></div>
-                <div class="col-4 col-sm-2 text-center">
-                    <a href="/" class="lead lead-brand lead-link">Appeal</a>
+                <div class="col-4 col-sm-4" th:insert="fragments/navigation.html :: left-navigation"></div>
+                <div class="col-4 col-sm-4 text-center">
+                    <a href="/" class="lead lead-brand lead-link">
+                        <img class="header-logo" th:src="@{/png/Appeal_logo_texture.png}" alt="Appeal">
+                    </a>
                 </div>
-                <div class="col-4 col-sm-5">
+                <div class="col-4 col-sm-4">
                     <nav th:if="${isAnonymous}" class="navbar navbar-expand-lg navbar-light navbar-header-right justify-content-end">
                         <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>

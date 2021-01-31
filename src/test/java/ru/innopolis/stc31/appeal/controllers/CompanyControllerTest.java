@@ -31,7 +31,6 @@ class CompanyControllerTest {
 
     @InjectMocks
     private CompanyController controller;
-
     @Spy
     private CompanyDTOToCompany companyDTOToCompany;
 
