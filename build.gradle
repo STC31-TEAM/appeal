@@ -30,7 +30,7 @@ dependencies {
 	testImplementation "org.springframework.security:spring-security-test"
 	implementation("org.liquibase:liquibase-core")
 	runtimeOnly("org.postgresql:postgresql")
-
+	implementation 'com.cloudinary:cloudinary-http44:1.27.0'
 }
 
 liquibase {
