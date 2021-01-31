@@ -20,7 +20,7 @@ public class FileUploadService {
     private final Cloudinary cloudinary;
 
     public String upload(MultipartFile file) throws IOException {
-        if (!file.isEmpty() && file.getOriginalFilename() != null) {
+        if (file != null && !file.isEmpty() && file.getOriginalFilename() != null) {
             file.transferTo(Paths.get(file.getOriginalFilename()));
             File uploadFile = new File(file.getOriginalFilename());
 

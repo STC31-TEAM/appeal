@@ -7,6 +7,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.web.multipart.MultipartFile;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.when;
 
 @SpringJUnitConfig
 public class FileUploadServiceImplTest {
@@ -19,6 +20,10 @@ public class FileUploadServiceImplTest {
 
     @Test
     void checkOnOk() {
+        when(multipartFile.isEmpty()).thenReturn(true);
+        when(multipartFile.getOriginalFilename()).thenReturn("example.png");
+
+        assertDoesNotThrow(() -> fileUploadService.upload(null));
         assertDoesNotThrow(() -> fileUploadService.upload(multipartFile));
     }
 }
