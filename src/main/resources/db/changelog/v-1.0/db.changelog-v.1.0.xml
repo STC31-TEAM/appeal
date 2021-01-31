@@ -34,5 +34,6 @@
     <include file="25-changeset-alter-companies-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/26-changeset-insert-city-table.xml" relativeToChangelogFile="true"/>
     <include file="insert-data/27-chengeset-insert-to-service_type-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/28-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
