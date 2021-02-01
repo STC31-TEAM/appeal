@@ -89,7 +89,7 @@ public class CompanyController {
         return companyDTOList;
     }
 
-    @PostMapping("/sortByCompletedTickerts")
+    @PostMapping("/sortByCompletedTickets")
     @ApiOperation("Список компаний отсортированный по количеству выполенныех заявок")
     public List<CompanyDTO> getCompaniesSortedByCompletedTickets() {
 

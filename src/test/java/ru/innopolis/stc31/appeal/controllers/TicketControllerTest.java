@@ -20,6 +20,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 /**
@@ -64,14 +65,32 @@ class TicketControllerTest {
                 "TestTicket1","TestTicketDescription1",dateOpen,dateClose,
                 10,1,(short)0, new CompanyDTO(), new CityDTO());
 
-        Ticket ticket=ticketDTOToTicket.convert(ticketDTO);
+        Ticket ticket = ticketDTOToTicket.convert(ticketDTO);
 
         when(service.createTicket(ticketDTO)).thenReturn(ticket);
 
-        ResponseEntity<TicketDTO> responseEntity=controller.createTicket(ticketDTO);
+        ResponseEntity<TicketDTO> responseEntity = controller.createTicket(ticketDTO);
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
         assertEquals(responseEntity.getBody().getId(), ticketDTO.getId());
 
+    }
+
+    @Test
+    void getClosedTickets() {
+        List<TicketDTO> ticketDTOList = MockUtils.makeListTicketDTO(3);
+        doReturn(ticketDTOList).when(service).getClosedTicketList();
+
+        assertEquals(ticketDTOList.size(),
+                controller.getClosedTickets().size());
+    }
+
+    @Test
+    void getTicketsSortedByOpening() {
+        List<TicketDTO> ticketDTOList = MockUtils.makeListTicketDTO(3);
+        doReturn(ticketDTOList).when(service).getRecentTicketList();
+
+        assertEquals(ticketDTOList.size(),
+                controller.getTicketsSortedByOpening().size());
     }
 }

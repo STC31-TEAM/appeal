@@ -9,7 +9,7 @@ values(4,                             /* id */
             'O`Stin',   /* title */
             'OStin',                 /* login */
             'OStin',                 /* password */
-            84123861038,                    /* phone */
+            '84123861038',                    /* phone */
             'ostin@gmail.com');       /* email */
 
  insert into companies
@@ -23,7 +23,7 @@ values(5,                             /* id */
             'Автопилот',   /* title */
             'Autopilot',                 /* login */
             'Autopilot',                 /* password */
-            84123335711,                    /* phone */
+            '84123335711',                    /* phone */
             'autopilot@gmail.com');       /* email */
 insert into companies
 values(6,                             /* id */
@@ -36,7 +36,7 @@ values(6,                             /* id */
             'ПАО «Газпром»',   /* title */
             'GasProm',                 /* login */
             'GasProm',                 /* password */
-            8412928424,                    /* phone */
+            '84123928424',                    /* phone */
             'needmoregas@gmail.com');       /* email */
 
 insert into companies
@@ -50,7 +50,7 @@ values(7,                             /* id */
             'ПАО «ВТБ»',   /* title */
             'VTB',                 /* login */
             'VTB',                 /* password */
-            84129271232,                    /* phone */
+            '84129271232',                    /* phone */
             'needmoremoney@gmail.com');       /* email */
 
 insert into companies
@@ -64,7 +64,7 @@ values(8,                             /* id */
             'ПАО «Сбербанк»',   /* title */
             'Sber',                 /* login */
             'Sber',                 /* password */
-            84127294435,                    /* phone */
+            '84127294435',                    /* phone */
             'simplesber@sbermail.ru');       /* email */
 
 insert into companies
@@ -78,7 +78,7 @@ values(9,                             /* id */
             'ПАО НК "Роснефть"',   /* title */
             'RosNeft',                 /* login */
             'RosNeft',                 /* password */
-            8412669575,                    /* phone */
+            '84126695750',                    /* phone */
             'rosneft@gmail.com');       /* email */
 
 insert into companies
@@ -92,5 +92,5 @@ values(10,                             /* id */
             'ООО «СтройТрансГрупп»',   /* title */
             'StroyTrans',                 /* login */
             'StroyTrans',                 /* password */
-            841228113534,                    /* phone */
+            '84122813534',                    /* phone */
             'sroysam@mail.ru');       /* email */
