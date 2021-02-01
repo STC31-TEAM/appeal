@@ -35,5 +35,9 @@
     <include file="insert-data/26-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
     <include file="27-changeset-alter-users-table.xml" relativeToChangelogFile="true"/>
     <include file="28-changeset-alter-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/29-changeset-insert-city-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/30-chengeset-insert-to-service_type-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/31-changeset-insert-to-companies-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data/32-changeset-insert-to-tickets-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
