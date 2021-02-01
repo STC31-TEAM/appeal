@@ -70,7 +70,7 @@ public class MockUtils {
                 .setLogin("SomeLogin")
                 .setPassword("SDFLSKDJHFLKDFJHDLDSHFLJFD")
                 .setStreetId(1l)
-                .setPhone(791111111);
+                .setPhone("791111111111");
     }
 
     /**
@@ -261,7 +261,7 @@ public class MockUtils {
                 .setServiceTypeId(RandomUtils.getRandomValue(1, Integer.MAX_VALUE))
                 .setEmail("some@email.ru")
                 .setLogin("SomeLogin")
-                .setPhone(79122121212l);
+                .setPhone("79122121212");
     }
 
     /**

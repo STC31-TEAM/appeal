@@ -17,7 +17,7 @@ class CompanyDTOToCompanyTest {
     void convert() {
         CompanyDTO companyDTO = new CompanyDTO(3l, 4l, 2l, 1l, 2l, 4l,
                 "Test Company", "pass22", "company_test@mail.ru",
-                84012587315L, "Company of Australia", (short)1, "Full address", 12);
+                "84012587315", "Company of Australia", (short)1, "Full address", 12);
 
         assertEquals(companyDTOToCompany.convert(companyDTO).getUserId(), companyDTO.getUserId());
         assertEquals(companyDTOToCompany.convert(companyDTO).getServiceTypeId(), companyDTO.getServiceTypeId());

@@ -21,7 +21,7 @@ public class CompanyDTO {
     private String login;
     private String password;
     private String email;
-    private long phone;
+    private String phone;
     private String title;
     private short status;
     private String fullAddress;

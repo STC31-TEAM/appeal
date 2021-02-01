@@ -19,6 +19,7 @@ import ru.innopolis.stc31.appeal.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Slf4j
 @Service
@@ -66,7 +67,7 @@ public class UsersServiceImpl implements UsersService {
         user.setStatus((short) 0);
         Role role = roleRepository.findByTitle(Roles.USER.toString());
         user.setRoleId(role.getId());
-        user.setPassword(passwordEncoder.encode(user.getPassword()+secret));
+        user.setPassword(passwordEncoder.encode(user.getPassword().toLowerCase(Locale.ROOT)));
 
         if (role.getId() == 0) {
             ErrorMessage errorMessage = new ErrorMessage(-1, "Не удалось установить роль( " + role.getTitle() + ") для пользователя: " + user.toString());
