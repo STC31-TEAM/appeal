@@ -38,16 +38,13 @@ class ServiceTypeControllerTest {
     void getAllServiceTypesWithOk() {
         List<ServiceTypeDTO> serviceTypes = MockUtils.makeListServiceTypeDTO(5);
         when(service.getTypeOfServiceList()).thenReturn(serviceTypes);
-
         assertEquals(serviceTypes.size(), controller.getAllServiceTypes().size());
     }
 
     @Test
     void createServiceTypeWithOk() {
         ServiceTypeDTO serviceType = MockUtils.makeServiceTypeDTO();
-
         when(service.createTypeOfService(serviceType)).thenReturn(serviceType);
-
         assertEquals(serviceType.getId(), controller.createServiceType(serviceType).getId());
     }
 }

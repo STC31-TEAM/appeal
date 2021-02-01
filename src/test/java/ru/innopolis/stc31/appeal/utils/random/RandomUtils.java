@@ -4,7 +4,6 @@ import ru.innopolis.stc31.appeal.utils.random.dictionaries.Dictionary;
 
 import java.security.SecureRandom;
 import java.util.Locale;
-import java.util.Random;
 
 /**
  * @author Sergey Fomin
@@ -98,8 +97,8 @@ public class RandomUtils {
      *
      * @return Random phone number
      */
-    public static Long getRandomPhone() {
-        return (1000000000L * getRandomValue(1, 9)) + getRandomValue(0, 999999999);
+    public static String getRandomPhone() {
+        return ""+(1000000000L * getRandomValue(1, 9) + getRandomValue(0, 999999999));
     }
 
     /**
@@ -120,6 +119,25 @@ public class RandomUtils {
     public static String getRandomStreetName() {
         String[] streets = new String[]{"ул.Ленина","ул.Набережная","ул.Центральная","площадь Революции"};
         return  streets[new SecureRandom().nextInt(streets.length)];
+    }
+
+    /**
+     * Generate random city
+     *
+     * @return Random name city
+     */
+    public static String getRandomCityName() {
+        String[] streets = new String[]{"Москва","Киев","Астана","Минск"};
+        return  streets[new SecureRandom().nextInt(streets.length)];
+    }
+
+    /**
+     * Generate random city
+     *
+     * @return Random name city
+     */
+    public static String getRandomTitle() {
+        return  makeWord(10);
     }
 
 }

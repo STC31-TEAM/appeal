@@ -19,7 +19,20 @@ spring:
     hibernate.ddl-auto: none
   liquibase:
     change-log: 'classpath:db/changelog/db.changelog-master.xml'
+  output:
+    ansi:
+      enabled: DETECT
 
 application:
   api:
     uriPrefix: /api/v1.0
+
+config:
+  security:
+    secret: "GJDUWE9REC"
+
+cloudinary:
+  config:
+    cloudName: diq5takuo
+    apiKey: 167961632929967
+    apiSecret: -SvBXhwTs0kxHgjHvyOWN0-CQMM

@@ -7,5 +7,4 @@ import lombok.Getter;
 @Getter
 public class UsersErrors extends Exception {
     private ErrorMessage errorMessage;
-
 }

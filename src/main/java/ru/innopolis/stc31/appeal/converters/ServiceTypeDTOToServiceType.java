@@ -18,6 +18,7 @@ public class ServiceTypeDTOToServiceType implements Converter<ServiceTypeDTO, Se
     @Override
     public ServiceType convert(ServiceTypeDTO source) {
         return new ServiceType()
-                .setType(source.getType());
+                .setType(source.getType())
+                .setDescription(source.getDescription());
     }
 }

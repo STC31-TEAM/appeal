@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
@@ -17,14 +18,15 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Accessors(chain = true)
 public class Company {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "id_map_role")
-    private long mapRoleId;
+    @Column(name = "id_user")
+    private long userId;
 
     @Column(name = "id_service_type")
     private long serviceTypeId;
@@ -41,7 +43,7 @@ public class Company {
     private String login;
     private String password;
     private String email;
-    private long phone;
+    private String phone;
     private String title;
     private short status;
 }

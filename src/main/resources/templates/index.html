@@ -3,77 +3,38 @@
       th:replace="~{layouts/main-layout :: main-fragment(
                                                 ~{:: title},
                                                 ~{:: #content},
-                                                ~{:: #nav-left},
-                                                ~{:: #nav-right}
+                                                ${isAnonymous},
+                                                ${authUser}
                                                )}" lang="ru">
 <head>
     <title>Appeal application</title>
 </head>
 <body>
-    <!-- Left navigation -->
-    <ul id="nav-left" class="nav nav-main">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Explore</a>
-        </li>
-    </ul>
-
-    <!-- Right navigation -->
-    <ul id="nav-right" class="nav nav-main justify-content-end">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Log In</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Sign Up</a>
-        </li>
-    </ul>
-
     <!-- Content -->
     <div id="content" class="content">
         <div class="container-md">
             <div class="row">
                 <div class="col-lg-9">
-                    <h5 class="title-main">Closed tickets</h5>
+                    <h5 class="title-main">Исполненные заявки</h5>
                     <div class="cards closed-cards">
-                        <div class="card card-ticket">
+                        <div class="card card-ticket" th:each="closedTicket: ${closedTickets}">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">
-                                        <h5 class="card-title">Открыть магазин одежды</h5>
-                                        <p class="card-text">В северной части города нет ни одного магазина одежды.</p>
+                                        <h5 class="card-title" th:text="${closedTicket.getTitles()}"></h5>
+                                        <p class="card-text" th:text="${closedTicket.getDescription()}"></p>
                                         <div class="card-geo">
-                                            <em class="bi bi-geo-alt-fill text-danger"></em> <span class="card-town">г. Уфа</span>
+                                            <em class="bi bi-geo-alt-fill text-danger"></em> <span class="card-town" th:text="${closedTicket.getCityDTO().getCityName()}"></span>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="float-end">
                                             <div class="card-doer text-end">
-                                                <span class="badge bg-success">Closed</span> <span class="card-label">by</span> <span class="text-primary">O'stin</span>
+                                                <span class="badge bg-success">Закрыта</span> <span class="card-label">by</span> <span class="text-primary" th:text="${closedTicket.getCompanyDTO().getTitle()}"></span>
                                             </div>
-                                            <div class="card-votes text-end text-success">
-                                                <em class="bi bi-heart"></em> <span class="likes">+9</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-ticket">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="card-title">Построить автомойку</h5>
-                                        <p class="card-text">На весь город одна автомойка. Хотим ещё.</p>
-                                        <div class="card-geo">
-                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Алапаевск</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="float-end">
-                                            <div class="card-doer text-end">
-                                                <span class="badge bg-success">Closed</span> <span class="card-label">by</span> <span class="text-primary">Автопилот</span>
-                                            </div>
-                                            <div class="card-votes text-end text-success">
-                                                <em class="bi bi-heart"></em> <span class="likes">+12</span>
+                                            <div class="card-votes text-end">
+                                                <em class="bi bi-hand-thumbs-up text-success"></em> <span class="text-success" th:text="${closedTicket.getCountLikes()}"></span>
+                                                &nbsp;&nbsp;<em class="bi bi-hand-thumbs-down text-danger"></em> <span class="text-danger" th:text="${closedTicket.getCountDisLikes()}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -81,117 +42,26 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="title-main title-recent-tickets">Recent tickets</h5>
+                    <h5 class="title-main title-recent-tickets">Недавние заявки</h5>
                     <div class="cards recent-cards">
-                        <div class="card card-ticket">
+                        <div class="card card-ticket" th:each="recentTicket: ${recentTickets}">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">
-                                        <h5 class="card-title">Ремонт моста</h5>
-                                        <p class="card-text">Под мост начали проваливаться машины. Не хорошо.</p>
+                                        <h5 class="card-title" th:text="${recentTicket.getTitles()}"></h5>
+                                        <p class="card-text" th:text="${recentTicket.getDescription()}"></p>
                                         <div class="card-geo">
-                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Тюмень</span>
+                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town" th:text="${recentTicket.getCityDTO().getCityName()}"></span>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="float-end">
                                             <div class="card-doer">
-                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
+                                                <span class="badge bg-primary">Открыта</span>
                                             </div>
-                                            <div class="card-votes text-end text-success">
-                                                <em class="bi bi-heart"></em> <span class="likes">+5</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-ticket">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="card-title">Открыть подпольное казино</h5>
-                                        <p class="card-text">Не помешает.</p>
-                                        <div class="card-geo">
-                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Новый Уренгой</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="float-end">
-                                            <div class="card-doer">
-                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                            </div>
-                                            <div class="card-votes text-end text-success">
-                                                <em class="bi bi-heart"></em> <span class="likes">+14</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-ticket">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="card-title">Почистить озеро</h5>
-                                        <p class="card-text">Не возможно купаться.</p>
-                                        <div class="card-geo">
-                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">г. Ялуторовск</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="float-end">
-                                            <div class="card-doer">
-                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                            </div>
-                                            <div class="card-votes text-end text-success">
-                                                <em class="bi bi-heart"></em> <span class="likes">+12</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-ticket">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="card-title">Вырубить лес</h5>
-                                        <p class="card-text">Бегают волки.</p>
-                                        <div class="card-geo">
-                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">с. Заблудкино</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="float-end">
-                                            <div class="card-doer">
-                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                            </div>
-                                            <div class="card-votes text-end text-danger">
-                                                <em class="bi bi-heart"></em> <span class="likes">-3</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-ticket">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="card-title">Построить пиццерию</h5>
-                                        <p class="card-text">В селе не где поесть.</p>
-                                        <div class="card-geo">
-                                            <em class="bi bi-geo-alt-fill text-danger"> </em><span class="card-town">с. Заблудкино</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="float-end">
-                                            <div class="card-doer">
-                                                <span class="card-label">Status</span> <span class="badge bg-primary">Open</span>
-                                            </div>
-                                            <div class="card-votes text-end text-success">
-                                                <em class="bi bi-heart"></em> <span class="likes">+9</span>
+                                            <div class="card-votes text-end">
+                                                <em class="bi bi-hand-thumbs-up text-success"></em> <span class="text-success" th:text="${recentTicket.getCountLikes()}"></span>
+                                                &nbsp;&nbsp;<em class="bi bi-hand-thumbs-down text-danger"></em> <span class="text-danger" th:text="${recentTicket.getCountDisLikes()}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -201,31 +71,14 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <h5 class="title-main">Top companies</h5>
+                    <h5 class="title-main">Топ компаний</h5>
                     <div class="card card-top-companies">
                         <div class="card-list">
-                            <div class="card-list-item card-body">
-                                <h5 class="card-title">ПАО "Газпром"</h5>
-                                <div class="card-notice">
-                                    Исполнено заявок <span class="card-counter text-success">23</span>
-                                </div>
-                            </div>
-                            <div class="card-list-item card-body">
-                                <h5 class="card-title">ПАО "ВТБ"</h5>
-                                <div class="card-notice">
-                                    Исполнено заявок <span class="card-counter text-success">13</span>
-                                </div>
-                            </div>
-                            <div class="card-list-item card-body">
-                                <h5 class="card-title">ПАО "Сбербанк"</h5>
-                                <div class="card-notice">
-                                    Исполнено заявок <span class="card-counter text-success">12</span>
-                                </div>
-                            </div>
-                            <div class="card-list-item card-body">
-                                <h5 class="card-title">ПАО НК "Роснефть"</h5>
-                                <div class="card-notice">
-                                    Исполнено заявок <span class="card-counter text-success">8</span>
+                            <div class="card-list-item card-body text-center" th:each="topCompany : ${topCompanies}">
+                                <span class="card-title" th:text="${topCompany.getTitle()}"></span>
+                                <div class="text-center">
+                                    <i class="bi bi-bookmark-check text-warning"></i>
+                                    <b class="text-warning" data-bs-toggle="tooltip" data-bs-placement="right" title="Исполненных заявок" th:text="${topCompany.getCountClosedTickets()}"></b>
                                 </div>
                             </div>
                         </div>

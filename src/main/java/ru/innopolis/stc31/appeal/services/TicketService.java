@@ -1,6 +1,7 @@
 package ru.innopolis.stc31.appeal.services;
 
 import ru.innopolis.stc31.appeal.model.dto.TicketDTO;
+import ru.innopolis.stc31.appeal.model.entity.Ticket;
 
 import java.util.List;
 
@@ -21,12 +22,29 @@ public interface TicketService {
      * @param ticketDTO ticket
      * @return result of operation
      */
-    boolean createTicket(TicketDTO ticketDTO);
+    Ticket createTicket(TicketDTO ticketDTO);
 
     /**
      * delete ticket from base
+     *
      * @param ticketDTO ticket needed to remove
      * @return result of operation
      */
     boolean deleteTicket(TicketDTO ticketDTO);
+
+    /**
+     * Returns the list of all closed tickets
+     *
+     * @return list of all closed tickets
+     */
+    List<TicketDTO> getClosedTicketList();
+
+    /**
+     * Returns the list of all opened tickets
+     * sorted by creation time. The first element
+     * is the last created
+     *
+     * @return list of last created tickets
+     */
+    List<TicketDTO> getRecentTicketList();
 }

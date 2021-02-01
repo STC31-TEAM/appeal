@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #content},
+                                                ${isAnonymous},
+                                                ${authUser}
+                                               )}" lang="ru">
+<head>
+    <title>Регистрация пользователя</title>
+</head>
+<body>
+<div id="content" class="content">
+    <div class="container-md">
+        <h2 class="title-main">Зарегистрированные компании</h2>
+        <div class="accordion" id="accordion" >
+            <th:block th:each="company : ${allCompany}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" th:id="'heading' + ${company.value.getId()}">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse' + ${company.value.getId()}" aria-expanded="true" th:data-bs-aria="'collapse' + ${company.value.getId()}" th:text="${company.key}">
+                        </button>
+                    </h2>
+                    <div th:id="'collapse' + ${company.value.getId()}" class="accordion-collapse collapse" th:labelledby="'heading' + ${company.value.getId()}" data-bs-parent="#accordion">
+                        <div class="accordion-body">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li th:text="'Адрес компании: ' + *{company.value.getFullAddress()}"></li>
+                                        <li th:text="'Телефон: ' + *{company.value.getPhone()}"></li>
+                                        <li th:text="'Электронный адрес: ' + *{company.value.getEmail()}"></li>
+                                        <li th:text="'Статус компании: ' + *{company.value.getStatus()}"></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+</body>
+</html>

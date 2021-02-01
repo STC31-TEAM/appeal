@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import ru.innopolis.stc31.appeal.converters.CountryDTOToCountry;
@@ -49,7 +50,7 @@ class CountryControllerTest {
     }
 
     @Test
-    void create() {
+    void createWithOk() {
         CountryDTO countryDTO = MockUtils.makeCountryDTO();
         Country country = countryDTOToCountry.convert(countryDTO);
         country.setId(1);
@@ -63,7 +64,19 @@ class CountryControllerTest {
     }
 
     @Test
-    void delete() {
+    void createWithFail() {
+        CountryDTO countryDTO = MockUtils.makeCountryDTO();
+        Country country = null;
+        when(countryService.createCountry(countryDTO)).thenReturn(country);
+
+        ResponseEntity<CountryDTO> responseEntity = countryController.createCountry(countryDTO);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCodeValue());
+
+    }
+
+    @Test
+    void deleteWithOk() {
         CountryDTO countryDTO = MockUtils.makeCountryDTO();
 
         SuccessModel successModel = new SuccessModel().setResult("OK");
@@ -73,5 +86,16 @@ class CountryControllerTest {
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
         assertEquals(responseEntity.getBody().getResult(), successModel.getResult());
+    }
+
+    @Test
+    void deleteWithFail() {
+        CountryDTO countryDTO = MockUtils.makeCountryDTO();
+
+        when(countryService.deleteCountry(countryDTO)).thenReturn(false);
+
+        ResponseEntity<SuccessModel> responseEntity = countryController.deleteCountry(countryDTO);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCodeValue());
     }
 }

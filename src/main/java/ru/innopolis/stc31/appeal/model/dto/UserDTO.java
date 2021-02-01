@@ -21,7 +21,7 @@ public class UserDTO {
     private String surname;
     private String password;
     private String email;
-    private long phone;
+    private String phone;
     private String birthday;
     private short status;
     private long companyId;

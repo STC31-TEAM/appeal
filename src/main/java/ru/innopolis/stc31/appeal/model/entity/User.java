@@ -8,10 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-/**
- * @author Munir Makhmutov
- * @version 1.0.0
- */
 @Entity
 @Table(name = "users")
 @Data
@@ -42,7 +38,7 @@ public class User {
     private String login;
     private String password;
     private String email;
-    private long phone;
+    private String phone;
     private String name;
     private String surname;
     private LocalDate birthday;

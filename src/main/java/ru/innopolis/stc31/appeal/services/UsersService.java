@@ -28,6 +28,7 @@ public interface UsersService {
 
     /**
      * create new user
+     *
      * @param userDTO user
      * @return result of operation, object User
      */

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #content},
+                                                ${isAnonymous},
+                                                ${authUser}
+                                               )}" lang="ru">
+<head>
+    <title>Создание заявки</title>
+</head>
+<body>
+<div id="content" class="content">
+    <div class="container-md div-form div-result-create-user">
+
+        <h3 class="title-main">Произошла ошибка!</h3>
+        <a href="/" >Вернуться на главную страницу</a>
+    </div>
+</div>
+</body>
+</html>

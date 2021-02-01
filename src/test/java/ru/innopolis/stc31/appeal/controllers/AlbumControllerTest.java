@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import ru.innopolis.stc31.appeal.converters.AlbumDTOToAlbum;
@@ -54,7 +55,7 @@ class AlbumControllerTest {
 
     @Test
     void createAlbum() {
-        AlbumDTO albumDTO = new AlbumDTO(2, 5, "test album");
+        AlbumDTO albumDTO = MockUtils.makeAlbumDTO();
         AlbumLink albumLink = albumDTOToAlbum.convert(albumDTO);
         when(service.createAlbum(albumDTO)).thenReturn(albumLink);
 
@@ -66,7 +67,7 @@ class AlbumControllerTest {
     }
 
     @Test
-    void deleteAlbum() {
+    void deleteAlbumWitOk() {
         AlbumDTO albumDTO = MockUtils.makeAlbumDTO();
 
         SuccessModel successModel = new SuccessModel().setResult("OK");
@@ -76,5 +77,16 @@ class AlbumControllerTest {
 
         assertEquals(responseEntity.getStatusCodeValue(), 200);
         assertEquals(responseEntity.getBody().getResult(), successModel.getResult());
+    }
+
+    @Test
+    void deleteAlbumWithFail() {
+        AlbumDTO albumDTO = MockUtils.makeAlbumDTO();
+
+        when(service.deleteAlbum(albumDTO)).thenReturn(false);
+
+        ResponseEntity<SuccessModel> responseEntity = controller.deleteAlbum(albumDTO);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCodeValue());
     }
 }

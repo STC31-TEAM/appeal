@@ -23,3 +23,13 @@ spring:
 application:
   api:
     uriPrefix: /api/v1.0
+
+config:
+  security:
+    secret: "GJDUWE9REC"
+
+cloudinary:
+  config:
+    cloudName: diq5takuo
+    apiKey: 167961632929967
+    apiSecret: -SvBXhwTs0kxHgjHvyOWN0-CQMM

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Service
 public class UserDTOToUser {
-    public User convert(UserDTO userDTO){
+    public User convert(UserDTO userDTO) {
         User user = new User();
         user.setBirthday(LocalDate.parse(userDTO.getBirthday()));
         user.setEmail(userDTO.getEmail());

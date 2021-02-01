@@ -8,7 +8,7 @@ import ru.innopolis.stc31.appeal.model.entity.Company;
 import java.util.List;
 
 @Repository
-public interface CompanyRepository  extends JpaRepository<Company, Long> {
+public interface CompanyRepository extends JpaRepository<Company, Long> {
     List<Company> findCompaniesByCountryId(long countryId);
 
     @Query(value = "SELECT * FROM companies "
