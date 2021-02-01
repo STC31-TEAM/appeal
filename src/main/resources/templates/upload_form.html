@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #content},
+                                                ${isAnonymous},
+                                                ${authUser}
+                                               )}" lang="ru">
+<head>
+    <title>Upload images</title>
+</head>
+<body>
+    <!-- Content -->
+    <div id="content" class="content">
+        <div class="container">
+            <img class="img-thumbnail" th:src="${uploadedImageUrl}" alt="">
+            <form th:action="@{/upload_form}" enctype="multipart/form-data" method="post">
+                <input name="uploadFile" type="file">
+                <button type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
