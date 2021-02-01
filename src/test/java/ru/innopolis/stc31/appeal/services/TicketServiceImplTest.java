@@ -63,7 +63,6 @@ class TicketServiceImplTest {
             assertEquals(ticketList.get(1).getOpenedOn(), ticketDTOList.get(1).getOpenDate());
             assertEquals(ticketList.get(1).getClosedOn(), ticketDTOList.get(1).getCloseDate());
             assertEquals(ticketList.get(1).getStatus(), ticketDTOList.get(1).getStatus());
-
     }
 
 }

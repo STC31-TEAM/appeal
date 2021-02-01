@@ -77,6 +77,15 @@ class TicketControllerTest {
     }
 
     @Test
+    void getClosedTickets() {
+        List<TicketDTO> ticketDTOList = MockUtils.makeListTicketDTO(3);
+        doReturn(ticketDTOList).when(service).getClosedTicketList();
+
+        assertEquals(ticketDTOList.size(),
+                controller.getClosedTickets().size());
+    }
+
+    @Test
     void getTicketsSortedByOpening() {
         List<TicketDTO> ticketDTOList = MockUtils.makeListTicketDTO(3);
         doReturn(ticketDTOList).when(service).getRecentTicketList();
